@@ -633,7 +633,7 @@ so this matches all the valid data files she has.
 > > ```
 > > $ cp *calibration.txt /backup/calibration
 > > $ cp 2015-11-* ~/send_to_bob/all_november_files/
-> > $ cp *-23-dataset* ~send_to_bob/all_datasets_created_on_a_23rd/
+> > $ cp *-23-dataset?.txt ~send_to_bob/all_datasets_created_on_a_23rd/
 > > ```
 > > {: .bash}
 > {: .solution}
@@ -647,7 +647,7 @@ so this matches all the valid data files she has.
 > 1. `wc -l * > sort -n > head -n 3`
 > 2. `wc -l * | sort -n | head -n 1-3`
 > 3. `wc -l * | head -n 3 | sort -n`
-> 4. `wc -l * | sort -n | head -n 3`
+> 4. `wc -l *.* | sort -n | head -n 3`
 >
 > > ## Solution
 > > Option 4 is the solution.
