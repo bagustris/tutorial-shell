@@ -18,3 +18,14 @@ $ cd
 {: .bash}
 
 In the lesson, you will find out how to access the data in this folder.  
+
+To make you convenient, try this:
+~~~
+$ # Press q to exit man page
+$ help cd
+$ cd .
+$ cd ..
+$ cd ~
+$ cd - 
+~~~
+{: .bash}
