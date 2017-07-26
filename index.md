@@ -9,7 +9,6 @@ Linux/Unix shell telah banyak digunakan oleh kemampuannya yang powerful. Mampu m
 >
 > Tutorial ini akan memandu anda mempelajari dasar file system dan Linux shell.
 > Jika anda telah bisa menggunakan komputer, menyimpan, membuat folder atau direktori (nama yang lebih umum di Linux)
-> You need Linux machine (recommended), MacOS, BSD other Unix variant. The shell
 > maka tutorial ini untuk anda.
 > 
 > Anda akan memnbutuhkan sebuah mesin (komputer) berbasis Linux dimana shell yang digunakan adalah Bash shell.
