@@ -1,6 +1,6 @@
 ---
-title: "Navigating Files and Directories"
-teaching: 15
+title: "Navigasi File dan Direktori"
+teaching: 20
 exercises: 0
 questions:
 - "How can I move around on my computer?"
@@ -30,25 +30,20 @@ keypoints:
 - "Most commands take options (flags) which begin with a '-'."
 ---
 
-The part of the operating system responsible for managing files and directories
-is called the **file system**.
-It organizes our data into files,
-which hold information,
-and directories (also called "folders"),
-which hold files or other directories.
+Bagian dari operating system untuk mengatur file dan direktori disebut **file system**.
+File system (fs) mengorganisir data kita dalam files yang mengandung informasi dan direktori yang
+berisi file atau direktori lainnya.
 
-Several commands are frequently used to create, inspect, rename, and delete files and directories.
-To start exploring them,
-let's open a shell window:
+Beberapa perintah yang sering digunakan untuk membuat, menginspeksi, me-rename dan menghapus file dan direktoris
+akan dijelaskan sebagai berikut. Tekan Ctrl+Alt+T untuk membuka terminal baru.
 
 > ## Preparation Magic
 >
-> If you type the command:
+> Jika anda mengetikkan:
 > `PS1='$ '`
-> into your shell, followed by pressing the 'enter' key,
-> your window should look like our example in this lesson.  
-> This isn't necessary to follow along (in fact, your prompt may have
-> other helpful information you want to know about).  This is up to you!  
+> pada shell kemudian diikuti `enter` maka jendela terminal anda akan terlihat
+> seperti di contoh berikut. User biasa dilambangkan dengan dolar, `$`,
+> sedangkan superuser dilambangkan dengan tanda pagar, `#`. 
 {: .callout}
 
 ~~~
@@ -56,16 +51,14 @@ $
 ~~~
 {: .bash}
 
-The dollar sign is a **prompt**, which shows us that the shell is waiting for input;
-your shell may use a different character as a prompt and may add information before
-the prompt. When typing commands, either from these lessons or from other sources,
-do not type the prompt, only the commands that follow it.
+Tanda dolar merupakan tanda **prompt**, yang menunjukkan kepada kita bahwa shell
+sedang menunggu perihtan dari kita. Beberapa shell ataupun konsole/terminal dari perangkat lunak 
+mungkin menggunakan tanda yang berbeda. Informasi sebelum **prompt**, *by default*, menunjukkan
+posisi direktori kita saat ini.
 
-Type the command `whoami`,
-then press the Enter key (sometimes marked Return) to send the command to the shell.
-The command's output is the ID of the current user,
-i.e.,
-it shows us who the shell thinks we are:
+Ketikkan pada shell `whoami`,
+kemudian lihatlah apa yang terjadi. Dengan cara belajar seperti ini,
+akan akan bisa meraba-raba, kira-kira perintah tersebut untuk apa.
 
 ~~~
 $ whoami
@@ -73,65 +66,60 @@ $ whoami
 {: .bash}
 
 ~~~
-nelle
+bagustris
 ~~~
 {: .output}
 
-More specifically, when we type `whoami` the shell:
+Lebih spesifik, begini **algoritma**nya ketika mengetik `whoami` pada shell:
 
-1.  finds a program called `whoami`,
-2.  runs that program,
-3.  displays that program's output, then
-4.  displays a new prompt to tell us that it's ready for more commands.
+1.  Temukan program `whoami`,
+2.  Jalankan program tersebut,
+3.  Tampilkan output program
+4.  Tampilkan **prompt** baru bahwa shell siap menerima perintah lagi.
 
 
-> ## Username Variation
+> ## Variasi Username
 >
-> In this lesson, we have used the username `nelle` (associated
-> with our hypothetical scientist Nelle) in example input and output throughout.  
-> However, when
-> you type this lesson's commands on your computer,
-> you should see and use something different,
-> namely, the username associated with the user account on your computer.  This
-> username will be the output from `whoami`.  In
-> what follows, `nelle` should always be replaced by that username.  
+> Pada lesson ini, `whoami` akan menampilkan akun user saya, yakni 'bagustris'
+> Pada komputer anda dan komputer lainnya, hasilnya tertentu akan berbeda
+> tergantung user siapa yang sedang login.
 {: .callout}
 
-> ## Unknown commands
-> Remember, the Shell is a program that runs other programs rather than doing
-> calculations itself. So the commands you type must be the names of existing
-> programs.
-> If you type the name of a program that does not exist and hit enter, you
-> will see an error message similar to this:
+> ## Perintah yang tidak diketahui
+> Bash shell akan menampilkan pesan kesalahan ketika menjumpai perintah yang tidak
+> diketahuinya. Misal, ketikkan `asdf` pada shell anda,
 > 
 > ~~~
-> $ mycommand
+> $ asdf
 > ~~~
 > {: .bash}
 > 
 > ~~~
-> -bash: mycommand: command not found
+> No command 'asdf' found, did you mean:
+>  Command 'sadf' from package 'sysstat' (main)
+>  Command 'sdf' from package 'sdf' (universe)
+>  Command 'asdfg' from package 'aoeui' (universe)
+> asdf: command not found
 > ~~~
 > {: .error}
 > 
-> The Shell (Bash) tells you that it cannot find the program `mycommand`
-> because the program you are trying to run does not exist on your computer.
-> We will touch quite a few commands in the course of this tutorial, but there
-> are actually many more than we can cover here.
+> Bash akan menginformasikan bahwa tidak ada perintah yang namanya `asdf`.
+> Bash juga akan merekomendasikan perintah yang mirip, mungkin anda salah ketik.
+> Misal Bash merekomendasihkan `sadf` dari paket `syststat`.
+> Selebihnya, `asdf` tidak ditemukan. Ingat, pesan kesalahan ini sangat penting,
+> Jika anda menemui error, bacalah pesan kesalannya dengan seksama, 
+> karena disitulah biasanya letak solusinya.
 {: .callout}
 
-Next,
-let's find out where we are by running a command called `pwd`
-(which stands for "print working directory").
-At any moment,
-our **current working directory**
-is our current default directory,
-i.e.,
-the directory that the computer assumes we want to run commands in
-unless we explicitly specify something else.
-Here,
-the computer's response is `/Users/nelle`,
-which is Nelle's **home directory**:
+
+
+Selanjutnya,
+ketikkan perintah untuk mengetahui direktori anda saat ini,  `pwd`
+(singkatan dari "print working directory").
+`By default`, ketika anda membuka terminal (Ctrl+Alt+T) posisi direktoriny adalah di 
+**home directory**, yakni untuk kasus saya diatas adalah/home/bagustris.
+Begitu juga ketika anda mengetikkan perintah `cd` tanpa argument/input,
+maka defaultnya juga **home directory**.
 
 ~~~
 $ pwd
@@ -139,74 +127,54 @@ $ pwd
 {: .bash}
 
 ~~~
-/Users/nelle
+/home/bagustris
 ~~~
 {: .output}
 
-> ## Home Directory Variation
->
-> The home directory path will look different on different operating systems.
-> On Linux it may look like `/home/nelle`,
-> and on Windows it will be similar to `C:\Documents and Settings\nelle` or
-> `C:\Users\nelle`.  
-> (Note that it may look slightly different for different versions of Windows.)
-> In future examples, we've used Mac output as the default - Linux and Windows
-> output may differ slightly, but should be generally similar.  
+> ## Variasi Home Directory
+> 
+> Posisi **home directory** /home/bagustris di Linux ini 
+> identik dengan `C:\Documents and Settings\bagustris` or
+> `C:\Users\bagustris` pada Windows.
+> Pada Windows versi baru mungkin agak berbeda.
 {: .callout}
 
-To understand what a "home directory" is,
-let's have a look at how the file system as a whole is organized.  For the
-sake of example, we'll be
-illustrating the filesystem on our scientist Nelle's computer.  After this
-illustration, you'll be learning commands to explore your own filesystem,
-which will be constructed in a similar way, but not be exactly identical.  
+Home directory adalah rumah kita, artinya sistem operasi akan
+menyimpan file dokumen, gambar, musik, film dll disitu, `by default`.
 
-On Nelle's computer, the filesystem looks like this:
+Jika kita perhatikan urutan `path` home direktory maka strukturnya adalah **/ + home + / + username**
+garis miring pertama merupakan root, kemudian "home" berisi user-user pengguna komputer tsb, kemudian
+garis miring pemisah direktori/subdirektori dan nama direktori yakni nama user.
 
-![The File System](../fig/filesystem.svg)
+Pada komputer saya strukturnya seperti ini:
 
-At the top is the **root directory**
-that holds everything else.
-We refer to it using a slash character `/` on its own;
-this is the leading slash in `/Users/nelle`.
+![The File System](../fig/filesystem.png)
 
-Inside that directory are several other directories:
+Jika kita kembangkan, maka isi root adalah seperti gambar berikut
+
+![The File System](../fig/Linux-hierarki.png)
+
+Penjelasan dari beberana sub-direktori dari root **/**:
 `bin` (which is where some built-in programs are stored),
 `data` (for miscellaneous data files),
 `Users` (where users' personal directories are located),
 `tmp` (for temporary files that don't need to be stored long-term),
 and so on.  
 
-We know that our current working directory `/Users/nelle` is stored inside `/Users`
-because `/Users` is the first part of its name.
-Similarly,
-we know that `/Users` is stored inside the root directory `/`
-because its name begins with `/`.
 
-> ## Slashes
+> ## Tanda Slashes
 >
-> Notice that there are two meanings for the `/` character.
-> When it appears at the front of a file or directory name,
-> it refers to the root directory. When it appears *inside* a name,
-> it's just a separator.
+> Telah disinggu sebelumnya, tanda slash **/** memiliki dua arti
+> pertama adalah root, kedua adalah separator direktori dan
+> subdirektori
 {: .callout}
 
-Underneath `/Users`,
-we find one directory for each user with an account on Nelle's machine,
-her colleagues the Mummy and Wolfman.  
+Jika ada beberapa user dalam satu PC, maka folder user akan
+disimpan dalam `/home`, namun user satu tidak bisa melihat 
+isi user lainnya kecuali dia masuk sebagai root.
 
-![Home Directories](../fig/home-directories.svg)
 
-The Mummy's files are stored in `/Users/imhotep`,
-Wolfman's in `/Users/larry`,
-and Nelle's in `/Users/nelle`.  Because Nelle is the user in our
-examples here, this is why we get `/Users/nelle` as our home directory.  
-Typically, when you open a new command prompt you will be in
-your home directory to start.  
-
-Now let's learn the command that will let us see the contents of our
-own filesystem.  We can see what's in our home directory by running `ls`,
-which stands for "listing":
+Perintah selanjutnya adalah `ls` yang merupakan singkatan dari list.
 
 ~~~
 $ ls
@@ -214,19 +182,16 @@ $ ls
 {: .bash}
 
 ~~~
-Applications Documents    Library      Music        Public
+Documents    Library      Music        Public
 Desktop      Downloads    Movies       Pictures
 ~~~
 {: .output}
 
-(Again, your results may be slightly different depending on your operating
-system and how you have customized your filesystem.)
 
-`ls` prints the names of the files and directories in the current directory in
-alphabetical order,
-arranged neatly into columns.
-We can make its output more comprehensible by using the **flag** `-F`,
-which tells `ls` to add a trailing `/` to the names of directories:
+
+`ls` merupakan perintah untuk melihat isi direktori yang sangat powerful
+untuk membedakan direktori dan file kita bisa menambakan **flag** `-F`,
+yang menyuruh `ls` untuk menambahkan `/` pada nama direktori:
 
 ~~~
 $ ls -F
@@ -234,14 +199,32 @@ $ ls -F
 {: .bash}
 
 ~~~
-Applications/ Documents/    Library/      Music/        Public/
+Documents/    Library/      Music/        Public/
 Desktop/      Downloads/    Movies/       Pictures/
 ~~~
 {: .output}
 
-`ls` has lots of other options. To find out what they are, we can type:
+Cobalah beberapa perintah berikut:
 
 ~~~
+$ ls /usr/bin
+
+# melist secara detail
+$ ls -l
+
+# menampilkan dalam format "human readable" ukuran file
+$ ls -lh
+
+# menampilkan dalam urutan waktu secara detail
+$ ls -lt
+
+# menampilkan dalam urutan waktu secara detail list terbalik (reverse)
+$ ls -ltr
+
+# wc word count/untuk menghitung kata, wc -l untuk menghitung jumlah baris, | pipe
+$ ls /usr/bin | wc -l
+
+# menampilkan argumen apa saja yang dimiliki ls
 $ ls --help
 ~~~
 {: .bash}
@@ -366,14 +349,12 @@ or available locally via: info '(coreutils) ls invocation'
 ~~~
 {: .output}
 
-Many bash commands, and programs that people have written that can be
-run from within bash, support a `--help` flag to display more
-information on how to use the commands or programs.
+Hampir semua perintah Linux shell disertai help dan manual pagenya.
+
 
 > ## Unsupported comand-line options
-> If you try to use an option that is not supported, `ls` and other programs
-> will print an error message similar to this:
->
+> Jika kita mencoba memberikan argumen yang tidak difahami oleh perintah
+> yang bersangkutan, makan akan muncul pesan kesalahan. Misal,
 > ~~~
 > $ ls -j
 > ~~~
@@ -386,57 +367,15 @@ information on how to use the commands or programs.
 > {: .error}
 {: .callout}
 
-For more information on how to use `ls` we can type `man ls`.
-`man` is the Unix "manual" command:
-it prints a description of a command and its options,
-and (if you're lucky) provides a few examples of how to use it.
 
 > ## `man` and Git for Windows
->
-> The bash shell provided by Git for Windows does not
-> support the `man` command. Doing a web search for
-> `unix man page COMMAND` (e.g. `unix man page grep`)
-> provides links to numerous copies of the Unix manual
-> pages online.
-> For example, GNU provides links to its
-> [manuals](http://www.gnu.org/manual/manual.html):
-> these include [grep](http://www.gnu.org/software/grep/manual/),
-> and the
-> [core GNU utilities](http://www.gnu.org/software/coreutils/manual/coreutils.html),
-> which covers many commands introduced within this lesson.
+> Manual merupakan sumberdaya penting untuk memahami perintah shell.
+> Bacalah manual!
+> 
 {: .callout}
 
-To navigate through the `man` pages,
-you may use the up and down arrow keys to move line-by-line,
-or try the "b" and spacebar keys to skip up and down by full page.
-Quit the `man` pages by typing "q".
-
-Here,
-we can see that our home directory contains mostly **sub-directories**.
-Any names in your output that don't have trailing slashes,
-are plain old **files**.
-And note that there is a space between `ls` and `-F`:
-without it,
-the shell thinks we're trying to run a command called `ls-F`,
-which doesn't exist.
-
-> ## Parameters vs. Arguments
->
-> According to [Wikipedia](https://en.wikipedia.org/wiki/Parameter_(computer_programming)#Parameters_and_arguments),
-> the terms **argument** and **parameter**
-> mean slightly different things.
-> In practice,
-> however,
-> most people use them interchangeably or inconsistently,
-> so we will too.
-{: .callout}
-
-We can also use `ls` to see the contents of a different directory.  Let's take a
-look at our `Desktop` directory by running `ls -F Desktop`,
-i.e.,
-the command `ls` with the **arguments** `-F` and `Desktop`.
-The second argument --- the one *without* a leading dash --- tells `ls` that
-we want a listing of something other than our current working directory:
+`ls` juga bisa digunakan untuk melihat isi direktori. Jika tanpa 
+argumen direktori, maka `ls` akan menampikan direktori saat ini.
 
 ~~~
 $ ls -F Desktop
@@ -448,23 +387,7 @@ data-shell/
 ~~~
 {: .output}
 
-Your output should be a list of all the files and sub-directories on your
-Desktop, including the `data-shell` directory you downloaded at
-the start of the lesson.  Take a look at your Desktop to confirm that
-your output is accurate.  
-
-As you may now see, using a bash shell is strongly dependent on the idea that
-your files are organized in an hierarchical file system.  
-Organizing things hierarchically in this way helps us keep track of our work:
-it's possible to put hundreds of files in our home directory,
-just as it's possible to pile hundreds of printed papers on our desk,
-but it's a self-defeating strategy.
-
-Now that we know the `data-shell` directory is located on our Desktop, we
-can do two things.  
-
-First, we can look at its contents, using the same strategy as before, passing
-a directory name to `ls`:
+`ls` juga bisa digunakan untuk melihat subdirektori, berikut contohnya.
 
 ~~~
 $ ls -F Desktop/data-shell
@@ -477,19 +400,7 @@ data/               north-pacific-gyre/ pizza.cfg           writing/
 ~~~
 {: .output}
 
-Second, we can actually change our location to a different directory, so
-we are no longer located in
-our home directory.  
-
-The command to change locations is `cd` followed by a
-directory name to change our working directory.
-`cd` stands for "change directory",
-which is a bit misleading:
-the command doesn't change the directory,
-it changes the shell's idea of what directory we are in.
-
-Let's say we want to move to the `data` directory we saw above.  We can
-use the following series of commands to get there:
+Saatnya berpindah-pindah direktori. Praktekkan perintah-perintah berikut.
 
 ~~~
 $ cd Desktop
@@ -498,13 +409,7 @@ $ cd data
 ~~~
 {: .bash}
 
-These commands will move us from our home directory onto our Desktop, then into
-the `data-shell` directory, then into the `data` directory.  `cd` doesn't print anything,
-but if we run `pwd` after it, we can see that we are now
-in `/Users/nelle/Desktop/data-shell/data`.
-If we run `ls` without arguments now,
-it lists the contents of `/Users/nelle/Desktop/data-shell/data`,
-because that's where we now are:
+Untuk mengetahui posisi kita saat ini, ketikkan kembali,
 
 ~~~
 $ pwd
@@ -512,7 +417,7 @@ $ pwd
 {: .bash}
 
 ~~~
-/Users/nelle/Desktop/data-shell/data
+/home/bagustris/data-shell/data
 ~~~
 {: .output}
 
@@ -527,8 +432,7 @@ animals.txt       morse.txt     planets.txt     sunspot.txt
 ~~~
 {: .output}
 
-We now know how to go down the directory tree, but
-how do we go up?  We might try the following:
+Berpindah ke data-shell
 
 ~~~
 $ cd data-shell
@@ -540,27 +444,17 @@ $ cd data-shell
 ~~~
 {: .error}
 
-But we get an error!  Why is this?  
-
-With our methods so far,
-`cd` can only see sub-directories inside your current directory.  There are
-different ways to see directories above your current location; we'll start
-with the simplest.  
-
-There is a shortcut in the shell to move up one directory level
-that looks like this:
+Akan muncul error, karena kita sedang berada pada direktori yang berbeda.
+Jadi baik `ls`, `pwd` dan `cd` akan saling melengkapi.
 
 ~~~
 $ cd ..
 ~~~
 {: .bash}
 
-`..` is a special directory name meaning
-"the directory containing this one",
-or more succinctly,
-the **parent** of the current directory.
-Sure enough,
-if we run `pwd` after running `cd ..`, we're back in `/Users/nelle/Desktop/data-shell`:
+Tanda `..` merupakan parent directory, yakni direktori atasnya.
+Sedang tanda `.` sebagai argumen bisa berarti current directory, 
+tanda `.` ini bisa berarti `source` jika sebagai perintah. 
 
 ~~~
 $ pwd
@@ -568,15 +462,16 @@ $ pwd
 {: .bash}
 
 ~~~
-/Users/nelle/Desktop/data-shell
+/home/bagustris/Desktop/data-shell
 ~~~
 {: .output}
 
-The special directory `..` doesn't usually show up when we run `ls`.  If we want
-to display it, we can give `ls` the `-a` flag:
+Argumen juga bisa digabung, misalnya:
 
 ~~~
 $ ls -F -a
+# sama dengan
+$ ls -Fa
 ~~~
 {: .bash}
 
@@ -588,54 +483,31 @@ Desktop/            north-pacific-gyre/ writing/
 ~~~
 {: .output}
 
-`-a` stands for "show all";
-it forces `ls` to show us file and directory names that begin with `.`,
-such as `..` (which, if we're in `/Users/nelle`, refers to the `/Users` directory)
-As you can see,
-it also displays another special directory that's just called `.`,
-which means "the current working directory".
-It may seem redundant to have a name for it,
-but we'll see some uses for it soon.
 
-Note that in most command line tools, multiple parameters can be combined 
-with a single `-` and no spaces between the parameters: `ls -F -a` is 
-equivalent to `ls -Fa`.
 
-> ## Other Hidden Files
+> ## Hidden Files
 >
-> In addition to the hidden directories `..` and `.`, you may also see a file
-> called `.bash_profile`. This file usually contains shell configuration
-> settings. You may also see other files and directories beginning
-> with `.`. These are usually files and directories that are used to configure
-> different programs on your computer. The prefix `.` is used to prevent these
-> configuration files from cluttering the terminal when a standard `ls` command
-> is used.
+> Hidden file dalam Unix/Linux ditandai dengan titik satu didepan nama file,
+> misal `.bagus`. Maka baik file atau direktori `.bagus` tsb akan di-hidden.
+>
 {: .callout}
 
 > ## Orthogonality
 >
-> The special names `.` and `..` don't belong to `cd`;
-> they are interpreted the same way by every program.
-> For example,
-> if we are in `/Users/nelle/data`,
-> the command `ls ..` will give us a listing of `/Users/nelle`.
-> When the meanings of the parts are the same no matter how they're combined,
-> programmers say they are **orthogonal**:
-> Orthogonal systems tend to be easier for people to learn
-> because there are fewer special cases and exceptions to keep track of.
+> argumen `.` dan `..` tidak hanya milik `cd` tetapi bisa digunakan
+> perintah-perintah yang lain, ini artinya
+> argumen tersebut orthogonal.
 {: .callout}
 
-These then, are the basic commands for navigating the filesystem on your computer:
-`pwd`, `ls` and `cd`.  Let's explore some variations on those commands.  What happens
-if you type `cd` on its own, without giving
-a directory?  
+
+Baik `cd`, `pwd` dan `ls` saling melengkapi. Berikut buktinya:
 
 ~~~
 $ cd
 ~~~
 {: .bash}
 
-How can you check what happened?  `pwd` gives us the answer!  
+dimana posisi kita saat ini? `pwd` memberi jawabnya.
 
 ~~~
 $ pwd
@@ -643,91 +515,58 @@ $ pwd
 {: .bash}
 
 ~~~
-/Users/nelle
+/home/bagustris
 ~~~
 {: .output}
 
-It turns out that `cd` without an argument will return you to your home directory,
-which is great if you've gotten lost in your own filesystem.  
 
-Let's try returning to the `data` directory from before.  Last time, we used
-three commands, but we can actually string together the list of directories
-to move to `data` in one step:
-
+## Absolute Vs Relative Path
+Sekarang, mari berpindah ke direktori data didalam data-shell,
 ~~~
 $ cd Desktop/data-shell/data
 ~~~
 {: .bash}
 
-Check that we've moved to the right place by running `pwd` and `ls -F`  
-
-If we want to move up one level from the data directory, we could use `cd ..`.  But
-there is another way to move to any directory, regardless of your
-current location.  
-
-So far, when specifying directory names, or even a directory path (as above),
-we have been using **relative paths**.  When you use a relative path with a command
-like `ls` or `cd`, it tries to find that location  from where we are,
-rather than from the root of the file system.  
-
-However, it is possible to specify the **absolute path** to a directory by
-including its entire path from the root directory, which is indicated by a
-leading slash.  The leading `/` tells the computer to follow the path from
-the root of the file system, so it always refers to exactly one directory,
-no matter where we are when we run the command.
-
-This allows us to move to our `data-shell` directory from anywhere on
-the filesystem (including from inside `data`).  To find the absolute path
-we're looking for, we can use `pwd` and then extract the piece we need
-to move to `data-shell`.  
-
+Bisakah anda pindah ke /home langsung setelah dari direktori itu? Bisa.
+Jika anda menggunakan tanda `.` dan `..` sebagai argumen, maka itu dinamakan
+**relative path**
 ~~~
 $ pwd
 ~~~
 {: .bash}
 
 ~~~
-/Users/nelle/Desktop/data-shell/data
+/home/bagustris/Desktop/data-shell/data
 ~~~
 {: .output}
 
 ~~~
-$ cd /Users/nelle/Desktop/data-shell
+cd ../../
+~~~
+{: .output}
+
+Jika anda menggunakan path aslinya seperti ini, maka itu dinamakan **absolute path** atau
+**absolute directory**.
+
+~~~
+$ cd /home/bagustris/Desktop/data-shell
 ~~~
 {: .bash}
 
-Run `pwd` and `ls -F` to ensure that we're in the directory we expect.  
 
-> ## Two More Shortcuts
->
-> The shell interprets the character `~` (tilde) at the start of a path to
-> mean "the current user's home directory". For example, if Nelle's home
-> directory is `/Users/nelle`, then `~/data` is equivalent to
-> `/Users/nelle/data`. This only works if it is the first character in the
-> path: `here/there/~/elsewhere` is *not* `here/there/Users/nelle/elsewhere`.
->
-> Another shortcut is the `-` (dash) character.  `cd` will translate `-` into
-> *the previous directory I was in*, which is faster than having to remember,
-> then type, the full path.  This is a *very* efficient way of moving back
-> and forth between directories. The difference between `cd ..` and `cd -` is
-> that the former brings you *up*, while the latter brings you *back*. You can
-> think of it as the *Last Channel* button on a TV remote.
+> ## Dua argumen `cd` lainnya.
+> `cd ~` (dibaca cd tilde) akan membawa anda ke /home directory, 
+> sedangkan `cd -` (dibaca cd dash) akan membawa anda
+> ke direktori terakhir sebelumnya.
 {: .callout}
 
-### Nelle's Pipeline: Organizing Files
+### Mengorganisasi file
 
-Knowing just this much about files and directories,
-Nelle is ready to organize the files that the protein assay machine will create.
-First,
-she creates a directory called `north-pacific-gyre`
-(to remind herself where the data came from).
-Inside that,
-she creates a directory called `2012-07-03`,
-which is the date she started processing the samples.
-She used to use names like `conference-paper` and `revised-results`,
-but she found them hard to understand after a couple of years.
-(The final straw was when she found herself creating
-a directory called `revised-revised-results-3`.)
+Mengorganisasi file sangat penting, beberapa hal yang bisa dilakukan adalah sbb:
+- nama file sesuai isinya
+- nama diawali huruf
+- tidak ada spasi
+- jika diawali angka maka berformat tahun-angkaBulan-tanggal
 
 > ## Sorting Output
 >
@@ -741,7 +580,8 @@ a directory called `revised-revised-results-3`.)
 > means that June 2012 will come before June 2013.
 {: .callout}
 
-Each of her physical samples is labelled according to her lab's convention
+### Tab completion
+Nell write each of her physical samples is labelled according to her lab's convention
 with a unique ten-character ID,
 such as "NENE01729A".
 This is what she used in her collection log
