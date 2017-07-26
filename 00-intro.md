@@ -1,7 +1,7 @@
 ---
 layout: page
-title: The Unix Shell
-subtitle: Introducing the Shell
+title: The Linux Shell
+subtitle: Pengenalan Shell
 minutes: 5
 ---
 > ## Learning Objectives {.objectives}
