@@ -3,29 +3,21 @@ layout: lesson
 root: .
 ---
 
-The Linux / Unix shell has been around longer than most of its users have been alive.
-It has survived so long because it's a power tool
-that allows people to do complex things with just a few keystrokes.
-More importantly,
-it helps them combine existing programs in new ways
-and automate repetitive tasks
-so they aren't typing the same things over and over again.
-Use of the shell is fundamental to using a wide range of other powerful tools 
-and computing resources (including "high-performance computing" supercomputers).
-These lessons will start you on a path towards using these resources effectively.
+Linux/Unix shell telah banyak digunakan oleh kemampuannya yang powerful. Mampu menggunakan perintah dasar pada shell Linux merupakan suatu skill dasar yang harus dimiliki bagi mereka yang ingin menjadi programmer, sysAdmin dan, bahkan, (data) scientist. Shell merupakan jendela ke bahasa pemrograman lainnya seperti python, perl, awk, c/c++. Menguasai shell artinya anda bisa memadukan antara bahasa pemrograman karena shell saat ini dijadikan glue (perekat) antar bahasa pemrograman yang saat ini tidak bisa berdiri sendiri-sendiri. Contoh nyata penggunaan shell adalah pada riset speech synthesis, speech recognition dan data science. Dan hampir semua bidang yang menggunakan komputasi memakai shell pada systemnya. Shell pada Linux dapat digunakan melalui (gnome) terminal, buka dengan Ctrl + Alt + T.
 
-> ## Prerequisites
+> ## Persyaratan
 >
-> This lesson guides you through the basics of file systems and the
-> shell.  If you have stored files on a computer at all and recognize
-> the word “file” and either “directory” or “folder” (two common words
-> for the same thing), you're ready for this lesson.
-> 
+> Tutorial ini akan memandu anda mempelajari dasar file system dan Linux shell.
+> Jika anda telah bisa menggunakan komputer, menyimpan, membuat folder atau direktori (nama yang lebih umum di Linux)
 > You need Linux machine (recommended), MacOS, BSD other Unix variant. The shell
-> we used for this training is Bash shell, and it is not guaranted that materials
-> in this lesson will works on other shell environment: csh, zsh or ksh.
+> maka tutorial ini untuk anda.
+> 
+> Anda akan memnbutuhkan sebuah mesin (komputer) berbasis Linux dimana shell yang digunakan adalah Bash shell.
+> Anda bisa saja menggunakan jenis shell yang lain: csh, zsh atau ksh, namun tidak
+> bisa dipastikan material pada tutorial ini akan berjalan pada shell lain selain bash tersebut.
 >
-> If you're already comfortable manipulating files and directories,
-> searching for files with `grep` and `find`, and writing simple loops
-> and scripts, you probably won't learn much from this lesson.
+> Jika anda sudah bisa memanipulasi file dan direktori seperti menggunakan perintah`grep` dan `find`
+> atau menulis loop sederhana dalam bash, maka tutorial ini tidak ditunjukkan untuk anda,
+> silahkan lanjut ke tutorial `shell-ekstra`.
+>
 {: .prereq}
