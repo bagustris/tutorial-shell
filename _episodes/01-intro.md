@@ -1,5 +1,5 @@
 ---
-title: "Introducing the Shell"
+title: "Pengenalan Shell"
 teaching: 5
 exercises: 0
 questions:
@@ -19,13 +19,12 @@ keypoints:
 - "The shell's main advantages are its high action-to-keystroke ratio, its support for automating repetitive tasks, and its capacity to access networked machines."
 - "The shell's main disadvantages are its primarily textual nature and how cryptic its commands and operation can be."
 ---
-### Background
-At a high level, computers do four things:
-
--   run programs
--   store data
--   communicate with each other, and
--   interact with us
+### Latar Belakang
+Pada level tinggi, kompuer melakukan empat hal berikut:
+1.  Menjalakankan program
+2.  Menyimpan data
+3.  Berkomunikasi dengan komputer dan perangkat lainnya, dan
+4.  Berinteraksi dengan kita
 
 They can do the last of these in many different ways,
 including direct brain-computer interfaces and speech recognition, using systems such as Alexa or Google Home.
