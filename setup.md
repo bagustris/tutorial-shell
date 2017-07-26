@@ -4,7 +4,8 @@ title: Setup
 permalink: /setup/
 ---
 
-You need Linux machine to do practice this workshop. An Ubuntu system is recommended, but any Unix variants like MacOS, BSD, or Linux Fedora, Open SUSE and other distros works.
+
+You need Linux machine to do practice this workshop. An [Ubuntu](https://ubuntu.com) system is recommended, but any Unix variants like MacOS, BSD, or other Linux: Fedora, Open SUSE, Arch, Gentoo and other distros works.
 
 You need to download some files to follow this lesson:
 
@@ -21,7 +22,6 @@ In the lesson, you will find out how to access the data in this folder.
 
 To make you convenient, try this:
 ~~~
-$ # Press q to exit man page
 $ help cd
 $ cd .
 $ cd ..
