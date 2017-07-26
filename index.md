@@ -20,6 +20,10 @@ These lessons will start you on a path towards using these resources effectively
 > shell.  If you have stored files on a computer at all and recognize
 > the word “file” and either “directory” or “folder” (two common words
 > for the same thing), you're ready for this lesson.
+> 
+> You need Linux machine (recommended), MacOS, BSD other Unix variant. The shell
+> we used for this training is Bash shell, and it is not guaranted that materials
+> in this lesson will works on other shell environment: csh, zsh or ksh.
 >
 > If you're already comfortable manipulating files and directories,
 > searching for files with `grep` and `find`, and writing simple loops
