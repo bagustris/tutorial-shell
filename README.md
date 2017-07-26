@@ -1,8 +1,8 @@
-shell-novice
+shell-tutorial
 ============
 
-First encounter with the Unix shell.  Lesson website is [here](http://swcarpentry.github.io/shell-novice/).
+Tutorial Linux shell untuk pemula. Veri web ada di link [berikut](http://bagustris.github.io/shell-tutorial/).
 
-Interested in contributing?  Please see our [Guidelines for Contributors](CONTRIBUTING.md).
+Ingin berkontribusi?  Silahkan baca: [Guidelines for Contributors](CONTRIBUTING.md).
 
-For tips on using these materials in a workshop, see our [Instructor's Guide](http://swcarpentry.github.io/shell-novice/instructors.html).  
+Jika ingin menggunakan materi ini untuk workshop, silahkan kontak [btatmaja](mailto:btatmaja@gmail.com)
