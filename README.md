@@ -7,7 +7,7 @@ Maintainers:
 
 * [Gabriel Devenyi][devenyi_gabriel]
 * [Ashwin Srinath][srinath_ashwin]
-* [Bagus Tris Atmaja][bagsutris]
+* [Bagus Tris Atmaja][bagustris]
 
 [devenyi_gabriel]: http://software-carpentry.org/team/#devenyi_gabriel
 [srinath_ashwin]: http://software-carpentry.org/team/#srinath_ashwin
