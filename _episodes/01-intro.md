@@ -26,76 +26,55 @@ Pada level tinggi, kompuer melakukan empat hal berikut:
 3.  Berkomunikasi dengan komputer dan perangkat lainnya, dan
 4.  Berinteraksi dengan kita
 
-They can do the last of these in many different ways,
-including direct brain-computer interfaces and speech recognition, using systems such as Alexa or Google Home.
-While such hardware interfaces are becoming more commonplace, most interaction is still
-done using screens, mice, touchpads and keyboards.
-Although most modern desktop operating systems communicate with their human users by
-means of windows, icons and pointers, these software technologies didn't become
-widespread until the 1980s. The roots of such *graphical user interfaces* go back
-to Doug Engelbart's work in the 1960s, which you can see in what has been
-called "[The Mother of All Demos](http://www.youtube.com/watch?v=a11JDLBXtPQ)".
+
+Empat fungsi komputer tersebut dapat dilakukan dengan berbagai cara,
+melalui divais input maupun output dari komputer, seperti mengetik,
+menggambar, merekam video, menggunakan touchpad dan keyboards.
+
+Cara paling konvensional berinteraksi dengan komputer adalah
+melalui keyboard, meski teknonologi graphical user interface, **GUI**,
+berkembang pesat sejak 1980-an. Salah satu akar kata GUI berasal dari film 
+Doug Engelbar's pada tahun 1969 yang bisa dilihat pada link ini, 
+"[The Mother of All Demos](http://www.youtube.com/watch?v=a11JDLBXtPQ)".
 
 ### The Command-Line Interface
-Going back even further,
-the only way to interact with early computers was to rewire them.
-But in between,
-from the 1950s to the 1980s,
-most people used line printers.
-These devices only allowed input and output of the letters, numbers, and punctuation found on a standard keyboard,
-so programming languages and software interfaces had to be designed around that constraint.
+Kembali pada tahun antara 1950 sampai tahun 1980,
+satu-satunya cara interaksi manusia dengan komputer adalah
+dengan **CLI**, command-line interface.
+Maka setelah adanya **GUI** tahun 1980an, interface atau
+antar muka komputer terbagi menjadi dua:
 
-This kind of interface is called a
-**command-line interface**, or CLI,
-to distinguish it from a
-**graphical user interface**, or GUI,
-which most people now use.
-The heart of a CLI is a **read-evaluate-print loop**, or REPL:
-when the user types a command and then presses the Enter (or Return) key,
-the computer reads it,
-executes it,
-and prints its output.
-The user then types another command,
-and so on until the user logs off.
+   - **command-line interface**, or CLI,
+   - **graphical user interface**, or GUI,
+
+Workflo dari CLI adalah **read-evaluate-print loop**, atau REPL:
+artinya user ketika user mengetikkan perintah pada terminal
+kemudian menekan enter (evaluate), maka komputer akan membaca perintah tersebut,
+mengeksekusi dan menampilkan outpunya. Begitu seterusnya, **loop**, sampai
+user keluar atau komputer dimatikan.
+
+![Terminal](../fig/bash_shell.png)
 
 ### The Shell
-This description makes it sound as though the user sends commands directly to the computer,
-and the computer sends output directly to the user.
-In fact,
-there is usually a program in between called a
-**command shell**.
-What the user types goes into the shell,
-which then figures out what commands to run and orders the computer to execute them.
-(Note that the shell is called "the shell" because it encloses the operating system
-in order to hide some of its complexity and make it simpler to interact with.)
+Dari penjelasan sebelumnya, user mengetikkan perintah kemudian outputnya akan muncul. 
+Benarkah demikian? Ada perantara diantaranya yang dinamakan **command shell**.
+Ketika user mengetikkan perintah, maka sebenarnya user mengetetikkan perintah shell
+yang hanya bisa difahami oleh komputer jika perintah tersebut ada pada command shell tersebut.
+Dinamakan shell karena melingkupi atau menghubungkan user dengan sistem operasi komputer.
 
-A shell is a program like any other.
-What's special about it is that its job is to run other programs
-rather than to do calculations itself.
-The most popular Unix shell is Bash,
-the Bourne Again SHell
-(so-called because it's derived from a shell written by Stephen Bourne).
-Bash is the default shell on most modern implementations of Unix
-and in most packages that provide Unix-like tools for Windows.
+Shell adalah program komputer sebagaimana program lainnya, yang paling banyak digunakan
+adalah Bash, singkatan dari Bourne Again SHell yang diambil dari nama pembuatnya, Stephen Bourne.
+Bash adalah shell default pada hampir semua Linux dan Unix modern. Selain bash ada jenis shell lainnya,
+ksh, zsh dan csh.
 
 ### Why bother?
-Using Bash or any other shell
-sometimes feels more like programming than like using a mouse.
-Commands are terse (often only a couple of characters long),
-their names are frequently cryptic,
-and their output is lines of text rather than something visual like a graph.
-On the other hand,
-with only a few keystrokes, the shell allows us to combine existing tools into 
-powerful pipelines and handle large volumes of data automatically. This automation
-not only makes us more productive but also improves the reproducibility of our workflows by 
-allowing us to repeat them with few simple commands.
-In addition, the command line is often the easiest way to interact with remote machines and supercomputers.
-Familiarity with the shell is near essential to run a variety of specialized tools and resources
-including high-performance computing systems.
-As clusters and cloud computing systems become more popular for scientific data crunching,
-being able to interact with the shell is becoming a necessary skill.
-We can build on the command-line skills covered here
-to tackle a wide range of scientific questions and computational challenges.
+Kenapa memakai bash jika anda bisa tinggal klik sana-sini? Powerful. Bash sangat powerfull.
+Ketika anda mengklik pada **GUI**, sebenarnya ada dua step yakni anda mengklik dan diterjemahkan 
+oleh komputer yang biasanya berupa bash command.
+
+Dengan menggunakan bash langsung anda akan lebih cepat dan pada kasus-kasus tertentu,
+misal merename 100 file dalam satu folder, hanya bisa diselesaikan dengan bash shell.
+Perhatikan contoh di bawah ini.
 
 ## Nelle's Pipeline: Starting Point
 
