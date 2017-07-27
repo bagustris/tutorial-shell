@@ -152,7 +152,7 @@ Pada komputer saya strukturnya seperti ini:
 
 Jika kita kembangkan, maka isi root adalah seperti gambar berikut
 
-![The File System](../fig/Linux-hierarki.png)
+![The File System](../fig/home-directories.svg)
 
 Penjelasan dari beberana sub-direktori dari root **/**:
 `bin` (which is where some built-in programs are stored),
