@@ -21,7 +21,7 @@ Linux/Unix shell telah banyak digunakan oleh kemampuannya yang **powerful**. Mam
 >
 {: .prereq}
 
-## Metode Pembelajaran adalah sbb:
+### Metode pembelajaran tutorial/workshop ini adalah sbb:
 Metode pembalajan tutorial/workshop ini 
 1. **Berilmu sebelum beramal**, artinya anda harus memahami sebelum mempraktekkannya.
 2. **Learning by coding**, anda harus mempraktekkan (coding) apa yang disampaikan tutor, *no passive acitivy*.
