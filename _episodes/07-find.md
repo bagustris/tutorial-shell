@@ -1,5 +1,5 @@
 ---
-title: "Finding Things"
+title: "Mencari File"
 teaching: 15
 exercises: 0
 questions:
@@ -678,3 +678,6 @@ about them."
 > > {: .bash}
 > {: .solution}
 {: .challenge}
+
+
+** tambahkan `locate` dan `which` sebagai perbandingan**
