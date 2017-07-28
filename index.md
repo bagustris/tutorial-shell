@@ -25,4 +25,4 @@ Linux/Unix shell telah banyak digunakan oleh kemampuannya yang **powerful**. Mam
 Metode pembalajan tutorial/workshop ini adalah sbb: 
 1. **Berilmu sebelum beramal**, artinya anda harus memahami sebelum mempraktekkannya.
 2. **Learning by coding**, anda harus mempraktekkan (coding) apa yang disampaikan tutor, *no passive acitivy*.
-3. **Synchronizing typing**(khusus workshop), apa yang anda ketik harus sama dan menghasilkan output yang sama dengan yang dilakukan tutor/lecturer (synchronized). 
+3. **Synchronizing typing** (*khusus workshop*), apa yang anda ketik harus sama dan menghasilkan output yang sama dengan yang dilakukan tutor/lecturer (synchronized). 
