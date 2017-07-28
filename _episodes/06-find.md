@@ -1,7 +1,7 @@
 ---
 title: "Mencari File"
-teaching: 15
-exercises: 0
+teaching: 20
+exercises: 15
 questions:
 - "How can I find files?"
 - "How can I find things in files?"
