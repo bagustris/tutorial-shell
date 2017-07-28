@@ -3,7 +3,7 @@ layout: lesson
 root: .
 ---
 
-Linux/Unix shell telah banyak digunakan oleh kemampuannya yang powerful. Mampu menggunakan perintah dasar pada shell Linux merupakan suatu skill dasar yang harus dimiliki bagi mereka yang ingin menjadi programmer, sysAdmin dan, bahkan, (data) scientist. Shell merupakan jendela ke bahasa pemrograman lainnya seperti python, perl, awk, c/c++. Menguasai shell artinya anda bisa memadukan antara bahasa pemrograman karena shell saat ini dijadikan glue (perekat) antar bahasa pemrograman yang saat ini tidak bisa berdiri sendiri-sendiri. Contoh nyata penggunaan shell adalah pada riset speech synthesis, speech recognition dan data science. Dan hampir semua bidang yang menggunakan komputasi memakai shell pada systemnya. Shell pada Linux dapat digunakan melalui (gnome) terminal, buka dengan Ctrl + Alt + T.
+Linux/Unix shell telah banyak digunakan oleh kemampuannya yang **powerful**. Mampu menggunakan perintah dasar pada shell Linux merupakan suatu skill dasar yang harus dimiliki bagi mereka yang ingin menjadi programmer, sysAdmin dan, bahkan, (data) scientist. Shell merupakan jendela ke bahasa pemrograman lainnya seperti python, perl, awk, c/c++. Menguasai shell artinya anda bisa memadukan antar bahasa pemrograman karena shell saat ini dijadikan glue (perekat) antar bahasa pemrograman yang saat ini tidak bisa berdiri sendiri-sendiri. Contoh nyata penggunaan shell adalah pada riset speech synthesis, speech recognition dan data science. Dan hampir semua bidang yang menggunakan komputasi memakai shell pada systemnya. Shell pada Linux dapat digunakan melalui (gnome) terminal, buka dengan Ctrl + Alt + T.
 
 > ## Persyaratan
 >
@@ -20,3 +20,9 @@ Linux/Unix shell telah banyak digunakan oleh kemampuannya yang powerful. Mampu m
 > silahkan lanjut ke tutorial `shell-ekstra`.
 >
 {: .prereq}
+
+## Metode Pembelajaran adalah sbb:
+Metode pembalajan tutorial/workshop ini 
+1. **Berilmu sebelum beramal**, artinya anda harus memahami sebelum mempraktekkannya.
+2. **Learning by coding**, anda harus mempraktekkan (coding) apa yang disampaikan tutor, *no passive acitivy*.
+3. **Synchronizing typing**(khusus workshop), apa yang anda ketik harus sama dan menghasilkan output yang sama dengan yang dilakukan tutor/lecturer (synchronized). 
