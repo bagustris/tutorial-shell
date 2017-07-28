@@ -1,7 +1,7 @@
 ---
 title: "Pengenalan Shell"
 teaching: 5
-exercises: 0
+exercises: 5
 questions:
 - "What is a command shell and why would I use one?"
 objectives:
