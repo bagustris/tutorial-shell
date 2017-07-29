@@ -2,7 +2,7 @@
 title: "Bekerja dengan File dan Direktori"
 Kuliah: 20
 Latihan: 20
-Pertanyaan:
+questions:
 - "Bagaimana saya membuat, menyalin dan menghapus file dan direktori?"
 - "Bagaimana saya mengedit file?"
 Tujuan:
