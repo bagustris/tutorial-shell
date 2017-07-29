@@ -1,23 +1,23 @@
 ---
 title: "Bekerja dengan File dan Direktori"
-teaching: 20
-exercises: 20
-questions:
-- "How can I create, copy, and delete files and directories?"
-- "How can I edit files?"
-objectives:
-- "Create a directory hierarchy that matches a given diagram."
-- "Create files in that hierarchy using an editor or by copying and renaming existing files."
-- "Display the contents of a directory using the command line."
-- "Delete specified files and/or directories."
+Kuliah: 20
+Latihan: 20
+Pertanyaan:
+- "Bagaimana saya membuat, menyalin dan menghapus file dan direktori?"
+- "Bagaimana saya mengedit file?"
+Tujuan:
+- "Membuat hierarki direktori yang match dengan pola yang diberikan"
+- "Membuat file dalam direktori dengan editor dengan mengcopy dan merename file yang ada."
+- "Menampilkan display dan konten dari direktori dengan menggunakan perintah shell."
+- "Menghapus file dan/atau direktori tertentu."
 keypoints:
-- "`cp old new` copies a file."
-- "`mkdir path` creates a new directory."
-- "`mv old new` moves (renames) a file or directory."
-- "`rm path` removes (deletes) a file."
-- "Use of the Control key may be described in many ways, including `Ctrl-X`, `Control-X`, and `^X`."
-- "The shell does not have a trash bin: once something is deleted, it's really gone."
-- "Depending on the type of work you do, you may need a more powerful text editor than Nano."
+- "`cp lama baru` mengcopy file *laman* ke *baru*."
+- "`mkdir path` membuat direktori baru."
+- "`mv old new` me-rename file atau direktori."
+- "`rm path` menghapus file atau direktori."
+- "Penggunaan tombol control bisa bervariasi penulisannya yakni `Ctrl-X`, `Control-X`, and `^X`."
+- "Shell tidak mempunyai trash bin (recycle bin): artinya sekali dihapus hilang selamanya."
+- "Sangat disarankan menggunakan editor lain, yakni **VIM** atau **EMCAS** Nano."
 ---
 
 We now know how to explore files and directories,
