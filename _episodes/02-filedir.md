@@ -5,7 +5,7 @@ exercises: 20
 questions:
 - "Bagaimana cara berpindah direktori pada Linux"
 - "Bagaimana melihat file dan direktori yang saya miliki?"
-- "Bagaimana saya mengetahui lokadi dari file dan direktori pada komputer saya?"
+- "Bagaimana saya mengetahui lokasi dari file dan direktori pada komputer saya?"
 objectives:
 - "Menjelaskan perbedaan dan persamaan antara file dan direktori."
 - "Mengganti absolute path dengan relative path"
