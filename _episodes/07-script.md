@@ -3,7 +3,7 @@ title: "Shell Scripts"
 teaching: 20
 exercises: 20
 questions:
-- "How can I save and re-use commands?"
+- "Bagaimana cara menyimpan dan menggunakan kembali perintah shell?"
 objectives:
 - "Write a shell script that runs a command or series of commands for a fixed set of files."
 - "Run a shell script from the command line."
