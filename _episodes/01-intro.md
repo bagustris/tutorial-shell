@@ -3,21 +3,14 @@ title: "Pengenalan Shell"
 teaching: 5
 exercises: 5
 questions:
-- "What is a command shell and why would I use one?"
+- "Apakah perintah shell (command shell) itu dan mengapa saya harus menggunakannya?"
 objectives:
-- "Explain how the shell relates to the keyboard, the screen, the operating system, and users' programs."
-- "Explain when and why command-line interfaces should be used instead of graphical interfaces."
+- "Menjelaskan cara kerja shell dan hubungannya dengan keyboard, screen operating system dan program yang dijalankan oleh user."
+- "Menjelaskan kapan dan kenapa command-line interfaces seharusnya digunakan daripada graphical interfaces."
 keypoints:
-- "Explain the similarities and differences between a file and a directory."
-- "Translate an absolute path into a relative path and vice versa."
-- "Construct absolute and relative paths that identify specific files and directories."
-- "Explain the steps in the shell's read-run-print cycle."
-- "Identify the actual command, flags, and filenames in a command-line call."
-- "Demonstrate the use of tab completion and explain its advantages."
-keypoints:
-- "A shell is a program whose primary purpose is to read commands and run other programs."
-- "The shell's main advantages are its high action-to-keystroke ratio, its support for automating repetitive tasks, and its capacity to access networked machines."
-- "The shell's main disadvantages are its primarily textual nature and how cryptic its commands and operation can be."
+- "Shell adalah sebuah program yang tujuannya untuk membaca perintah dan menjalankan program dari perintah tersebut."
+- "Keuntungan terbesar penggunaan shel adalah rasio action-to-keystroke yang sangat tinggi, kemampuannya mendukung repetitive tasks, dan kapasitasnya mengakses mesin lain dalam jaringan."
+- "Kelemahan terbesar shell adalah bekerja secara textual dan kadang beberapa perintah operasinya tidak jelas kecuali anda memberikan option yang detail"
 ---
 ### Latar Belakang
 Pada level tinggi, kompuer melakukan empat hal berikut:
