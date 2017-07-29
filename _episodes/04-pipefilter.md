@@ -3,7 +3,7 @@ title: "Pipes dan Filters"
 teaching: 20
 exercises: 20
 questions:
-- "Bagaimana mengkombinasikan perintah-perintah yang ada untuk menghasilkan output yang diinginkan?"
+- "Bagaimana mengkombinasikan perintah-perintah yang ada untuk menghasilkan output baru yang diinginkan?"
 objectives:
 - "Redirect a command's output to a file."
 - "Process a file instead of keyboard input using redirection."
