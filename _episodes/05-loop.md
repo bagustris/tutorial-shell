@@ -3,7 +3,7 @@ title: "Loops"
 teaching: 20
 exercises: 15
 questions:
-- "How can I perform the same actions on many different files?"
+- "Bagaimana mengimplementasikan perintah-perintah yang sama pada file yang berbeda?"
 objectives:
 - "Write a loop that applies one or more commands separately to each file in a set of files."
 - "Trace the values taken on by a loop variable during execution of the loop."
