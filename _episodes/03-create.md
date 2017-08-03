@@ -20,10 +20,9 @@ keypoints:
 - "Sangat disarankan menggunakan editor lain, yakni **VIM** atau **EMCAS** Nano."
 ---
 
-We now know how to explore files and directories,
-but how do we create them in the first place?
-Let's go back to our `data-shell` directory on the Desktop
-and use `ls -F` to see what it contains:
+Dengan perintah `ls` dan `cd` kita bisa mengeksplorasi isi dari sebuah direktori.
+Namun bagaimana cara membuat direktori tersebut
+Kembali pada direktori `data-shell` pada `/home` dan gunakan `ls -F` untuk melihat isinya:
 
 ~~~
 $ pwd
