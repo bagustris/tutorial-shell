@@ -11,25 +11,26 @@ objectives:
 - "Explain what usually happens if a program or pipeline isn't given any input to process."
 - "Explain Unix's 'small pieces, loosely joined' philosophy."
 keypoints:
-- "`cat` displays the contents of its inputs."
-- "`head` displays the first few lines of its input."
-- "`tail` displays the last few lines of its input."
-- "`sort` sorts its inputs."
-- "`wc` counts lines, words, and characters in its inputs."
-- "`*` matches zero or more characters in a filename, so `*.txt` matches all files ending in `.txt`."
-- "`?` matches any single character in a filename, so `?.txt` matches `a.txt` but not `any.txt`."
-- "`command > file` redirects a command's output to a file."
-- "`first | second` is a pipeline: the output of the first command is used as the input to the second."
-- "The best way to use the shell is to use pipes to combine simple single-purpose programs (filters)."
+- "`cat` menampilkan isi dari input/argumennya."
+- "`head` menampilkan beberapa baris pertama dari inputnya."
+- "`tail` menampilkan beberapa baris terakhir dari inputnya"
+- "`sort` mensortir input."
+- "`wc` menghitung baris, kata dan karakter dari input."
+- "`*` mencocokkan nol atau lebih karakter dalam nama file, misal `*.txt` akan mencocokkan semua file yang berakhiran dengan ekstensi `.txt`."
+- "`?` mencocokkan satu karakter apapun dalam nama file, misal `?.txt` akan mencocokkan dengan `a.txt` tetapi tidak cocok dengan`any.txt`."
+- "`command > file` menyalurkan output perintah "command" ke dalam "file"."
+- "`first | second` adalah sebuah pipeline: output dari first digunakan sebagai input dari second."
+- "Cara terbaik menggunakan shell adalah dengan menggunakan pipes untuk mengcombinasika program single-purpose sederhana (filters)."
 ---
 
-Now that we know a few basic commands,
-we can finally look at the shell's most powerful feature:
-the ease with which it lets us combine existing programs in new ways.
-We'll start with a directory called `molecules`
-that contains six files describing some simple organic molecules.
-The `.pdb` extension indicates that these files are in Protein Data Bank format,
-a simple text format that specifies the type and position of each atom in the molecule.
+Sekarang kita mengetahui beberapa perintah dasar dari shell.
+Kemampuan shell akan maksimal jika kita mampu mengkombinasikan beberapa perintah
+untuk mendapatkan ouput yang kita inginkan.
+
+Kita akan memulai dengan sebuah directory yang disebut `molecules`.
+Di dalamnya, terdapat enam file yang menggambarkan beberapa molekul organik sederhana.
+Ekstensi `.pdb` mengindikasikan bahwa file disimpan dalam format **P**rotein **D**ata **B**ank,
+sebuah format teks sederhana yang menyatakan tipe dan posisi tiap atom pada molekul.
 
 ~~~
 $ ls molecules
@@ -42,11 +43,11 @@ octane.pdb    pentane.pdb   propane.pdb
 ~~~
 {: .output}
 
-Let's go into that directory with `cd` and run the command `wc *.pdb`.
-`wc` is the "word count" command:
-it counts the number of lines, words, and characters in files.
-The `*` in `*.pdb` matches zero or more characters,
-so the shell turns `*.pdb` into a list of all `.pdb` files in the current directory:
+Kemudian masuklah pada direktori `molecules` tersebut dengan perintah `cd` dan jalankan perintah `wc *.pdb`.
+`wc` merupakan kepanjangan dari "word count":
+perintah tersebut akan menghitung jumlah baris, kata dan karakter pada sebuah file.
+Tanda bintang, `*` pada `*.pdb` mencocokkan nol atau lebih karakter,
+jadi shell akan menghasilkan output dari `*.pdb` sebuah lish dari semua file `.pdb` dalam direktori ini.
 
 ~~~
 $ cd molecules
@@ -98,7 +99,7 @@ $ wc *.pdb
 > expanding wildcards, and this is another example of orthogonal design.
 {: .callout}
 
-> ## Using Wildcards
+> ## Menggunakan Wildcards
 >
 > When run in the `molecules` directory, which `ls` command(s) will
 > produce this output?
@@ -111,8 +112,8 @@ $ wc *.pdb
 > 4. `ls ethane.*`
 {: .challenge}
 
-If we run `wc -l` instead of just `wc`,
-the output shows only the number of lines per file:
+Jika kita menjalankan perintah `wc -l` daripada `wc`,
+maka outputnya akan menampilkan jumlah baris saja:
 
 ~~~
 $ wc -l *.pdb
@@ -130,27 +131,28 @@ $ wc -l *.pdb
 ~~~
 {: .output}
 
-We can also use `-w` to get only the number of words,
-or `-c` to get only the number of characters.
+Kita juga bisa menggunakan argumen `-w` untuk menampilkan jumlah kata
+dan argumen `-c` untuk menampilkan jumlah karakter.
 
-Which of these files is shortest?
-It's an easy question to answer when there are only six files,
-but what if there were 6000?
-Our first step toward a solution is to run the command:
+Mana dari file-file tersebut yang paling sedikit jumlah barisnya?
+
+Jika hanya 6 file pada contoh diatas, kita dapat dengan mudah menemukan file dengan
+jumlah baris paling sedikit. Bagaimana jika jumlah filenya 1000 atau 10000?
+Akan sulit dicari mana file paling pendek dengan cara manual seperti di atas.
+Cobalah perintah berikut:
 
 ~~~
 $ wc -l *.pdb > lengths.txt
 ~~~
 {: .bash}
 
-The greater than symbol, `>`, tells the shell to **redirect** the command's output
-to a file instead of printing it to the screen. (This is why there is no screen output:
-everything that `wc` would have printed has gone into the
-file `lengths.txt` instead.)  The shell will create
-the file if it doesn't exist. If the file exists, it will be
-silently overwritten, which may lead to data loss and thus requires
-some caution.
-`ls lengths.txt` confirms that the file exists:
+Jadi, output dari `wc` akan kita simpan dalam file bernama length.txt. 
+Perhatikan tanda **redirect**, yakni **>**. Jika file telah ada maka akan di-overwrite.
+File length ini kemudian akan kita sort.
+Argumen yang kita gunakan adalah `-n` yang akan mengurutkan berdasarkan angkanya (**n**umeric).
+Dengan demikian kita mengdapatkan hasil sortir file `*.pdb` yang urut dari kecil ke besar.
+
+`ls lengths.txt` mengkonfirmasi adanya file:
 
 ~~~
 $ ls lengths.txt
@@ -162,11 +164,7 @@ lengths.txt
 ~~~
 {: .output}
 
-We can now send the content of `lengths.txt` to the screen using `cat lengths.txt`.
-`cat` stands for "concatenate":
-it prints the contents of files one after another.
-There's only one file in this case,
-so `cat` just shows us what it contains:
+Gunakan perintah `cat` untuk melihat isi file `lengths.txt@.
 
 ~~~
 $ cat lengths.txt
@@ -184,7 +182,7 @@ $ cat lengths.txt
 ~~~
 {: .output}
 
-> ## Output Page by Page
+> ## Output Halaman demi Halaman
 >
 > We'll continue to use `cat` in this lesson, for convenience and consistency,
 > but it has the disadvantage that it always dumps the whole file onto your screen.
@@ -194,12 +192,6 @@ $ cat lengths.txt
 > You can go forward one screenful by pressing the spacebar,
 > or back one by pressing `b`.  Press `q` to quit.
 {: .callout}
-
-Now let's use the `sort` command to sort its contents.
-We will also use the `-n` flag to specify that the sort is
-numerical instead of alphabetical.
-This does *not* change the file;
-instead, it sends the sorted result to the screen:
 
 ~~~
 $ sort -n lengths.txt
@@ -217,11 +209,10 @@ $ sort -n lengths.txt
 ~~~
 {: .output}
 
-We can put the sorted list of lines in another temporary file called `sorted-lengths.txt`
-by putting `> sorted-lengths.txt` after the command,
-just as we used `> lengths.txt` to put the output of `wc` into `lengths.txt`.
-Once we've done that,
-we can run another command called `head` to get the first few lines in `sorted-lengths.txt`:
+Kita bisa menyimpan hasil sortir diatas, misal dengan nama file `sorted-lengths.txt`
+dengan menggunakan `> sorted-lengths.txt` setelah perintah sebelumya, `> lengths.txt` 
+yang menyimpan output dari `wc` pada file `lengths.txt`.
+Terakhir kita bisa menggunakan perintah `head` untuk melihat isi `sorted-lengths.txt`:
 
 ~~~
 $ sort -n lengths.txt > sorted-lengths.txt
@@ -234,14 +225,18 @@ $ head -n 1 sorted-lengths.txt
 ~~~
 {: .output}
 
-Using the parameter `-n 1` with `head` tells it that
-we only want the first line of the file;
-`-n 20` would get the first 20,
-and so on.
-Since `sorted-lengths.txt` contains the lengths of our files ordered from least to greatest,
-the output of `head` must be the file with the fewest lines.
+Menggunakan parameter `-n 1` pada perintah `head` berarti kita
+menyuruh `head` menampikan hanyaa 1 baris saja, ganti dengan `-n 5` untuk
+menampilkan lima baris peratama.
 
-> ## Redirecting to the same file
+Beberapa perintah diatas dapat digabung sebagai berikut:
+
+~~~
+$ wc -l *.pdb > length.txt | sort -n
+~~~
+{: .bash}
+
+> ## Redirecting ke file yang sama
 >
 > It's a very bad idea to try redirecting
 > the output of a command that operates on a file
@@ -257,11 +252,10 @@ the output of `head` must be the file with the fewest lines.
 > the contents of `lengths.txt`.
 {: .callout}
 
-If you think this is confusing,
-you're in good company:
-even once you understand what `wc`, `sort`, and `head` do,
-all those intermediate files make it hard to follow what's going on.
-We can make it easier to understand by running `sort` and `head` together:
+
+Jika anda mulai bingung dengan perintah-perintah ini,
+ini artinya kabar baik. Cobalah beberapa kali perintah `wc`, `sort`, dan `head` 
+Coba gabungkan beberapa perintah sekaligus untuk melihat outputnya.
 
 ~~~
 $ sort -n lengths.txt | head -n 1
@@ -273,19 +267,18 @@ $ sort -n lengths.txt | head -n 1
 ~~~
 {: .output}
 
-The vertical bar, `|`, between the two commands is called a **pipe**.
-It tells the shell that we want to use
-the output of the command on the left
-as the input to the command on the right.
-The computer might create a temporary file if it needs to,
-or copy data from one program to the other in memory,
-or something else entirely;
-we don't have to know or care.
 
-Nothing prevents us from chaining pipes consecutively.
-That is, we can for example send the output of `wc` directly to `sort`,
-and then the resulting output to `head`.
-Thus we first use a pipe to send the output of `wc` to `sort`:
+Batang vertikal, `|` diantara dua perinah disebut **pipe**.
+Jadi artinya ouput perintah di sebelah kiri **pipe** menjadi
+input perintah di sebelah kanan **pipe**.
+Komputer akan membuat file temporary file jika dibutuhkan, atau meng-copy
+dari program satu ke yang lainnya dalam memory;
+kita tidak perlu mengetahui detail prosesnya.
+
+Dengan pipe, kita menyalurkan ouput perintah `wc` pada perintah `sort`,
+kemudian hasilnya kita **redirect** dan kita tulis dalam file baru,
+atau output `sort` kita inputkan ke `head` seperti berikut ini.
+
 
 ~~~
 $ wc -l *.pdb | sort -n
@@ -303,7 +296,7 @@ $ wc -l *.pdb | sort -n
 ~~~
 {: .output}
 
-And now we send the output of this pipe, through another pipe, to `head`, so that the full pipeline becomes:
+Dan kemudian output dari sort kita kirim sebagai input dari `head` sehingga pipeline fullnya menjadi sebagai berikut:
 
 ~~~
 $ wc -l *.pdb | sort -n | head -n 1
@@ -315,10 +308,9 @@ $ wc -l *.pdb | sort -n | head -n 1
 ~~~
 {: .output}
 
-This is exactly like a mathematician nesting functions like *log(3x)*
-and saying "the log of three times *x*".
-In our case,
-the calculation is "head of sort of line count of `*.pdb`".
+Ini adalah cara yang sama dengan yang dilakukan matematikawan ketika menghitung *log(3x)*,
+yakni tiga kali *x*, dan hasilnya di-log-kan.
+Pada kasus kita di atas, "head dari sort dari line count dari file`*.pdb`".
 
 Here's what actually happens behind the scenes when we create a pipe.
 When a computer runs a program --- any program --- it creates a **process**
@@ -332,6 +324,7 @@ exists. This channel is typically used for error or diagnostic messages, and it
 allows a user to pipe the output of one program into another while still receiving 
 error messages in the terminal. 
 
+## Unix philosophy: Do one thing and do it well.
 The shell is actually just another program.
 Under normal circumstances,
 whatever we type on the keyboard is sent to the shell on its standard input,
@@ -364,7 +357,7 @@ and from `sort` through `head` to the screen.
 
 This simple idea is why Unix has been so successful.
 Instead of creating enormous programs that try to do many different things,
-Unix programmers focus on creating lots of simple tools that each do one job well,
+Unix programmers focus on creating lots of simple tools that each **do one job well**,
 and that work well with each other.
 This programming model is called "pipes and filters".
 We've already seen pipes;
