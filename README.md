@@ -13,3 +13,10 @@ Maintainers:
 [srinath_ashwin]: http://software-carpentry.org/team/#srinath_ashwin
 [bagustris]: https://bagustris.tk
 [lesson-example]: https://swcarpentry.github.io/lesson-example/
+
+Jika anda telah menguasai semua materi pada tutorial ini, sangat disarankan untuk melanjutkannya pada materi [shell-extra](https://swcarpentry.github.io/shell-extra/)
+
+Referensi :
+- Software Carpentry's Shell Novice
+- Tutorial Shell Untuk Pemula
+- Tutorial Linux
