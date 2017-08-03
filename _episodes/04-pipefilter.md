@@ -5,15 +5,15 @@ exercises: 20
 questions:
 - "Bagaimana mengkombinasikan perintah-perintah yang ada untuk menghasilkan output baru yang diinginkan?"
 objectives:
-- "Redirect a command's output to a file."
-- "Process a file instead of keyboard input using redirection."
-- "Construct command pipelines with two or more stages."
-- "Explain what usually happens if a program or pipeline isn't given any input to process."
-- "Explain Unix's 'small pieces, loosely joined' philosophy."
+- "Me-redirect output dari sebuah perintah ke dalam file."
+- "Memproses file menggunakan redirection."
+- "Membangun pipelines perintah dengan dua tingkat atau lebih."
+- "Menjelaskan apa yang erjadi jika sebuah program atau pipeline tidak memberikan input ke proses."
+- "Menjelaskan potingan kecil Unix yang membentuk filosofi besar."
 keypoints:
 - "`cat` menampilkan isi dari input/argumennya."
 - "`head` menampilkan beberapa baris pertama dari inputnya."
-- "`tail` menampilkan beberapa baris terakhir dari inputnya"
+- "`tail` menampilkan beberapa baris terakhir dari inputnya."
 - "`sort` mensortir input."
 - "`wc` menghitung baris, kata dan karakter dari input."
 - "`*` mencocokkan nol atau lebih karakter dalam nama file, misal `*.txt` akan mencocokkan semua file yang berakhiran dengan ekstensi `.txt`."
