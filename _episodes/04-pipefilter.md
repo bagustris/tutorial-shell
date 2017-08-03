@@ -18,7 +18,7 @@ keypoints:
 - "`wc` menghitung baris, kata dan karakter dari input."
 - "`*` mencocokkan nol atau lebih karakter dalam nama file, misal `*.txt` akan mencocokkan semua file yang berakhiran dengan ekstensi `.txt`."
 - "`?` mencocokkan satu karakter apapun dalam nama file, misal `?.txt` akan mencocokkan dengan `a.txt` tetapi tidak cocok dengan`any.txt`."
-- "`command > file` menyalurkan output perintah "command" ke dalam "file"."
+- "`command > file` menyalurkan output perintah `command` ke dalam `file`."
 - "`first | second` adalah sebuah pipeline: output dari first digunakan sebagai input dari second."
 - "Cara terbaik menggunakan shell adalah dengan menggunakan pipes untuk mengcombinasika program single-purpose sederhana (filters)."
 ---
