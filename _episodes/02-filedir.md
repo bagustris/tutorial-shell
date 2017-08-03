@@ -181,7 +181,7 @@ Pada komputer saya strukturnya seperti ini:
 ~~~
 {: .output} 
 
-Jika kita kembangkan, maka isi root adalah seperti gambar berikut
+Jika kita kembangkan, maka isi /home misalnya adalah seperti gambar berikut
 
 ![The File System](../fig/home-directories.svg)
 
