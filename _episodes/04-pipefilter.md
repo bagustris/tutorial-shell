@@ -164,7 +164,7 @@ lengths.txt
 ~~~
 {: .output}
 
-Gunakan perintah `cat` untuk melihat isi file `lengths.txt@.
+Gunakan perintah `cat` untuk melihat isi file `lengths.txt`.
 
 ~~~
 $ cat lengths.txt
@@ -312,17 +312,16 @@ Ini adalah cara yang sama dengan yang dilakukan matematikawan ketika menghitung 
 yakni tiga kali *x*, dan hasilnya di-log-kan.
 Pada kasus kita di atas, "head dari sort dari line count dari file`*.pdb`".
 
-Here's what actually happens behind the scenes when we create a pipe.
-When a computer runs a program --- any program --- it creates a **process**
-in memory to hold the program's software and its current state.
-Every process has an input channel called **standard input**.
-(By this point, you may be surprised that the name is so memorable, but don't worry:
-most Unix programmers call it "stdin").
-Every process also has a default output channel called **standard output**
-(or "stdout"). A third output channel called **standard error** (stderr) also 
-exists. This channel is typically used for error or diagnostic messages, and it
-allows a user to pipe the output of one program into another while still receiving 
-error messages in the terminal. 
+## stdin dan stdout
+Beginilah sebenarnya yang terjadi ketika kita membuat pipe.
+Ketika shell menjalan perintah --- perintah apapun ---, akan membuat suatu **process**
+dalam memory untuk menahan perangkat lunak program tersebut dan keadaan saat itu.
+Setiap proses memiliki kanal input yang disebut **standard input** (stdin).
+Setiap proses juga memiliki ouput yang disebut **standard output**. (stdout
+Kanal output lainnya adalah **standard error** (stderr).
+
+Kanal error ini biasanya digunakan untuk untuk mendiagnosa program, selain tetap also mengirimkan
+outout dari perintah di sebelah kiri pipe ke perintah di sebelah kanan pipe.
 
 ## Unix philosophy: Do one thing and do it well.
 The shell is actually just another program.
