@@ -142,13 +142,44 @@ $ pwd
 Home directory adalah rumah kita, artinya sistem operasi akan
 menyimpan file dokumen, gambar, musik, film dll disitu, `by default`.
 
-Jika kita perhatikan urutan `path` home direktory maka strukturnya adalah **/ + home + / + username**
-garis miring pertama merupakan root, kemudian "home" berisi user-user pengguna komputer tsb, kemudian
+Jika kita perhatikan urutan `path` home direktory maka strukturnya adalah **/ + home + / + username**.
+Garis miring pertama merupakan root, kemudian "home" berisi user-user pengguna komputer tsb, kemudian
 garis miring pemisah direktori/subdirektori dan nama direktori yakni nama user.
 
 Pada komputer saya strukturnya seperti ini:
 
-![The File System](../fig/filesystem.png)
+<!-- ![The File System](../fig/filesystem.png) -->
+~~~
+/
+├── bin
+├── boot
+├── cdrom
+├── core
+├── dev
+├── etc
+├── home
+├── initrd.img -> boot/initrd.img-4.10.0-28-generic
+├── initrd.img.old -> boot/initrd.img-4.10.0-27-generic
+├── lib
+├── lib64
+├── lost+found
+├── media
+├── mnt
+├── opt
+├── proc
+├── root
+├── run
+├── sbin
+├── snap
+├── srv
+├── sys
+├── tmp
+├── usr
+├── var
+├── vmlinuz -> boot/vmlinuz-4.10.0-28-generic
+└── vmlinuz.old -> boot/vmlinuz-4.10.0-27-generic
+~~~
+{: .output} 
 
 Jika kita kembangkan, maka isi root adalah seperti gambar berikut
 
@@ -222,6 +253,7 @@ $ ls -lt
 $ ls -ltr
 
 # wc word count/untuk menghitung kata, wc -l untuk menghitung jumlah baris, | pipe
+# wc akan dijelaskan kemudian
 $ ls /usr/bin | wc -l
 
 # menampilkan argumen apa saja yang dimiliki ls
