@@ -182,7 +182,7 @@ $ cat lengths.txt
 ~~~
 {: .output}
 
-> ## Output Halaman demi Halaman
+> ## Output halaman demi halaman
 >
 > We'll continue to use `cat` in this lesson, for convenience and consistency,
 > but it has the disadvantage that it always dumps the whole file onto your screen.
