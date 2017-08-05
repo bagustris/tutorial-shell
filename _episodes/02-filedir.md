@@ -598,7 +598,7 @@ Mengorganisasi file sangat penting, beberapa hal yang bisa dilakukan adalah sbb:
 - nama file sesuai isinya
 - nama diawali huruf
 - tidak ada spasi
-- jika diawali angka maka berformat tahun-angkaBulan-tanggal
+- jika diawali angka maka berformat tahun-Angkabulan-tanggal
 
 > ## Sorting Output
 >
@@ -613,50 +613,52 @@ Mengorganisasi file sangat penting, beberapa hal yang bisa dilakukan adalah sbb:
 {: .callout}
 
 ### Tab completion
-Nell write each of her physical samples is labelled according to her lab's convention
-with a unique ten-character ID,
-such as "NENE01729A".
-This is what she used in her collection log
-to record the location, time, depth, and other characteristics of the sample,
-so she decides to use it as part of each data file's name.
-Since the assay machine's output is plain text,
-she will call her files `NENE01729A.txt`, `NENE01812A.txt`, and so on.
-All 1520 files will go into the same directory.
+Contoh user Nell menulis tiap sampel praktikumnya dengan label menurut konvensi yang ditentukan Lab
+yakni 10 karakter unik sebagai IDnya, misal "NENE01729A".
+ID tersebutlah yang digunakan untuk mengumpulkan log
+untuk menyimpan lokasi, waktu, dept, dan karakteristik sampel,
+jadi dia memutuskan untuk menggunakan informasi itu sebagai nama file.
 
-Now in her current directory `data-shell`,
-Nelle can see what files she has using the command:
+Karena output dari file tersebut adalah plain text,
+maka die menamai file-nya degan nama `NENE01729A.txt`, `NENE01812A.txt`, dan seterusnya.
+Semua filenya 1520 disimpan dalam direktori yang sama.
+
+Sekarang dia berada pada direktori `data-shell`,
+Nelle dapat mengecek file di dalam direktori tersebut dengan perintah:
 
 ~~~
 $ ls north-pacific-gyre/2012-07-03/
 ~~~
 {: .bash}
 
-This is a lot to type,
-but she can let the shell do most of the work through what is called **tab completion**.
-If she types:
+Hmmm, ada peluang untuk salah ketik ketika mengetik direktori dan sub-direktori tsb.
+Untuk menyederhanakannya, kita menggunakan apa yang disebut **tab completion**.
+
+Jadi dia mengetikkan:
 
 ~~~
 $ ls nor
 ~~~
 {: .bash}
 
-and then presses tab (the tab key on her keyboard),
-the shell automatically completes the directory name for her:
+dan kemudian tekan tombol tab pada keyboard, whaoala,
+it's magic! secara otomatis shell akan melengkapi nama direktori yang sama dengan tiga karakter yang diketik (**nor**).
 
 ~~~
 $ ls north-pacific-gyre/
 ~~~
 {: .bash}
 
-If she presses tab again,
-Bash will add `2012-07-03/` to the command,
-since it's the only possible completion.
-Pressing tab again does nothing,
-since there are 19 possibilities;
-pressing tab twice brings up a list of all the files,
-and so on.
-This is called **tab completion**,
-and we will see it in many other tools as we go on.
+Jika Nelle menekan tab lagi, maka Bash Shell akan menambahkan `2012-07-03/` pada perintahnya,
+karena hanya ada satu sub direktori yang mungkin maka folder tsblah yang akan muncul.
+
+menekan tab lagi akan menampilkan 19 kemungkinan file yanga ada dalam subdirektori `2012-07-03/`.
+
+menekan tab lagi tidak menunjukkan apa-apa karena sudah
+tidak ada lagi sub direktori di bawahnya.
+
+Inilah yang disebut **tab completion**,
+shortcut yang sangat memudahkan hidup menggunakan Linux/Unix.
 
 > ## Absolute vs Relative Paths
 >
