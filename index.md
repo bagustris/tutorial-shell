@@ -15,7 +15,7 @@ Linux/Unix shell banyak digunakan karena kemampuannya yang **powerful**. Mampu m
 > Anda bisa saja menggunakan jenis shell yang lain: csh, zsh atau ksh, namun tidak
 > bisa dipastikan material pada tutorial ini akan berjalan pada shell lain selain bash tersebut.
 >
-> Jika anda sudah bisa memanipulasi file dan direktori seperti menggunakan perintah`grep` dan `find`
+> Jika anda sudah bisa memanipulasi file dan direktori seperti menggunakan perintah `grep` dan `find`
 > atau menulis loop sederhana dalam bash, maka tutorial ini tidak ditunjukkan untuk anda,
 > silahkan lanjut ke tutorial `shell-ekstra`.
 >
