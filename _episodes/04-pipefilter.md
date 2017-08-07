@@ -9,7 +9,7 @@ objectives:
 - "Memproses file menggunakan redirection."
 - "Membangun pipelines perintah dengan dua tingkat atau lebih."
 - "Menjelaskan apa yang erjadi jika sebuah program atau pipeline tidak memberikan input ke proses."
-- "Menjelaskan potingan kecil Unix yang membentuk filosofi besar."
+- "Menjelaskan potongan kecil Unix yang membentuk filosofi besar."
 keypoints:
 - "`cat` menampilkan isi dari input/argumennya."
 - "`head` menampilkan beberapa baris pertama dari inputnya."
