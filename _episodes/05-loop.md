@@ -5,21 +5,21 @@ exercises: 15
 questions:
 - "Bagaimana mengimplementasikan perintah-perintah yang sama pada file yang berbeda?"
 objectives:
-- "Write a loop that applies one or more commands separately to each file in a set of files."
-- "Trace the values taken on by a loop variable during execution of the loop."
-- "Explain the difference between a variable's name and its value."
-- "Explain why spaces and some punctuation characters shouldn't be used in file names."
-- "Demonstrate how to see what commands have recently been executed."
-- "Re-run recently executed commands without retyping them."
+- "Membuat loop yang mengimplementasikan satu perintah atau lebih pada tiap file file dalam satu set."
+- "Menelusuri nilai yang diambil dari sebuah variabel loop selama eksekusi dari loop tersebut."
+- "Menjelaskan perbedaan dari tiap nama variabel dan nilainya."
+- "Menjelaskan mengapa spasi dan beberapa karakter seharusnya tidak digunakan untuk menamai file."
+- "Mendemonstrasikan bagaimana melihat perintah yang baru saja dieksekusi."
+- "Menjalankan lagi perintah yang baru saja dieksekusi tanpa mengetikkan ulang."
 keypoints:
-- "A `for` loop repeats commands once for every thing in a list."
-- "Every `for` loop needs a variable to refer to the thing it is currently operating on."
-- "Use `$name` to expand a variable (i.e., get its value). `${name}` can also be used."
-- "Do not use spaces, quotes, or wildcard characters such as '*' or '?' in filenames, as it complicates variable expansion."
-- "Give files consistent names that are easy to match with wildcard patterns to make it easy to select them for looping."
-- "Use the up-arrow key to scroll up through previous commands to edit and repeat them."
-- "Use `Ctrl-R` to search through the previously entered commands."
-- "Use `history` to display recent commands, and `!number` to repeat a command by number."
+- "Sebuah loop `for` melakukan perintah yang sama untuk semua file dalam sebuah list."
+- "Semua loop `for` membutuhkan variabel untuk mengeksekusi operasi yang dilakukan terhadap file tersebut."
+- "Gunakan `$name` atau untuk mengexpand variabel, yakni untuk mendapatkan nilainya."
+- "Jangan menggunakan spasi, quotes, atau karakter wildcard seperti '*' or '?' dalam nama file."
+- "Gunakan nama file yang konsisten agar mudah untuk menggunakan pola wildcard dalam membuat looping."
+- "Gunakan panah ke atas untuk melihat perintah yang digunakan sebelumnya."
+- "Gunakan `Ctrl-R` untuk mencari perintah yang pernah digunakan."
+- "Gunakan perintah `history` untuk melihat perintah-perintah terakhir digunakan dan gunakan `!number` untuk mengulang perintah sesuai nomor yang ditampilkan."
 ---
 
 **Loops** are key to productivity improvements through automation as they allow us to execute
