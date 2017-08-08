@@ -22,44 +22,41 @@ keypoints:
 - "Gunakan perintah `history` untuk melihat perintah-perintah terakhir digunakan dan gunakan `!number` untuk mengulang perintah sesuai nomor yang ditampilkan."
 ---
 
-**Loops** are key to productivity improvements through automation as they allow us to execute
-commands repetitively. Similar to wildcards and tab completion, using loops also reduces the
-amount of typing (and typing mistakes).
-Suppose we have several hundred genome data files named `basilisk.dat`, `unicorn.dat`, and so on.
-In this example,
-we'll use the `creatures` directory which only has two example files,
-but the principles can be applied to many many more files at once.
-We would like to modify these files, but also save a version of the original files, naming the copies
+**Loops** adalah kunci produktivitas melalui teknik otomasi karena dengan loop kita bisa mengukang operasi yang sama untuk file yang berbebeda-beda tanpa mengulangi pengetikkan perintah pada file lainnya. Sama halnya dengan penggunaan wildcard maupun tab completion, penggunaan loop meningkatkan efisiensi dan menghindari salah ketik.
+Misal kita punya file yang dinamai dengan `basilisk.dat`, `unicorn.dat`, dan seterusnya.
+Pada contoh ini kita akan menggunakan direktori `creatures` yang hanya berisi dua contoh file,
+namun pada prinsipnya kita bisa mengaplikasikannya pada banyak file, ratusan, ribuat atau jutaan pada sekali eksekusi dengan
+teknik looping. Kasusnya adalah kita ingin meng-copy semua file dalam direktori `creatures` tersebut dengan menambahkan
+awalan `original-namafile.dat`, sehingga menjadi seperti 
 `original-basilisk.dat` and `original-unicorn.dat`.
-We can't use:
+
+*Instead*, setelah belajar wildcard, kita ingin menggunakannya, tapi nyatanya tidak bisa:
 
 ~~~
 $ cp *.dat original-*.dat
 ~~~
 {: .bash}
 
-because that would expand to:
+karena perinta tersebut akan diterjemahkan menjadi:
 
 ~~~
 $ cp basilisk.dat unicorn.dat original-*.dat
 ~~~
 {: .bash}
 
-This wouldn't back up our files, instead we get an error:
+Sehingga akan terjadi error dan file malah tidak ter-back-up:
 
 ~~~
-cp: target `original-*.dat' is not a directory
+cp: target `original-*.dat` is not a directory
 ~~~
 {: .error}
 
-This problem arises when `cp` receives more than two inputs. When this happens, it
-expects the last input to be a directory where it can copy all the files it was passed.
-Since there is no directory named `original-*.dat` in the `creatures` directory we get an
-error.
+Masalah ini tejadi karena `cp` menerina lebih dari dua input/argumen. Argumen terakhir
+diartikan oleh `cp` sebagai direktori output. Karena tidak ada direktori yang namanya `original-*.dat`
+maka terjadilah error.
 
-Instead, we can use a **loop**
-to do some operation once for each thing in a list.
-Here's a simple example that displays the first three lines of each file in turn:
+Solusinya, kita menggunakan **loop** untuk melakukan operasi berulang dengan sekali eksekusi.
+Berikut contohj sederhananya,
 
 ~~~
 $ for filename in basilisk.dat unicorn.dat
