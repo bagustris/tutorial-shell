@@ -10,7 +10,9 @@ objectives:
 keypoints:
 - "Shell adalah sebuah program yang tujuannya untuk membaca perintah dan menjalankan program dari perintah tersebut."
 - "Keuntungan terbesar penggunaan shel adalah rasio action-to-keystroke yang sangat tinggi, kemampuannya mendukung repetitive tasks, dan kapasitasnya mengakses mesin lain dalam jaringan."
-- "Kelemahan terbesar shell adalah bekerja secara textual dan kadang beberapa perintah operasinya tidak jelas kecuali anda memberikan option yang detail"
+- "Kelemahan terbesar shell adalah bekerja secara textual dan kadang beberapa perintah operasinya tidak jelas kecuali anda memberikan option yang detail" 
+- "Bash merupakan jenis shell default dan paling banyak dipakai pada terminal/konsole sistem operasi berbasis Linux dan Unix, untuk membuka bash pada terminal Linux tekan Ctrl+Alt+T."
+- "Workflow dari sebuah shell adalah REPL: read, evaluate, print, loop."
 ---
 ### Latar Belakang
 Pada level tinggi, kompuer melakukan empat hal berikut:
