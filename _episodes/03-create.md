@@ -5,7 +5,7 @@ exercise: 20
 questions:
 - "Bagaimana saya membuat, menyalin dan menghapus file dan direktori?"
 - "Bagaimana saya mengedit file?"
-Tujuan:
+objectives:
 - "Membuat hierarki direktori yang match dengan pola yang diberikan"
 - "Membuat file dalam direktori dengan editor dengan mengcopy dan merename file yang ada."
 - "Menampilkan display dan konten dari direktori dengan menggunakan perintah shell."
@@ -17,7 +17,8 @@ keypoints:
 - "`rm path` menghapus file atau direktori."
 - "Penggunaan tombol control bisa bervariasi penulisannya yakni `Ctrl-X`, `Control-X`, and `^X`."
 - "Shell tidak mempunyai trash bin (recycle bin): artinya sekali dihapus hilang selamanya."
-- "Sangat disarankan menggunakan editor lain, yakni **VIM** atau **EMCAS** Nano."
+- "Sangat disarankan menggunakan editor lain, yakni **VIM** atau **EMACS** daripada Nano."
+
 ---
 
 Dengan perintah `ls` dan `cd` kita bisa mengeksplorasi isi dari sebuah direktori.
@@ -208,6 +209,8 @@ which tells us that our file is gone:
 $ ls
 ~~~
 {: .bash}
+
+Setelah anda bisa menggunanan nano, sangat saya sarankan untuk segera mempelajari VIM, text editor dengan kemampuan kecepatan jari anda.
 
 > ## Deleting Is Forever
 >
