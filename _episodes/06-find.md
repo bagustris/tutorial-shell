@@ -5,17 +5,19 @@ exercises: 15
 questions:
 - "Bagaimana cara menemukan file?"
 - "Bagaimana mencari kata kunci pada file?"
+- "Bagaimana saya mengetahui lokasi dari file dan direktori pada komputer saya?"
 objectives:
-- "Use `grep` to select lines from text files that match simple patterns."
-- "Use `find` to find files whose names match simple patterns."
-- "Use the output of one command as the command-line parameters to another command."
-- "Explain what is meant by 'text' and 'binary' files, and why many common tools don't handle the latter well."
+- "Gunakan `grep` untuk mencari baris yang polanya cocok dengan yang dicari."
+- "Gunakan `find` untuk mencari file yang polanya sesuai dengan yang diinginkan."
+- "Gunakan `locate` atau `whereis` untuk menemukan lokasi dari sebuah file atau direktori pada komputer."
+- "Gunakan output dari suatu perintah sebagai argumen dari perintah lainnya."
+- "Jelaskan apa maksude dari 'text' dan 'binary' files dan kenapa kebanyakan tools tidak bisa menghandle 'binary' files dengan sangat baik."
 keypoints:
-- "`find` finds files with specific properties that match patterns."
-- "`grep` selects lines in files that match patterns."
-- "`--help` is a flag supported by many bash commands, and programs that can be run from within Bash, to display more information on how to use these commands or programs."
-- "`man command` displays the manual page for a given command."
-- "`$(command)` inserts a command's output in place."
+- "`find` untuk mencari file sesuai kata kunci/pola"
+- "`grep` untuk memilih baris yang cocok dengan pencarian."
+- "`--help` digunakan untuk menampilkan informasi yang terkandun pada perintah (di depannya)."
+- "`man command` digunakan untuk menampilkan manual (manpages) dari suatu perintah."
+- "`$(command)` memasukkan output dari perintah"
 ---
 
 In the same way that many of us now use "Google" as a 
