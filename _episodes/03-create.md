@@ -8,13 +8,14 @@ questions:
 objectives:
 - "Membuat hierarki direktori yang match dengan pola yang diberikan"
 - "Membuat file dalam direktori dengan editor dengan mengcopy dan merename file yang ada."
-- "Menampilkan display dan konten dari direktori dengan menggunakan perintah shell."
+- "Menampilkan daftar dan konten dari direktori dengan menggunakan perintah shell."
 - "Menghapus file dan/atau direktori tertentu."
 keypoints:
 - "`cp lama baru` mengcopy file *laman* ke *baru*."
 - "`mkdir path` membuat direktori baru."
 - "`mv old new` me-rename file atau direktori."
 - "`rm path` menghapus file atau direktori."
+- " `touch namafile.txt` membuat dan mengedit file baru namafile.txt"
 - "Penggunaan tombol control bisa bervariasi penulisannya yakni `Ctrl-X`, `Control-X`, and `^X`."
 - "Shell tidak mempunyai trash bin (recycle bin): artinya sekali dihapus hilang selamanya."
 - "Sangat disarankan menggunakan editor lain, yakni **VIM** atau **EMACS** daripada Nano."
@@ -31,7 +32,7 @@ $ pwd
 {: .bash}
 
 ~~~
-/Users/nelle/Desktop/data-shell
+/home/bagustris/data-shell
 ~~~
 {: .output}
 
