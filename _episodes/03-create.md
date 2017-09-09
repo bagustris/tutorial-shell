@@ -82,43 +82,47 @@ molecules/  solar.pdf
 > kedua direktori ataupun file tersebut sama saja.
 {: .callout}
 
-> ## Good names for files and directories
+> ## Penamaan file dan direktori
 >
-> Complicated names of files and directories can make your life painful
-> when working on the command line. Here we provide a few useful
-> tips for the names of your files.
+> Nama file dan direktori yang tidak jelas akan mengakibatkan kita kesulitan 
+> ketika bekerja dengan command line. Beberapa tips berikut sangat berguna
+> untuk menamai file dan direktori:
 >
-> 1. Don't use whitespaces.
+> 1. Janga menggunakan spasi
 >
->    Whitespaces can make a name more meaningful
->    but since whitespace is used to break arguments on the command line
->    is better to avoid them on name of files and directories.
->    You can use `-` or `_` instead of whitespace.
+>    Menggunakan spasi mungkin akan terlihat bermakna,
+>    namun karena spasi digunakan untuk memisahkan argumen pada command line
+>    akan sangat berguna jika kita tidak menggunakannya dalam menamai file.
+>    Sebagai gantinya, kita bisa menggunakan `-` atau `_`.
+>    Nama file/direktori dengan spasi tetap bisa dipanggil dalam perintah Linux
+>    dengan menggunakan tanda petik (" ").
 >
-> 2. Don't begin the name with `-` (dash).
+> 2. Jangan mengawali nama file/direktori dengan `-` (dash).
 >
->    Commands treat names starting with `-` as options.
+>    Perintah Unix/Linux menggunakan tanda dash untuk menandai option 
+>    Contonya: `ls -F`
 >
-> 3. Stick with letters, numbers, `.` (period), `-` (dash) and `_` (underscore).
+> 3. Hanya gunakan huruf, angka, titik, dash (`-`) dan underscore (`_`).
+>    
+>    Beberapa karakter memiliki makna dalam perintah Linux/Unix,
+>    jadi sebisa mungkin dihindari untuk menggunakan karakter (+,*, &, %, *, dst)
+>    dalam menamai file atau direktori. 
+>    Jika ada karakter dalan nama file atau direktori, bisa jadi
+>    perintah yang kita gunakan akan error atau
+>    disalah artikan oleh komputer.
+>    
 >
->    Many other characters have special meanings on the command line.
->    We will learn about some of these during this lesson.
->    There are special characters that can cause your command to not work as
->    expected and can even result in data loss.
->
-> If you need to refer to names of files or directories that have whitespace
-> or another non-alphanumeric character, you should surround the name in quotes (`""`).
-{: .callout}
+> {: .callout}
 
-Since we've just created the `thesis` directory, there's nothing in it yet:
+Karena kita sudah membuat direktori `thesis`, namun tidak ada isinya.
 
 ~~~
 $ ls -F thesis
 ~~~
 {: .bash}
 
-Let's change our working directory to `thesis` using `cd`,
-then run a text editor called Nano to create a file called `draft.txt`:
+Kemudian, pindah ke direktori `thesis` dengan perintah `cd`,
+jalankan editor nano untu membuat file yang dinamakan `draft.txt`:
 
 ~~~
 $ cd thesis
@@ -128,45 +132,30 @@ $ nano draft.txt
 
 > ## Which Editor?
 >
-> When we say, "`nano` is a text editor," we really do mean "text": it can
-> only work with plain character data, not tables, images, or any other
-> human-friendly media. We use it in examples because it is one of the 
-> least complex text editors. However, because of this trait, it may 
-> not be powerful enough or flexible enough for the work you need to do
-> after this workshop. On Unix systems (such as Linux and Mac OS X),
-> many programmers use [Emacs](http://www.gnu.org/software/emacs/) or
-> [Vim](http://www.vim.org/) (both of which require more time to learn), 
-> or a graphical editor such as
-> [Gedit](http://projects.gnome.org/gedit/). On Windows, you may wish to
-> use [Notepad++](http://notepad-plus-plus.org/).  Windows also has a built-in
-> editor called `notepad` that can be run from the command line in the same
-> way as `nano` for the purposes of this lesson.  
->
-> No matter what editor you use, you will need to know where it searches
-> for and saves files. If you start it from the shell, it will (probably)
-> use your current working directory as its default location. If you use
-> your computer's start menu, it may want to save files in your desktop or
-> documents directory instead. You can change this by navigating to
-> another directory the first time you "Save As..."
+> Berbicara tentang editor, ada dua mazhab besar: VIM dan Emacs, namun kedunaya
+> terlalu sulit untuk pemula. Sebagai pemula, saya sarankan anda untuk
+> menggunakan Nano atau Gedit. Gedit cukup mudah dipelajari dan difahami, tinggal
+> buka file yang akan diedit, edit, dan save. Untuk Nano, anda perlu mengetahui 
+> shortcut untuk menyimpan dll. 
 {: .callout}
 
-Let's type in a few lines of text.
-Once we're happy with our text, we can press `Ctrl-O` (press the Ctrl or Control key and, while
-holding it down, press the O key) to write our data to disk
-(we'll be asked what file we want to save this to:
-press Return to accept the suggested default of `draft.txt`).
+Silahkan ketik beberapa baris teks. Kalau anda sudah puas
+dengan apa yang anda ketik, tekan `Ctrl-O` (tekan tombol 
+Control dan O bersamaan) untuk menyimpan teks tersebut ke
+dalam file `draft.txt`.
+
 
 ![Nano in Action](../fig/nano-screenshot.png)
 
-Once our file is saved, we can use `Ctrl-X` to quit the editor and
-return to the shell.
+Gunakan `Ctrl-X` untuk keluar dari nano, dan ketika ada pertanyaan
+apakah ingin menyimpannya, tekan `y` kemudian `Enter`.
 
 > ## Control, Ctrl, or ^ Key
 >
-> The Control key is also called the "Ctrl" key. There are various ways
-> in which using the Control key may be described. For example, you may
-> see an instruction to press the Control key and, while holding it down,
-> press the X key, described as any of:
+> Tombol Control sering disingkat dengan "Ctrl" sebagaimana tertulis 
+> pada keyboard. Ada beberapa cara penulisan dimana
+> kita diminta menekan tombol Control dan, sambil menahannya, kita tekan
+> tombol lainnya, yakni tombol X. Berikut beberapa versi penulisannya.
 >
 > * `Control-X`
 > * `Control+X`
@@ -175,13 +164,13 @@ return to the shell.
 > * `^X`
 > * `C-x`
 >
-> In nano, along the bottom of the screen you'll see `^G Get Help ^O WriteOut`.
-> This means that you can use `Control-G` to get help and `Control-O` to save your
-> file.
+> Pada nano, pada bagian bawah anda akan melihat tulisan
+> `^G Get Help ^O WriteOut` dst. Artinya tekan `Control-G` 
+> untuk menampikan help dan `Control-O` untuk menyimpan file.
 {: .callout}
 
-`nano` doesn't leave any output on the screen after it exits,
-but `ls` now shows that we have created a file called `draft.txt`:
+`nano` tidak akan menampilkan output lagi, namun teks yang tadi
+diketik sudah disimpan dalam file `draft.txt`, cek dengan `ls`.
 
 ~~~
 $ ls
