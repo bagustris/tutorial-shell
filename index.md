@@ -5,9 +5,9 @@ root: .
 
 Linux/Unix shell banyak digunakan karena kemampuannya yang **powerful**. Mampu menggunakan perintah dasar pada shell Linux merupakan suatu skill dasar yang harus dimiliki bagi mereka yang ingin menjadi programmer, sysAdmin dan, bahkan, (data) scientist. Shell merupakan jendela ke bahasa pemrograman lainnya seperti python, perl, awk, c/c++. Menguasai shell artinya anda bisa memadukan antar bahasa pemrograman karena shell saat ini dijadikan glue (perekat) antar bahasa pemrograman yang saat ini tidak bisa berdiri sendiri-sendiri. Contoh nyata penggunaan shell adalah pada riset speech synthesis, speech recognition dan data science. Dan hampir semua bidang yang menggunakan komputasi memakai shell pada systemnya. Shell pada Linux dapat digunakan melalui (gnome) terminal, buka dengan Ctrl + Alt + T.
 
-***Kenapa memakai shell***
 
-Ada banyak alasan, diantaranya adalah sbb:
+***Kenapa memakai shell...?***  
+Ada banyak alasan, diantaranya adalah sbb:  
 1. **Kecepatan**. Jika anda sudah terbiasa, dan *expert*, menggunakan shell, anda akan lebih banyak menghemat klik dan menghemat waktu karena akses shell lebih cepat.
 2. **Fleksibilitas (keleluasaan)**. Dengan shell, kita bisa memberi argumen pada suatu program, misalnya kita ingin membuka program tanpa plugin, membuka program tanpa menggunkan Java, dll.
 3. **Otomasi**. Shell scripting banyak digunakan untuk meng-otomasi pekerjaan yang berulang-ulang, yang akan sangat menyita waktu kalau kita mengerjakan satu-satu. Misal, me-renam 100 file dalam satu folder, memodifikasi ukuran 1000 file, dst.
