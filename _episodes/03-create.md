@@ -88,7 +88,7 @@ molecules/  solar.pdf
 > ketika bekerja dengan command line. Beberapa tips berikut sangat berguna
 > untuk menamai file dan direktori:
 >
-> 1. Janga menggunakan spasi
+> 1. Jangan menggunakan spasi
 >
 >    Menggunakan spasi mungkin akan terlihat bermakna,
 >    namun karena spasi digunakan untuk memisahkan argumen pada command line
@@ -132,7 +132,7 @@ $ nano draft.txt
 
 > ## Which Editor?
 >
-> Berbicara tentang editor, ada dua mazhab besar: VIM dan Emacs, namun kedunaya
+> Berbicara tentang editor, ada dua mazhab besar: VIM dan Emacs, namun keduanya
 > terlalu sulit untuk pemula. Sebagai pemula, saya sarankan anda untuk
 > menggunakan Nano atau Gedit. Gedit cukup mudah dipelajari dan difahami, tinggal
 > buka file yang akan diedit, edit, dan save. Untuk Nano, anda perlu mengetahui 
@@ -189,31 +189,33 @@ $ rm draft.txt
 ~~~
 {: .bash}
 
-This command removes files (`rm` is short for "remove").
-If we run `ls` again,
-its output is empty once more,
-which tells us that our file is gone:
+Perintah ini akan menghapus file (`rm` merupakan kependekran dari "remove").
+Jika kita run ls sekali lagi, file draft tersebut sudah tidak ada.
 
 ~~~
 $ ls
 ~~~
 {: .bash}
 
-Setelah anda bisa menggunanan nano, sangat saya sarankan untuk segera mempelajari VIM, text editor dengan kemampuan kecepatan jari anda.
+Setelah anda bisa menggunanan nano, sangat saya sarankan 
+untuk segera mempelajari **VIM**, text editor dengan kemampuan tercepat,
+secepat mana kecepatan jari anda.
 
 > ## Deleting Is Forever
->
-> The Unix shell doesn't have a trash bin that we can recover deleted
-> files from (though most graphical interfaces to Unix do).  Instead,
-> when we delete files, they are unhooked from the file system so that
-> their storage space on disk can be recycled. Tools for finding and
-> recovering deleted files do exist, but there's no guarantee they'll
-> work in any particular situation, since the computer may recycle the
-> file's disk space right away.
+> 
+> Shell Linux/Unix tidak memiliki tempat sampah (trash bin) untuk me-recover
+> file yang telah kita hapus. Ini artinya, apa yang telah kita hapus melalui
+> perintah di terminal akan hilang selamanya. Berbeda dengan ketika kita
+> menghapus dengan GUI pada file explorer (nautilus). Pada file explorer,
+> ketika kita menghapus sebenarnya kita hanya memindahkan file/direktori tersebut
+> ke direktori tempat sampah (Move to trash).
+> Ada beberapa tools yang bisa digunakan untuk merecover file yang telah
+> kita hapus seperti `testdisk` namun untuk pemula, tools tersebut tidak
+> menjamin apa yang telah kita hapus bisa kembali.
 {: .callout}
 
-Let's re-create that file
-and then move up one directory to `/Users/nelle/Desktop/data-shell` using `cd ..`:
+Mari kita buat lagi file tersebut dan memindahkannya ke direktori atasnya,
+yakni ke direktori `/home/bagustris/data-shell` dengan perintah `cd ..`:
 
 ~~~
 $ pwd
@@ -221,7 +223,7 @@ $ pwd
 {: .bash}
 
 ~~~
-/Users/nelle/Desktop/data-shell/thesis
+/home/bagustris/data-shell/thesis
 ~~~
 {: .output}
 
@@ -241,8 +243,8 @@ $ cd ..
 ~~~
 {: .bash}
 
-If we try to remove the entire `thesis` directory using `rm thesis`,
-we get an error message:
+Jika kita coba untuk menghapus direktori `thesis` dengan `rm thesis`,
+maka akan terjadi error:
 
 ~~~
 $ rm thesis
@@ -250,14 +252,25 @@ $ rm thesis
 {: .bash}
 
 ~~~
-rm: cannot remove `thesis': Is a directory
+rm: cannot remove `thesis`: Is a directory
 ~~~
 {: .error}
 
-This happens because `rm` by default only works on files, not directories.
+Ini terjadi karena, _by default_, perintah `rm` hanya bekerja pada file bukan direktori.
+Kita gunakan `rmdir` yang digunkan untuk menghapus direktori.
 
-To really get rid of `thesis` we must also delete the file `draft.txt`.
-We can do this with the [recursive](https://en.wikipedia.org/wiki/Recursion) option for `rm`:
+~~~
+$ rmdir thesis
+rmdir: failed to remove 'thesis/': Directory not empty
+~~~
+{: .error}
+
+Ini terjadi karena rmdir digunakan **hanya** untuk menghapus direktori kosong. Hal ini masuk akal,
+karena `rm` menghapus selamanya, jadi Linux memastikan bahwa direktori yang dihapus kosong.
+
+Untuk menghapus direktori `thesis` yang berisi file `draft.txt`, dimana artinya
+kita juga ikut menghapus file di dalam direktori tersebut, maka kita gunakan argumen 
+[recursive](https://en.wikipedia.org/wiki/Recursion) yakni `-r` untuk `rm`:
 
 ~~~
 $ rm -r thesis
