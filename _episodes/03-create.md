@@ -48,19 +48,19 @@ Desktop/    notes.txt            writing/
 ~~~
 {: .output}
 
-Let's create a new directory called `thesis` using the command `mkdir thesis`
-(which has no output):
+Mari kita buat sebuah direktori yang bernama `thesis` dengan menggunakan perintah `mkdir thesis`
+(yang tidak memiliki output):
 
 ~~~
 $ mkdir thesis
 ~~~
 {: .bash}
 
-As you might guess from its name,
-`mkdir` means "make directory".
-Since `thesis` is a relative path
-(i.e., doesn't have a leading slash),
-the new directory is created in the current working directory:
+Anda mungkin bisa menebak apa kegunaan `mkdir` dari namanya,
+`mkdir` merupakan "make directory" : membuat direktori.
+Karena `thesis` merupakan relative path
+(yakni tidak dipisahkan oleh slash),
+maka direktori baru bermana `thesis` dibuat dalam direktori saat ini.:
 
 ~~~
 $ ls -F
@@ -76,11 +76,10 @@ molecules/  solar.pdf
 {: .output}
 
 > ## Two ways of doing the same thing
-> Using the shell to create a directory is no different than using a file explorer.
-> If you open the current directory using your operating system's graphical file explorer,
-> the `thesis` directory will appear there too.
-> While they are two different ways of interacting with the files,
-> the files and directories themselves are the same.
+> Menggunakan shell untuk membuat direktori tidak adanya ketika anda meng-klik kanan pada file explorer (nautilus).
+> Jika anda membuka file explorer maka akan ada direktori `thesis` disana.
+> Meskipun ada dua cara berbeda membuat file dan direktori (GUI file explorer dan CLI terminal),
+> kedua direktori ataupun file tersebut sama saja.
 {: .callout}
 
 > ## Good names for files and directories
