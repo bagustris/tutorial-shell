@@ -80,7 +80,7 @@ Lebih spesifik, begini **algoritma**nya ketika mengetik `whoami` pada shell:
 
 > ## Variasi Username
 >
-> Pada lesson ini, `whoami` akan menampilkan akun user saya, yakni 'bagustris'
+> Pada lesson ini, `whoami` akan menampilkan akun user saya, yakni 'bagustris'. 
 > Pada komputer anda dan komputer lainnya, hasilnya tertentu akan berbeda
 > tergantung user siapa yang sedang login.
 {: .callout}
@@ -185,7 +185,7 @@ Jika kita kembangkan, maka isi /home misalnya adalah seperti gambar berikut
 
 ![The File System](../fig/home-directories.svg)
 
-Penjelasan dari beberana sub-direktori dari root **/**:
+Penjelasan dari beberapa sub-direktori dari root **/**:
 `bin` (which is where some built-in programs are stored),
 `data` (for miscellaneous data files),
 `Users` (where users' personal directories are located),
@@ -195,7 +195,7 @@ and so on.
 
 > ## Tanda Slashes
 >
-> Telah disinggu sebelumnya, tanda slash **/** memiliki dua arti
+> Telah disinggung sebelumnya, tanda slash **/** memiliki dua arti
 > pertama adalah root, kedua adalah separator direktori dan
 > subdirektori
 {: .callout}
@@ -400,10 +400,12 @@ Hampir semua perintah Linux shell disertai help dan manual pagenya.
 {: .callout}
 
 
-> ## `man` and Git for Windows
+> ## `man` dan --help
 > Manual merupakan sumberdaya penting untuk memahami perintah shell.
-> Bacalah manual!
+> Bacalah manual! (RFTF = read the f\*ck manual)
 > 
+> Selain manual kita bisa menggunakan `--help` untuk menampilkan argumen dari suatu perintah
+> Contoh: `ls --help` akan menampilkan penggunaan dan argumen yang bisa digunakan pada perintah `ls`
 {: .callout}
 
 `ls` juga bisa digunakan untuk melihat isi direktori. Jika tanpa 
