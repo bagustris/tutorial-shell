@@ -5,8 +5,9 @@ permalink: /license/
 ---
 ## Instructional Material
 
-All Software Carpentry and Data Carpentry instructional material is
-made available under the [Creative Commons Attribution
+All material on this tutorial is based on and derived from Software 
+Carpentry and Data Carpentry instructional material which is made 
+available under the [Creative Commons Attribution
 license][cc-by-human]. The following is a human-readable summary of
 (and not a substitute for) the [full legal text of the CC BY 4.0
 license][cc-by-legal].
