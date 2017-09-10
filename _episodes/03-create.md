@@ -1,5 +1,5 @@
 ---
-title: "Bekerja dengan File dan Direktori"
+title: "Bekerja dengan file dan direktori"
 teaching: 20
 exercise: 20
 questions:
@@ -11,10 +11,11 @@ objectives:
 - "Menampilkan daftar dan konten dari direktori dengan menggunakan perintah shell."
 - "Menghapus file dan/atau direktori tertentu."
 keypoints:
-- "`cp lama baru` mengcopy file *laman* ke *baru*."
+- "`cp lama baru` mengcopy file *lama* ke *baru*."
 - "`mkdir path` membuat direktori baru."
 - "`mv old new` me-rename file atau direktori."
 - "`rm path` menghapus file atau direktori."
+- " `rmdir direktorikosong` menghapus direktori kosong."
 - " `touch namafile.txt` membuat dan mengedit file baru namafile.txt"
 - "Penggunaan tombol control bisa bervariasi penulisannya yakni `Ctrl-X`, `Control-X`, and `^X`."
 - "Shell tidak mempunyai trash bin (recycle bin): artinya sekali dihapus hilang selamanya."
@@ -279,10 +280,11 @@ $ rm -r thesis
 
 > ## With Great Power Comes Great Responsibility
 >
-> Removing the files in a directory recursively can be very dangerous
-> operation. If we're concerned about what we might be deleting we can
-> add the "interactive" flag `-i` to `rm` which will ask us for confirmation
-> before each step
+> Menghapus file-file dalam direktori secara rekursif bisa jadi 
+> sangat berbahaya. Jika kita ingin meyakinkan diri tentang apa yang akan dihapus
+> kita bisa menambahkan flah `-i` yang merupakan singkatan dari "interactive"
+> pada perintah rm sehingga menjadi `rm -i file_yang_akan_dihapus`.
+>
 >
 > ~~~
 > $ rm -r -i thesis
@@ -292,13 +294,13 @@ $ rm -r thesis
 > ~~~
 > {: .bash}
 >
-> This removes everything in the directory, then the directory itself, asking
-> at each step for you to confirm the deletion.
+> Ini akan menghapus file di dalam direktori, kemudian direktori 
+> itu sendiri. Jika anda yakin ingin menghapusnya, tekan "y", jika tidak
+> ingin menghapusnya tekan "n".
 {: .callout}
 
-Let's create that directory and file one more time.
-(Note that this time we're running `nano` with the path `thesis/draft.txt`,
-rather than going into the `thesis` directory and running `nano` on `draft.txt` there.)
+Mari kita buat direktori dan file tersebut sekali lagi.
+(file draft kita edit dari direktori saat ini alih-alih berpindah ke direktori `thesis`.)
 
 ~~~
 $ pwd
@@ -306,7 +308,7 @@ $ pwd
 {: .bash}
 
 ~~~
-/Users/nelle/Desktop/data-shell
+/home/bagustris/data-shell
 ~~~
 {: .output}
 
@@ -322,22 +324,18 @@ draft.txt
 ~~~
 {: .output}
 
-`draft.txt` isn't a particularly informative name,
-so let's change the file's name using `mv`,
-which is short for "move":
+Nama file `draft.txt` sangat tidak informatif, bisa berarti draft apa saja, ya kan..?
+Baiklah, kita ganti namanya menjadi lebih spesifik dengan `mv`, kepanjangan dari "move".
 
 ~~~
 $ mv thesis/draft.txt thesis/quotes.txt
 ~~~
 {: .bash}
 
-The first parameter tells `mv` what we're "moving",
-while the second is where it's to go.
-In this case,
-we're moving `thesis/draft.txt` to `thesis/quotes.txt`,
-which has the same effect as renaming the file.
-Sure enough,
-`ls` shows us that `thesis` now contains one file called `quotes.txt`:
+`mv` memiliki dua parameter/argumen, parameter pertama adalah file yang akan dipindah/nama-lama 
+parameter kedua adalah tujuan/nama_baru. Jadi kita mengganti nama file dari `draft.txt` menjadi
+`quotes.txt` dalam folder `thesis`.
+Cek dengan ls untuk membuktikannya.
 
 ~~~
 $ ls thesis
@@ -349,39 +347,34 @@ quotes.txt
 ~~~
 {: .output}
 
-One has to be careful when specifying the target file name, since `mv` will
-silently overwrite any existing file with the same name, which could
-lead to data loss. An additional flag, `mv -i` (or `mv --interactive`),
-can be used to make `mv` ask you for confirmation before overwriting.
+Jika kita ingin memindah/merename file `draft.txt` tidak didalam direktori `thesis`
+namun di direktori lain, misal direktori saat ini, maka kita mengganti parameter tujuan 
+menjadi, misalnya, `./quotes`.
 
-Just for the sake of consistency,
-`mv` also works on directories
+Seperti halnya `rm`, perintah `mv` juga bisa dijalankan secara interaktif dengan flag `-i`, 
+atau `--interactive`.
 
-Let's move `quotes.txt` into the current working directory.
-We use `mv` once again,
-but this time we'll just use the name of a directory as the second parameter
-to tell `mv` that we want to keep the filename,
-but put the file somewhere new.
-(This is why the command is called "move".)
-In this case,
-the directory name we use is the special directory name `.` that we mentioned earlier.
+Perintah `mv` ini bisa dijakankan baik untuk file maupun direktori.
+
+Sekarang pindahkan file quotes.txt dalam direktori thesis ke direktori saat ini,
 
 ~~~
 $ mv thesis/quotes.txt .
 ~~~
 {: .bash}
 
-The effect is to move the file from the directory it was in to the current working directory.
-`ls` now shows us that `thesis` is empty:
+Cek dengan ls untuk melihat hasilnya
 
 ~~~
 $ ls thesis
+$ ls
+creatures  Desktop    north-pacific-gyre  pizza.cfg   solar.pdf  writing
+data       molecules  notes.txt           quotes.txt  thesis
 ~~~
 {: .bash}
 
-Further,
-`ls` with a filename or directory name as a parameter only lists that file or directory.
-We can use this to see that `quotes.txt` is still in our current directory:
+Lebih jauh, perintah `ls` disertai nama file atau direktori akan memberikan output
+nama file/direktori tersebut jika ada.
 
 ~~~
 $ ls quotes.txt
@@ -393,11 +386,13 @@ quotes.txt
 ~~~
 {: .output}
 
-The `cp` command works very much like `mv`,
-except it copies a file instead of moving it.
-We can check that it did the right thing using `ls`
-with two paths as parameters --- like most Unix commands,
-`ls` can be given multiple paths at once:
+**cp**
+Perintah `cp` bekerja mirip dengan `mv`, bedanya jika `mv` dapat kita artikan cut-paste 
+maka `cp` berarti copy atau copy-paste. Artinya, akan ada dua file atau direktori, file/direktori lama
+dan file/direktori baru. Sekali lagi cek dengan `ls` untuk melihat hasilnya
+
+  Perintah: `cp file nama-baru` bisa juga `cp lokasi/file lokasi-baru/nama-baru`.  
+Berikut contohnya.
 
 ~~~
 $ cp quotes.txt thesis/quotations.txt
@@ -410,9 +405,8 @@ quotes.txt   thesis/quotations.txt
 ~~~
 {: .output}
 
-To prove that we made a copy,
-let's delete the `quotes.txt` file in the current directory
-and then run that same `ls` again.
+Untuk membuktikan bahwa kita telah mengcopy file quotes menjadi quotations.txt (bukan symbolic link)
+silahkan hapus file `quotes.txt` dan jalankan `ls` lagi.
 
 ~~~
 $ rm quotes.txt
@@ -426,8 +420,9 @@ thesis/quotations.txt
 ~~~
 {: .error}
 
-This time it tells us that it can't find `quotes.txt` in the current directory,
-but it does find the copy in `thesis` that we didn't delete.
+File `quotes.txt` tidak ditemukan dalam direktori saat ini karena telah dihapus, 
+namun file `quotations.txt` tetap ada pada direktori `thesis`.
+
 
 > ## What's In A Name?
 >
