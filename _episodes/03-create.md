@@ -258,7 +258,7 @@ rm: cannot remove `thesis`: Is a directory
 {: .error}
 
 Ini terjadi karena, _by default_, perintah `rm` hanya bekerja pada file bukan direktori.
-Kita gunakan `rmdir` yang digunkan untuk menghapus direktori.
+Kita gunakan `rmdir` untuk menghapus direktori.
 
 ~~~
 $ rmdir thesis
@@ -266,7 +266,7 @@ rmdir: failed to remove 'thesis/': Directory not empty
 ~~~
 {: .error}
 
-Ini terjadi karena rmdir digunakan **hanya** untuk menghapus direktori kosong. Hal ini masuk akal,
+Ini terjadi karena `rmdir` digunakan **hanya** untuk menghapus direktori kosong. Hal ini masuk akal,
 karena `rm` menghapus selamanya, jadi Linux memastikan bahwa direktori yang dihapus kosong.
 
 Untuk menghapus direktori `thesis` yang berisi file `draft.txt`, dimana artinya
@@ -324,6 +324,7 @@ draft.txt
 ~~~
 {: .output}
 
+## MV
 Nama file `draft.txt` sangat tidak informatif, bisa berarti draft apa saja, ya kan..?
 Baiklah, kita ganti namanya menjadi lebih spesifik dengan `mv`, kepanjangan dari "move".
 
@@ -386,7 +387,7 @@ quotes.txt
 ~~~
 {: .output}
 
-**cp**
+## CP
 Perintah `cp` bekerja mirip dengan `mv`, bedanya jika `mv` dapat kita artikan cut-paste 
 maka `cp` berarti copy atau copy-paste. Artinya, akan ada dua file atau direktori, file/direktori lama
 dan file/direktori baru. Sekali lagi cek dengan `ls` untuk melihat hasilnya
@@ -424,30 +425,29 @@ File `quotes.txt` tidak ditemukan dalam direktori saat ini karena telah dihapus,
 namun file `quotations.txt` tetap ada pada direktori `thesis`.
 
 
-> ## What's In A Name?
+> ## Ada apa dibalik nama file?
 >
-> You may have noticed that all of Nelle's files' names are "something dot
-> something", and in this part of the lesson, we always used the extension
-> `.txt`.  This is just a convention: we can call a file `mythesis` or
-> almost anything else we want. However, most people use two-part names
-> most of the time to help them (and their programs) tell different kinds
-> of files apart. The second part of such a name is called the
-> **filename extension**, and indicates
-> what type of data the file holds: `.txt` signals a plain text file, `.pdf`
-> indicates a PDF document, `.cfg` is a configuration file full of parameters
-> for some program or other, `.png` is a PNG image, and so on.
+> Penamaan file, seperti telah disinggu sebelumnya, mengikuti konvensi,
+> **namafile.ekstensi**, misalnya **draft.txt**. Draft adalah nama filenya
+> dan txt adalah ekstensinya. Bisa saja kita menulis nama filenya
+> hanya dengan **draft** saja, namun umumnya digunakan ekstensi untuk
+> mengidentifikasi jenis file tersebut.
+> Ekstensi ditulis setelah tanda titik (dot). Beberapa ekstensi berikut
+> adalah yang umum digunakan:
+> 1. `.txt`: file teks
+> 2. `.pdf`: file pdf (portable document format)
+> 3. `.xfg`: file untuk konfigurasi
+> 4. `.png`: file gambar png (portable network graphics)
+> 5. dst
 >
-> This is just a convention, albeit an important one. Files contain
-> bytes: it's up to us and our programs to interpret those bytes
-> according to the rules for plain text files, PDF documents, configuration
-> files, images, and so on.
->
-> Naming a PNG image of a whale as `whale.mp3` doesn't somehow
-> magically turn it into a recording of whalesong, though it *might*
-> cause the operating system to try to open it with a music player
-> when someone double-clicks it.
+> Bisa saja anda merename sebuah file gambar, `image01.png` menjadi
+> `image01.mp3`. Filenya akan tetap sama file gambar, bukan berubah
+> menjadi file suara/lagu. Namun, ketika membuka dengan GUI file eksplorer,
+> komputer akan membukanya dengan program pemutar musik, bukan
+> pembuka gambar, karena ekstensinya adalah **.mp3**, bukan **.png**.
 {: .callout}
 
+## Latihan
 > ## Renaming Files
 >
 > Suppose that you created a `.txt` file in your current directory to contain a list of the
