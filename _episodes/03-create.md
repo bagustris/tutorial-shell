@@ -13,7 +13,7 @@ objectives:
 keypoints:
 - "`cp lama baru` mengcopy file *lama* ke *baru*."
 - "`mkdir path` membuat direktori baru."
-- "`mv old new` me-rename file atau direktori."
+- "`mv old new` me-rename/memindah file atau direktori."
 - "`rm path` menghapus file atau direktori."
 - " `rmdir direktorikosong` menghapus direktori kosong."
 - " `touch namafile.txt` membuat dan mengedit file baru namafile.txt"
