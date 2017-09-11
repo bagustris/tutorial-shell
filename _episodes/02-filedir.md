@@ -142,7 +142,7 @@ $ pwd
 Home directory adalah rumah kita, artinya sistem operasi akan
 menyimpan file dokumen, gambar, musik, film dll disitu, `by default`.
 
-Jika kita perhatikan urutan `path` home direktory maka strukturnya adalah **/ + home + / + username**.
+Jika kita perhatikan urutan `path` home direktory maka strukturnya adalah **"/" + "home" + "/" + "username"**.
 Garis miring pertama merupakan root, kemudian "home" berisi user-user pengguna komputer tsb, kemudian
 garis miring pemisah direktori/subdirektori dan nama direktori yakni nama user.
 
