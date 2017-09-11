@@ -600,7 +600,7 @@ Mengorganisasi file sangat penting, beberapa hal yang bisa dilakukan adalah sbb:
 - nama file sesuai isinya
 - nama diawali huruf
 - tidak ada spasi
-- jika diawali angka maka berformat tahun-Angkabulan-tanggal
+- jika diawali angka maka berformat tahun-angkaBulan-tanggal
 
 > ## Sorting Output
 >
