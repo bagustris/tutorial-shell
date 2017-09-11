@@ -101,7 +101,7 @@ molecules/  solar.pdf
 > 2. Jangan mengawali nama file/direktori dengan `-` (dash).
 >
 >    Perintah Unix/Linux menggunakan tanda dash untuk menandai option 
->    Contonya: `ls -F`
+>    Contohnya: `ls -F`
 >
 > 3. Hanya gunakan huruf, angka, titik, dash (`-`) dan underscore (`_`).
 >    
