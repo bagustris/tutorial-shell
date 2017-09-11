@@ -3,8 +3,8 @@ title: "Bekerja dengan file dan direktori"
 teaching: 20
 exercise: 20
 questions:
-- "Bagaimana saya membuat, menyalin dan menghapus file dan direktori?"
-- "Bagaimana saya mengedit file?"
+- "Bagaimana membuat, menyalin dan menghapus file dan direktori?"
+- "Bagaimana mengedit file?"
 objectives:
 - "Membuat hierarki direktori yang match dengan pola yang diberikan"
 - "Membuat file dalam direktori dengan editor dengan mengcopy dan merename file yang ada."
