@@ -16,7 +16,7 @@ keypoints:
 ---
 ### Latar Belakang
 Pada level tinggi, kompuer melakukan empat hal berikut:
-1.  Menjalakankan program
+1.  Menjalankan program
 2.  Menyimpan data
 3.  Berkomunikasi dengan komputer dan perangkat lainnya, dan
 4.  Berinteraksi dengan kita
@@ -42,7 +42,7 @@ antar muka komputer terbagi menjadi dua:
    - **command-line interface**, or CLI,
    - **graphical user interface**, or GUI,
 
-Workflo dari CLI adalah **read-evaluate-print loop**, atau REPL:
+Workflow dari CLI adalah **read-evaluate-print loop**, atau REPL:
 artinya user ketika user mengetikkan perintah pada terminal
 kemudian menekan enter (evaluate), maka komputer akan membaca perintah tersebut,
 mengeksekusi dan menampilkan outpunya. Begitu seterusnya, **loop**, sampai
@@ -73,46 +73,52 @@ Perhatikan contoh di bawah ini.
 
 ## Nelle's Pipeline: Starting Point
 
-Nelle Nemo, a marine biologist,
+Nelle Nemo, seorang marine biologist,
+baru saja menyelesaikan survey enam bulan tentang
 has just returned from a six-month survey of the
 [North Pacific Gyre](http://en.wikipedia.org/wiki/North_Pacific_Gyre),
-where she has been sampling gelatinous marine life in the
+dimana dia mengambil data dari kehidupan *gelatinous marine* di
 [Great Pacific Garbage Patch](http://en.wikipedia.org/wiki/Great_Pacific_Garbage_Patch).
-She has 1520 samples in all and now needs to:
+Dia memiliki total 1520 samples dan sekarang dia membutuhkan beberapa hal sbb:
 
-1.  Run each sample through an assay machine
-    that will measure the relative abundance of 300 different proteins.
-    The machine's output for a single sample is
-    a file with one line for each protein.
-2.  Calculate statistics for each of the proteins separately
-    using a program her supervisor wrote called `goostat`.
-3.  Compare the statistics for each protein
-    with corresponding statistics for each other protein
-    using a program one of the other graduate students wrote called `goodiff`.
-4.  Write up results.
-    Her supervisor would really like her to do this by the end of the month
-    so that her paper can appear in an upcoming special issue of *Aquatic Goo Letters*.
+1.  Menjalankan setiap sampel pada mesin uji
+    yang akan mengukur ketersediaan 300 protein yang berbeda.
+    Luaran dari mesin (komputer) untuk setiap sampel adalah
+    sebuah file, satu baris untuk tiap proteinnya.
+2.  Menghitung statistik dari tiap protein secara terpisah
+    menggunakan program dari pembimbingnya yang disebut `goostat`.
+3.  Membandingkan statistik dari tiap protein, dimana
+    tiap protein lain dibandingkan dengan protein lainnya, dengan
+    program yang dibuat oleh mahasiswa lainnya yang disebut `goodiff`.
+4.  Menuliskan hasilnya.
+    Pembimbingnya menginginkan Nelle Nemo dapat menyelesaikan
+    eksperimen ini pada akhir bulan sehingga papernya dapat dimuat
+    pada *special issue* **Aquatic Goo Letters**.
 
-It takes about half an hour for the assay machine to process each sample.
-The good news is that
-it only takes two minutes to set each one up.
-Since her lab has eight assay machines that she can use in parallel,
-this step will "only" take about two weeks.
+Untuk memproses tiap sampel, dibutuhkan waktu satu jam setengah. Berita baiknya,
+hanya dibutuhkan dua menit untuk set up tiap sampel. Karena lab-nya memiliki
+delapan komputer ujicoba yang dapat digunakan secara parallel, langkah-langkah ini
+"hanya" membutuhkan waktu dua minggu.
 
-The bad news is that if she has to run `goostat` and `goodiff` by hand,
-she'll have to enter filenames and click "OK" 46,370 times
+Berita buruknya, jika dia (Nelle Nemo), menjalankan program `goostat` dan `goodif`
+secara manual satu per satu, dia akan membutuhkan waktu untuk memasukkan nama file
+dan mengklik "OK" sebanyak 46370 kali
 (1520 runs of `goostat`, plus 300*299/2 (half of 300 times 299) runs of `goodiff`).
-At 30 seconds each,
-that will take more than two weeks.
-Not only would she miss her paper deadline,
-the chances of her typing all of those commands right are practically zero.
+selama 30 detik untuk setiap satu kali.
+Total dibutuhkan waktu lebih dari dua minggu.
+Tidak hanya kehilangan deadline dari paper, 
+kemungkinan untuk dapat mengetikkan perintah dan nama file dengan benar 
+secara praktek sangat kecil kemungkinannya (0%).
 
-The next few lessons will explore what she should do instead.
-More specifically,
-they explain how she can use a command shell
-to automate the repetitive steps in her processing pipeline
-so that her computer can work 24 hours a day while she writes her paper.
-As a bonus,
-once she has put a processing pipeline together,
-she will be able to use it again whenever she collects more data.
+Pelajaran-pelajaran selanjutnya pada tutorial shell ini 
+akan menunjukkan bagaimana kita dapat menggunakan shell
+untuk mengotomasi pekerjaan berulang pada kasus Nella Nemo tersebut.
 
+Goal yang ingin kita tuju adalah, komputer Nemo dapat bekerja 24 jam
+non-stop sementara Nemo memulis papernya. Sebagai bonus,sekali dia bisa
+menjalankan proses untuk sampel-sampelnya secara bersamaan, dia dapat 
+menggunakannya kembali ketika dia mendapatkan data baru.
+
+Daftar bacaan:
+1. [20 tahun Linux: Menuju kemerdaan ber-OS](http://www.bagustris.tk/2011/09/20-tahun-linux-os-menuju-kebebasan-ber.html)
+2. [Kenapa memakai Ubuntu](http://www.bagustris.tk/2014/03/kenapa-memakai-ubuntu.html)
