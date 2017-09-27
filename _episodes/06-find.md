@@ -682,4 +682,32 @@ about them."
 {: .challenge}
 
 
-** tambahkan `locate` dan `which` sebagai perbandingan**
+### `locate` dan `which` 
+Sebagai perbandingan, tidak hanya `find` dapat digunakan untuk menemukan file,
+tapi kita juga bisa menggunakan `locate` dan `which`. Bagaimana
+cara menggunakannya...? Berikut penjelasan singkatnya.
+
+#### locate
+Menurut `man page`, `locate` merupakan perintah untuk menemukan file
+berdasarkan nama file. Contoh:
+> ~~~
+> $ locate octave-cli
+> /usr/local/bin/octave-cli
+> /usr/local/bin/octave-cli-4.2.1
+> /usr/local/share/man/man1/octave-cli.1
+> ~~~
+> {: .bash}
+
+#### which
+`which`, berbeda dengan `find` dan `locate` berfungsin untuk
+menemukan lokasi dari suatu perintah, bukan file.
+Contohnya adalah sebagai berikut:
+> ~~~
+> $ which gcc
+> /usr/bin/gcc
+> ~~~
+> {: .bash}
+
+
+Daftar bacaan:
+- [How To Find A File In Linux Using The Command Line](https://www.lifewire.com/uses-of-linux-command-find-2201100)
