@@ -616,3 +616,7 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > > an empty string.
 > {: .solution}
 {: .challenge}
+
+Daftar bacaan lanjut:
+- [Review buku Linux: the art of problem determination](http://www.bagustris.tk/2014/02/the-art-of-problem-determination.html)
+- [Keluar dari neraka dependensi](http://www.bagustris.tk/2014/02/keluar-dari-neraka-dependensi_28.html)
