@@ -5,7 +5,7 @@ exercises: 15
 questions:
 - "Bagaimana cara menemukan file?"
 - "Bagaimana mencari kata kunci pada file?"
-- "Bagaimana saya mengetahui lokasi dari file dan direktori pada komputer saya?"
+- "Bagaimana saya mengetahui lokasi dari file/direktori dan perintah pada komputer saya?"
 objectives:
 - "Gunakan `grep` untuk mencari baris yang polanya cocok dengan yang dicari."
 - "Gunakan `find` untuk mencari file yang polanya sesuai dengan yang diinginkan."
