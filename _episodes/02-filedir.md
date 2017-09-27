@@ -653,15 +653,15 @@ $ ls north-pacific-gyre/
 
 Jika Nelle menekan tab lagi, maka Bash Shell akan menambahkan `2012-07-03/` pada perintahnya,
 karena hanya ada satu sub direktori yang mungkin maka folder tsblah yang akan muncul.
-
-menekan tab lagi akan menampilkan 19 kemungkinan file yanga ada dalam subdirektori `2012-07-03/`.
-
-menekan tab lagi tidak menunjukkan apa-apa karena sudah
+Menekan tab lagi akan menampilkan 19 kemungkinan file yanga ada dalam subdirektori `2012-07-03/`.
+Menekan tab lagi tidak menunjukkan apa-apa karena sudah
 tidak ada lagi sub direktori di bawahnya.
 
 Inilah yang disebut **tab completion**,
-shortcut yang sangat memudahkan hidup menggunakan Linux/Unix.
+shortcut yang sangat memudahkan hidup pengguna Linux/Unix.
 
+Daftar bacaan:
+- [20 Perintah dasar Linux](http://www.bagustris.tk/2017/07/20-perintah-dasar-linux-shell.html)
 > ## Absolute vs Relative Paths
 >
 > Starting from `/Users/amanda/data/`,
