@@ -238,18 +238,18 @@ $ wc -l *.pdb > length.txt | sort -n
 
 > ## Redirecting ke file yang sama
 >
-> It's a very bad idea to try redirecting
-> the output of a command that operates on a file
-> to the same file. For example:
+> Adalah ide yang buruk untuk me-redirect
+> output dari perintah yang bekerja pada file 
+> yang sama. Sebagai contoh:
 >
 > ~~~
 > $ sort -n lengths.txt > lengths.txt
 > ~~~
 > {: .bash}
 >
-> Doing something like this may give you
-> incorrect results and/or delete
-> the contents of `lengths.txt`.
+> Melakukan operasi seperti itu akan berbahaya
+> untuk file-file penting karena akan menghapus
+> isi dari file `lengths.txt`.
 {: .callout}
 
 
@@ -324,69 +324,67 @@ Kanal error ini biasanya digunakan untuk untuk mendiagnosa program, selain tetap
 outout dari perintah di sebelah kiri pipe ke perintah di sebelah kanan pipe.
 
 ## Unix philosophy: Do one thing and do it well.
-The shell is actually just another program.
-Under normal circumstances,
-whatever we type on the keyboard is sent to the shell on its standard input,
-and whatever it produces on standard output is displayed on our screen.
-When we tell the shell to run a program,
-it creates a new process
-and temporarily sends whatever we type on our keyboard to that process's standard input,
-and whatever the process sends to standard output to the screen.
+Shell sebenarnya adalah sebuah program, 
+dalam keadaan normal, apapun yang kita tik
+di shell sesuai standar input akan menampilkan
+apapun outputnya pada layar terminal.
+Ketika kita menjalankan sebuah prorgram pada shell, 
+shel akan menjalankan sebuah proses dan mengirimnya sementara 
+apapun yang kita tik pada keyboard ke input standar proses,
+dan apapun proses yang terkirim akan dikiriom ke standar output 
+ke standar output.
 
-Here's what happens when we run `wc -l *.pdb > lengths.txt`.
-The shell starts by telling the computer to create a new process to run the `wc` program.
-Since we've provided some filenames as parameters,
-`wc` reads from them instead of from standard input.
-And since we've used `>` to redirect output to a file,
-the shell connects the process's standard output to that file.
+Apa yang terjadi ketika kita menjalankan `wc -l *.pdb > lengths.txt`.
+Shell mulai meminta komputer untuk membuat proses baru menjalankan
+program `wc`. Karena kita memberikan input nama file sebagai parameter, 
+`wc` akan membacanya sebagai input, dan kita menambahkan  `>` untuk
+me-redirect output dari proses ke sebuah file. Shell
+menghubungkan output dari proses standar ke file tersebut.
 
-If we run `wc -l *.pdb | sort -n` instead,
-the shell creates two processes
-(one for each process in the pipe)
-so that `wc` and `sort` run simultaneously.
-The standard output of `wc` is fed directly to the standard input of `sort`;
-since there's no redirection with `>`,
-`sort`'s output goes to the screen.
-And if we run `wc -l *.pdb | sort -n | head -n 1`,
-we get three processes with data flowing from the files,
-through `wc` to `sort`,
-and from `sort` through `head` to the screen.
+Jika kita menjalankan `wc -l *.pdb | sort -n`,
+shell akan membuat dua proses (satu untuk tiap sisi *pipe*) 
+sehingga `wc` dan `sort` berjalan secara simultan.
+Luaran standar dari `wc` diteruskan ke input standar dari `sort`;
+karena tidak ada redirection `>`, output dari `sort` akan langsung
+menuju layar. Jika kita jalankan `wc -l *.pdb | sort -n | head -n 1`,
+kita akan mendapatkan tiga proses dengan aliran data dari satu ke yang lain, 
+dari `wc` ke `sort`, dari `sort` ke `head` kemudian ke layar.
 
 ![Redirects and Pipes](../fig/redirects-and-pipes.png)
 
-This simple idea is why Unix has been so successful.
-Instead of creating enormous programs that try to do many different things,
-Unix programmers focus on creating lots of simple tools that each **do one job well**,
-and that work well with each other.
-This programming model is called "pipes and filters".
-We've already seen pipes;
-a **filter** is a program like `wc` or `sort`
-that transforms a stream of input into a stream of output.
-Almost all of the standard Unix tools can work this way:
-unless told to do otherwise,
-they read from standard input,
-do something with what they've read,
-and write to standard output.
+Ide sederhana dari Unix ini membuat Unix (dan Linux) sangat sukses.
+Apa ide sederhananya..? Tak lain adalah membatasi tiap satu perintah
+melakukan satu pekerjaan -- **do one job well**, dan tiap perintah 
+tersebut bekerja dengan baik satu sama lain.
+Model pemrograman dengan mengkombinasikan beberapa perintah ini 
+disebut "pipes dan filters". Kita telah menggunakan "pipes", kemudian 
+bagaimana dengan filter...?
+Sebuah **filter** adalah program seperti `wc` dan `sort` yang
+mentransformasikan stream input ke stream output.
+Hampir semua perangkat standar Unix dapat bekerja sepert ini, kecuali 
+diperintahkan untuk bekerja sebaliknya. Unix shell membaca input standar,
+mengerjakan apa yang diperintahkan, dan menuliskan hasilnya ke output standar.
 
-The key is that any program that reads lines of text from standard input
-and writes lines of text to standard output
-can be combined with every other program that behaves this way as well.
-You can *and should* write your programs this way
-so that you and other people can put those programs into pipes to multiply their power.
+Intinya, setiap program yang dapat membaca input dari tiap baris file, dan 
+menuliskan output tiap barisnya pada standar output dapat dikombinasikan dengan 
+program yang lain yang juga bekerja demikian. Anda juga bisa, **dan seharusnya**, 
+membuat program dengan cara ini sehingga orang lain yang menggunakan program anda
+dapat meletakkan program anda tersebut dalam pipes agar lebih powerful.
 
 > ## Redirecting Input
 >
-> As well as using `>` to redirect a program's output, we can use `<` to
-> redirect its input, i.e., to read from a file instead of from standard
-> input. For example, instead of writing `wc ammonia.pdb`, we could write
-> `wc < ammonia.pdb`. In the first case, `wc` gets a command line
-> parameter telling it what file to open. In the second, `wc` doesn't have
-> any command line parameters, so it reads from standard input, but we
-> have told the shell to send the contents of `ammonia.pdb` to `wc`'s
+> Seperti halnya menggunakan `>` untuk me-redirect output dari sebuah program
+> kita juga bisa menggunakan `<` untuk me-redirect input dari sebuah program
+> misalnya untuk membaca file, bukan standar inputnya. Jadi daripada
+> menulis `wc ammonia.pdb`, kita bisa menulis `wc < ammonia.pdb`. Pada kasus pertama 
+> `wc` menerima paramater command line untuk membuka file tersebut.
+> Pada perintah kedua, `wc` tidak menerima parameter command line, sehingga
+> akan membaca dari input standar, namun kita telah menyuruh shell untuk mengirim
+> isi dari `ammonia.pdb` ke standar input dari `wc`.
 > standard input.
 {: .callout}
 
-## Nelle's Pipeline: Checking Files
+## LATIHAN > Nelle's Pipeline: Checking Files
 
 Nelle has run her samples through the assay machines
 and created 1520 files in the `north-pacific-gyre/2012-07-03` directory described earlier.
