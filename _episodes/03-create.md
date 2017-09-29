@@ -436,7 +436,7 @@ namun file `quotations.txt` tetap ada pada direktori `thesis`.
 > adalah yang umum digunakan:
 > 1. `.txt`: file teks
 > 2. `.pdf`: file pdf (portable document format)
-> 3. `.xfg`: file untuk konfigurasi
+> 3. `.cfg`: file untuk konfigurasi
 > 4. `.png`: file gambar png (portable network graphics)
 > 5. dst
 >
