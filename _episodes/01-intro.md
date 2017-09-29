@@ -42,7 +42,7 @@ antar muka komputer terbagi menjadi dua:
    - **command-line interface**, or CLI,
    - **graphical user interface**, or GUI,
 
-Workflow dari CLI adalah **read-evaluate-print loop**, atau REPL:
+Workflow dari CLI adalah **read-evaluate-print-loop**, atau REPL:
 artinya user ketika user mengetikkan perintah pada terminal
 kemudian menekan enter (evaluate), maka komputer akan membaca perintah tersebut,
 mengeksekusi dan menampilkan outpunya. Begitu seterusnya, **loop**, sampai
