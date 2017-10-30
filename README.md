@@ -5,12 +5,8 @@ Tutorial ini merupakan pengenalan Linux shell untuk pemula. Cek halaman <https:/
 
 Maintainers:
 
-* [Gabriel Devenyi][devenyi_gabriel]
-* [Ashwin Srinath][srinath_ashwin]
-* [Bagus Tris Atmaja][bagustris]
+* [Bagus Tris Atmaja][bagustris]: Silahkan kontak saya jika menemukan bug atau ingin menghost workshop shell-tutorial ini
 
-[devenyi_gabriel]: http://software-carpentry.org/team/#devenyi_gabriel
-[srinath_ashwin]: http://software-carpentry.org/team/#srinath_ashwin
 [bagustris]: https://bagustris.tk
 [lesson-example]: https://swcarpentry.github.io/lesson-example/
 
