@@ -62,6 +62,9 @@ adalah Bash, singkatan dari Bourne Again SHell yang diambil dari nama pembuatnya
 Bash adalah shell default pada hampir semua Linux dan Unix modern. Selain bash ada jenis shell lainnya,
 ksh, zsh dan csh.
 
+Gambar berikut adalah *concept map* dari Unix/Linux shell yang akan kita pelajari pada tutorial ini.
+![Unix-concept-map](../fig/concept-map.png)
+
 ### Why bother?
 Kenapa memakai bash jika anda bisa tinggal klik sana-sini? Powerful. Bash sangat powerfull.
 Ketika anda mengklik pada **GUI**, sebenarnya ada dua step yakni anda mengklik dan diterjemahkan 
@@ -115,7 +118,7 @@ akan menunjukkan bagaimana kita dapat menggunakan shell
 untuk mengotomasi pekerjaan berulang pada kasus Nella Nemo tersebut.
 
 Goal yang ingin kita tuju adalah, komputer Nemo dapat bekerja 24 jam
-non-stop sementara Nemo memulis papernya. Sebagai bonus,sekali dia bisa
+non-stop sementara Nemo memulis papernya. Sebagai bonus, sekali dia bisa
 menjalankan proses untuk sampel-sampelnya secara bersamaan, dia dapat 
 menggunakannya kembali ketika dia mendapatkan data baru.
 
