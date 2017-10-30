@@ -10,7 +10,7 @@ Linux/Unix shell banyak digunakan karena kemampuannya yang **powerful**. Mampu m
 Ada banyak alasan, diantaranya adalah sbb:  
 1. **Kecepatan**. Jika anda sudah terbiasa, dan *expert*, menggunakan shell, anda akan lebih banyak menghemat klik dan menghemat waktu karena akses shell lebih cepat.
 2. **Fleksibilitas (keleluasaan)**. Dengan shell, kita bisa memberi argumen pada suatu program, misalnya kita ingin membuka program tanpa plugin, membuka program tanpa menggunkan Java, dll.
-3. **Otomasi**. Shell scripting banyak digunakan untuk meng-otomasi pekerjaan yang berulang-ulang, yang akan sangat menyita waktu kalau kita mengerjakan satu-satu. Misal, me-renam 100 file dalam satu folder, memodifikasi ukuran 1000 file, dst.
+3. **Otomasi**. Shell scripting banyak digunakan untuk meng-otomasi pekerjaan yang berulang-ulang, yang akan sangat menyita waktu kalau kita mengerjakan satu-satu. Misal, me-rename 100 file dalam satu folder, memodifikasi ukuran 1000 file, dst.
 4. **Program-program tertentu hanya bisa diakses lewat shell**. Ya, hanya lewat shell, misal: ssh, rsync, curl, setting proxy, kompilasi, instalasi (./configure, make, make install), dll. Memang telah dibuat versi GUI dari beberapa program tsb,tapi tidak semua.
 
 
