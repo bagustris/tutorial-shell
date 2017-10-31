@@ -5,7 +5,7 @@ Tutorial ini merupakan pengenalan Linux shell untuk pemula. Cek halaman <https:/
 
 Maintainers:
 
-* [Bagus Tris Atmaja][bagustris]: Silahkan kontak saya jika menemukan bug, inging berkontribusi atau ingin menghost workshop shell-tutorial ini
+* [Bagus Tris Atmaja][bagustris]: Silahkan kontak saya jika menemukan bug, ingin berkontribusi atau ingin menghost workshop shell-tutorial ini
 
 [bagustris]: https://bagustris.tk
 [lesson-example]: https://swcarpentry.github.io/lesson-example/
