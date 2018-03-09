@@ -37,7 +37,7 @@ $ cp *.dat original-*.dat
 ~~~
 {: .bash}
 
-karena perinta tersebut akan diterjemahkan menjadi:
+karena perintah tersebut akan diterjemahkan menjadi:
 
 ~~~
 $ cp basilisk.dat unicorn.dat original-*.dat
@@ -76,17 +76,18 @@ UPDATED: 1738-11-24
 ~~~
 {: .output}
 
-When the shell sees the keyword `for`,
-it knows to repeat a command (or group of commands) once for each thing `in` a list.
-For each iteration,
-the name of the each thing is sequentially assigned to
-the **variable** and the commands inside the loop are executed before moving on to 
-the next thing in the list.
-Inside the loop,
-we call for the variable's value by putting `$` in front of it.
-The `$` tells the shell interpreter to treat
-the **variable** as a variable name and substitute its value in its place,
-rather than treat it as text or an external command. 
+Ketika shell menemukan kata kunci `for`, 
+dia akan mengetahui kalau perintah tersebut digunakan untuk mengulang sebuah perintah 
+atau kumpulan perintah untuk tiap sesuatu `pada` sebuah list.
+Untuk tiap iterasi (satu loop),
+tiap nama sesuatu secara sekuensial di-assign pada **variabel** 
+dan perintah di dalam loop dieksekusi sebelum berpindah pada sesuatu yang lain 
+pada list tersebut.
+Di dalam sebuah loop,
+kita dapat memanggil nilai dari variabel dengan meletakkan tanda `$` di depannya.
+Tanda `$` memerintahkan shell interpreter untuk memberkalukan **variabel** sebagai
+nama variabel dan menggantinya dengan nilai yang sesuai menurut letakknya.
+Bukan dieksekusi sebagai text atau perintah lainnya.
 
 In this example, the list is two filenames: `basilisk.dat` and `unicorn.dat`.
 Each time the loop iterates, it will assign a file name to the variable `filename`
