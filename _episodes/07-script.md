@@ -5,29 +5,25 @@ exercises: 20
 questions:
 - "Bagaimana cara menyimpan dan menggunakan kembali perintah shell?"
 objectives:
-- "Write a shell script that runs a command or series of commands for a fixed set of files."
-- "Run a shell script from the command line."
-- "Write a shell script that operates on a set of files defined by the user on the command line."
-- "Create pipelines that include shell scripts you, and others, have written."
+- "Menulis skrip shell yang menjalankan sebuah atau sekumpulan perintah untuk sekumpulan file."
+- "Menjalankan skrip shell dari baris perintah."
+- "Menulis sebuah skrip shell yang mengoperasikan sekumpulan file yang didefinisikan oleh user pada baris perintah lainnya."
+- "Membuat pipelines yang memasukkan skirp shell yang ditulis olehmu dan user lainnya."
 keypoints:
-- "Save commands in files (usually called shell scripts) for re-use."
-- "`bash filename` runs the commands saved in a file."
-- "`$@` refers to all of a shell script's command-line parameters."
-- "`$1`, `$2`, etc., refer to the first command-line parameter, the second command-line parameter, etc."
-- "Place variables in quotes if the values might have spaces in them."
-- "Letting users decide what files to process is more flexible and more consistent with built-in Unix commands."
+- "Menyimpan perintah dalam file (disebut "skip shell") agar dapat di re-use."
+- "Menjalankan perintah yang disimpan dalam file dengan perintah `bash filename`"
+- "`$@` merefer semua parameter skripp shell.
+- "`$1`, `$2`, dll merefer nilai pertama parameter, nilai kedua dst."
+- "Gunakan tanda quote untuk nilai yang memiliki spasi."
 ---
 
-We are finally ready to see what makes the shell such a powerful programming environment.
-We are going to take the commands we repeat frequently and save them in files
-so that we can re-run all those operations again later by typing a single command.
-For historical reasons,
-a bunch of commands saved in a file is usually called a **shell script**,
-but make no mistake:
-these are actually small programs.
+Agar dapat menjalankan perintah yang sama berulang-ulang, 
+maka kita dapat menyimpan perintah-perintah tersebut dalam sebuah file, 
+disebut **skrip shell**.
 
-Let's start by going back to `molecules/` and creating a new file, `middle.sh` which will
-become our shell script:
+Sebagai contoh, mari kita kembali pada directory `molecules/` dan membuah file baru 
+dengan nama `middle.sh` yang akan menjadi skrip shell. Ekstensi `.sh` menunjukkan bahwa 
+file tersebut adalah file skrip shell.
 
 ~~~
 $ cd molecules
