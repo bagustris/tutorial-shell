@@ -386,9 +386,10 @@ dapat meletakkan program anda tersebut dalam pipes agar lebih powerful.
 
 ## LATIHAN > Nelle's Pipeline: Checking Files
 
-Nelle has run her samples through the assay machines
-and created 1520 files in the `north-pacific-gyre/2012-07-03` directory described earlier.
-As a quick sanity check, starting from her home directory, Nelle types:
+Nelle telah menjalankan sampelnya pada komputer uji
+da menghasilkan 1520 files pada direcktori `north-pacific-gyre/2012-07-03` yang 
+telah dijelaskan sebelumnya.
+Untuk mengeceknya secara cepat, dari directory `home`, Nelle mengetikkan:
 
 ~~~
 $ cd north-pacific-gyre/2012-07-03
@@ -396,7 +397,7 @@ $ wc -l *.txt
 ~~~
 {: .bash}
 
-The output is 1520 lines that look like this:
+Outputnya adalah 1520 baris seperti ini:
 
 ~~~
 300 NENE01729A.txt
@@ -409,7 +410,7 @@ The output is 1520 lines that look like this:
 ~~~
 {: .output}
 
-Now she types this:
+Sekarang dia mengetikkan:
 
 ~~~
 $ wc -l *.txt | sort -n | head -n 5
@@ -425,14 +426,13 @@ $ wc -l *.txt | sort -n | head -n 5
 ~~~
 {: .output}
 
-Whoops: one of the files is 60 lines shorter than the others.
-When she goes back and checks it,
-she sees that she did that assay at 8:00 on a Monday morning --- someone
-was probably in using the machine on the weekend,
-and she forgot to reset it.
-Before re-running that sample,
-she checks to see if any files have too much data:
+Whoops: salah satu file lebih pendek 60 baris dari yang lainnya.
+Ketika dia kembali dan mengeceknya, 
+dia melihat bahwa dia melakukan ujicoba pada jam 8 pagi Senin pagi --- 
+seseorang mungkin telah lupa untuk meresetnya.
 
+Sebelum menjalankan ulang sampel tersebut, 
+dia mengecek apakah file-file tersebut memiliki banyak data:
 ~~~
 $ wc -l *.txt | sort -n | tail -n 5
 ~~~
@@ -447,11 +447,13 @@ $ wc -l *.txt | sort -n | tail -n 5
 ~~~
 {: .output}
 
-Those numbers look good --- but what's that 'Z' doing there in the third-to-last line?
-All of her samples should be marked 'A' or 'B';
-by convention,
-her lab uses 'Z' to indicate samples with missing information.
-To find others like it, she does this:
+Hasilnya terlihat baik --- namun apa maksud kode `Z` pada baris kedua?
+Semua sampel seharusnya memiliki kode akhir `A` atau `B`. 
+Dengan konvensi, lab-nya menggunakan tanda `Z` untuk mengindasikan sampel 
+yang kurang informasinya.
+
+Untuk mengetahui sampel lain yang demikian (kurang informasi) dia mengetikkan 
+perintah berikut:
 
 ~~~
 $ ls *Z.txt
@@ -463,22 +465,19 @@ NENE01971Z.txt    NENE02040Z.txt
 ~~~
 {: .output}
 
-Sure enough,
-when she checks the log on her laptop,
-there's no depth recorded for either of those samples.
-Since it's too late to get the information any other way,
-she must exclude those two files from her analysis.
-She could just delete them using `rm`,
-but there are actually some analyses she might do later where depth doesn't matter,
-so instead, she'll just be careful later on to select files using the wildcard expression `*[AB].txt`.
-As always,
-the `*` matches any number of characters;
-the expression `[AB]` matches either an 'A' or a 'B',
-so this matches all the valid data files she has.
+Cukup yakin, ketia dia mengecek data log pada laptopnya, tidak ada 
+keterangan untuk mendapatkan informasi tambahan pada data yang kurang informasinya. 
+Jadi, dia harus membuang data-data yang kurang informasinya tersebut.
+Dia bisa menghapusnya dengan perintah `rm`. 
+Namun, dia bisa melalukan analisis untuk sampel-sampel yang kurang tersebut.
+Jadi dia lebih baik menggunakan ekspresi wilcard `*[AB].txt` saja. 
+Seperti sebelumnya dijelaskan, tanda bintang `*` akan mengeksekusi file dengan 
+nama berisi karakter apapun; `[AB]` artinya hanya file yang berakhiran A atau B saja 
+yang dieksekusi.
 
-> ## What Does `sort -n` Do?
+> ## Apa makna perintah `sort -n`?
 >
-> If we run `sort` on this file:
+> Jika kita menjalankan perintah `sort` pada file tersebut:
 >
 > ~~~
 > 10
@@ -489,7 +488,7 @@ so this matches all the valid data files she has.
 > ~~~
 > {: .source}
 >
-> the output is:
+> outputnya adalah:
 >
 > ~~~
 > 10
@@ -500,7 +499,7 @@ so this matches all the valid data files she has.
 > ~~~
 > {: .output}
 >
-> If we run `sort -n` on the same input, we get this instead:
+> Jika menjalankan `sort -n` pada input yang sama, maka kita mendapatkan:
 >
 > ~~~
 > 2
@@ -511,25 +510,25 @@ so this matches all the valid data files she has.
 > ~~~
 > {: .output}
 >
-> Explain why `-n` has this effect.
+> Jelakan efek opsi `-n` pada kasus di atas.
 >
 > > ## Solution
 > > The `-n` flag specifies a numeric sort, rather than alphabetical.
 > {: .solution}
 {: .challenge}
 
-> ## What Does `<` Mean?
+> ## Apa makna tanda `<`?
 >
-> Change directory to `data-shell` (the top level of our downloaded example data).
+> Berpindahlah pada direktori `data-shell`. 
 >
-> What is the difference between:
+> Apa perbedaan antara:
 >
 > ~~~
 > $ wc -l notes.txt
 > ~~~
 > {: .bash}
 >
-> and:
+> dengan:
 >
 > ~~~
 > $ wc -l < notes.txt
@@ -565,16 +564,16 @@ so this matches all the valid data files she has.
 > {: .solution}
 {: .challenge}
 
-> ## What Does `>>` Mean?
+> ## Apa makna `>>` ?
 >
-> What is the difference between:
+> Apa perbedaan antara:
 >
 > ~~~
 > $ echo hello > testfile01.txt
 > ~~~
 > {: .bash}
 >
-> and:
+> dengan:
 >
 > ~~~
 > $ echo hello >> testfile02.txt
