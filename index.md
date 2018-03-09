@@ -26,12 +26,12 @@ Ada banyak alasan, diantaranya adalah sbb:
 >
 > Jika anda sudah bisa memanipulasi file dan direktori seperti menggunakan perintah `grep` dan `find`
 > atau menulis loop sederhana dalam bash, maka tutorial ini tidak ditunjukkan untuk anda,
-> silahkan lanjut ke tutorial `shell-ekstra`.
+> silahkan lanjut ke tutorial [shell-extra](www.swcarpentry.github.io/shell-extra).
 >
 {: .prereq}
 
 ### Metode pembelajaran 
 Metode pembalajan tutorial/workshop ini adalah sbb: 
-1. **Berilmu sebelum beramal**, artinya anda harus memahami sebelum mempraktekkannya.
+1. **Berilmu sebelum beramal**, artinya anda harus tahu teori sebelum mempraktekkannya.
 2. **Learning by coding**, anda harus mempraktekkan (coding) apa yang disampaikan tutor, *no passive acitivy*.
 3. **Synchronizing typing** (*khusus workshop*), apa yang anda ketik harus sama dan menghasilkan output yang sama dengan yang ditunjukkan pada tutorial ini atau didemokan tutor/lecturer (synchronized). 
