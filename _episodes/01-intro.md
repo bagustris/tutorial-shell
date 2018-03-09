@@ -3,7 +3,7 @@ title: "Pengenalan Shell"
 teaching: 5
 exercises: 5
 questions:
-- "Apakah perintah shell (command shell) itu dan mengapa saya harus menggunakannya?"
+- "Apakah perintah shell itu dan mengapa saya harus menggunakannya?"
 objectives:
 - "Menjelaskan cara kerja shell dan hubungannya dengan keyboard, screen operating system dan program yang dijalankan oleh user."
 - "Menjelaskan kapan dan kenapa command-line interfaces seharusnya digunakan daripada graphical interfaces."
@@ -122,6 +122,6 @@ non-stop sementara Nemo memulis papernya. Sebagai bonus, sekali dia bisa
 menjalankan proses untuk sampel-sampelnya secara bersamaan, dia dapat 
 menggunakannya kembali ketika dia mendapatkan data baru.
 
-Daftar bacaan:
+Bacaan:
 1. [20 tahun Linux: Menuju kemerdaan ber-OS](http://www.bagustris.tk/2011/09/20-tahun-linux-os-menuju-kebebasan-ber.html)
 2. [Kenapa memakai Ubuntu](http://www.bagustris.tk/2014/03/kenapa-memakai-ubuntu.html)
