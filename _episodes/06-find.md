@@ -709,5 +709,5 @@ Contohnya adalah sebagai berikut:
 > {: .bash}
 
 
-Daftar bacaan:
+Bacaan:
 - [How To Find A File In Linux Using The Command Line](https://www.lifewire.com/uses-of-linux-command-find-2201100)
