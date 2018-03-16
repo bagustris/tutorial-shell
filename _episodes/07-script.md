@@ -1,7 +1,7 @@
 ---
-title: "Shell Scripts"
-teaching: 20
-exercises: 20
+title: "Skrip shell"
+teaching: 30
+exercises: 15
 questions:
 - "Bagaimana cara menyimpan dan menggunakan kembali perintah shell?"
 objectives:
@@ -10,7 +10,7 @@ objectives:
 - "Menulis sebuah skrip shell yang mengoperasikan sekumpulan file yang didefinisikan oleh user pada baris perintah lainnya."
 - "Membuat pipelines yang memasukkan skirp shell yang ditulis olehmu dan user lainnya."
 keypoints:
-- "Menyimpan perintah dalam file (disebut "skip shell") agar dapat di re-use."
+- "Menyimpan perintah dalam file (disebut **skip shell**) agar dapat di re-use."
 - "Menjalankan perintah yang disimpan dalam file dengan perintah `bash filename`"
 - "`$@` merefer semua parameter skripp shell.
 - "`$1`, `$2`, dll merefer nilai pertama parameter, nilai kedua dst."
