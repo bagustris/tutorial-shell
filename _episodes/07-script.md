@@ -4,6 +4,7 @@ teaching: 30
 exercises: 15
 questions:
 - "Bagaimana cara menyimpan dan menggunakan kembali perintah shell?"
+- "Bagaimana membuat shell skrip?"
 objectives:
 - "Menulis skrip shell yang menjalankan sebuah atau sekumpulan perintah untuk sekumpulan file."
 - "Menjalankan skrip shell dari baris perintah."
@@ -18,7 +19,10 @@ keypoints:
 ---
 
 Agar dapat menjalankan perintah yang sama berulang-ulang, 
-maka kita dapat menyimpan perintah-perintah tersebut dalam sebuah file, 
+kita bisa menggunakan fitur history (Ctrl+R) untuk menampilkan 
+perintah-perintah sebelumnya yang ingin kita ulang? Namun bagaimana 
+jika perintah-perintah tersebut cukup panjang dan untuk ukuran file 
+yang banyak? Kita dapat menyimpan perintah-perintah tersebut dalam sebuah file, 
 disebut **skrip shell**.
 
 Sebagai contoh, mari kita kembali pada directory `molecules/` dan membuah file baru 
@@ -616,4 +620,4 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 Bacaan lanjut:
 - [Review buku Linux: the art of problem determination](http://www.bagustris.tk/2014/02/the-art-of-problem-determination.html)
 - [Keluar dari neraka dependensi](http://www.bagustris.tk/2014/02/keluar-dari-neraka-dependensi_28.html)
-- https://www.cyberciti.biz/tips/finding-bash-perl-python-portably-using-env.html  
+- [Shebang portable dalam shell bash](https://www.cyberciti.biz/tips/finding-bash-perl-python-portably-using-env.html]
