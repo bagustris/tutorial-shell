@@ -11,27 +11,32 @@ objectives:
 - "Gunakan `find` untuk mencari file yang polanya sesuai dengan yang diinginkan."
 - "Gunakan `locate` atau `whereis` untuk menemukan lokasi dari sebuah file atau direktori pada komputer."
 - "Gunakan output dari suatu perintah sebagai argumen dari perintah lainnya."
-- "Jelaskan apa maksude dari 'text' dan 'binary' files dan kenapa kebanyakan tools tidak bisa menghandle 'binary' files dengan sangat baik."
+- "Jelaskan apa maksud dari 'text' dan 'binary' files dan kenapa kebanyakan tools tidak bisa menangani 'binary' files dengan sangat baik."
 keypoints:
 - "`find` untuk mencari file sesuai kata kunci/pola"
 - "`grep` untuk memilih baris yang cocok dengan pencarian."
 - "`--help` digunakan untuk menampilkan informasi yang terkandun pada perintah (di depannya)."
-- "`man command` digunakan untuk menampilkan manual (manpages) dari suatu perintah."
+- "`man command` digunakan untuk menampilkan manual (`manpages`) dari suatu perintah."
 - "`$(command)` memasukkan output dari perintah"
 ---
 
-In the same way that many of us now use "Google" as a 
-verb meaning "to find", Unix programmers often use the 
-word "grep".
-"grep" is a contraction of "global/regular expression/print",
-a common sequence of operations in early Unix text editors.
-It is also the name of a very useful command-line program.
+Dengan cara yang sama dimana sebagaian besar dari kita 
+perngah "meng-google" untuk mencari tahu sesuatu, maka Unix/Linux 
+shell pun juga memiliki kemampuan serupa (Jauh sebelum Google ada). 
 
-`grep` finds and prints lines in files that match a pattern.
-For our examples,
-we will use a file that contains three haikus taken from a
-1998 competition in *Salon* magazine. For this set of examples,
-we're going to be working in the writing subdirectory:
+Ada beberapa cara untuk **mencari** pada shell Linux: `grep`, 
+`find`, `locate` dan `whereris`. Mungkin masih ada yang lainnya, 
+namun setidaknya itu yang sering kami gunakan.
+
+`grep` merupakan tools yang ampuh untuk mencari kata atau frasa. 
+Perintah tersebut merupakan kepanjangan dari "global/regular expression/print",
+sebuah operasi sekuensial dalam text editor Unix tahap awal yang 
+juga menjadi perintah yang sangat berguna pada command-line.
+
+`grep` menemukan dan mencetak baris dari file yang memiliki pola berkesesuaian.  
+Sebagai contoh, kita agak menggunakan file yang berisi haiku (puisi singkat) yang 
+diambil dari majalah *Salon*. Untuk contoh kasus ini kita akan berada pada 
+subdirektori `writing`.
 
 ~~~
 $ cd
