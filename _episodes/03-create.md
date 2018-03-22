@@ -1,5 +1,5 @@
 ---
-title: "Bekerja dengan file dan direktori"
+title: "Bekerja dengan File dan Direktori"
 teaching: 20
 exercise: 20
 questions:
@@ -77,6 +77,7 @@ molecules/  solar.pdf
 {: .output}
 
 > ## Two ways of doing the same thing
+> 
 > Menggunakan shell untuk membuat direktori tidak adanya ketika anda meng-klik kanan pada file explorer (nautilus).
 > Jika anda membuka file explorer maka akan ada direktori `thesis` disana.
 > Meskipun ada dua cara berbeda membuat file dan direktori (GUI file explorer dan CLI terminal),
@@ -200,7 +201,7 @@ $ ls
 
 Setelah anda bisa menggunanan nano, sangat saya sarankan 
 untuk segera mempelajari **VIM**, text editor dengan kemampuan tercepat,
-secepat mana kecepatan jari anda.
+secepat apa kecepatan jari anda.
 
 > ## Deleting Is Forever
 > 
@@ -523,8 +524,8 @@ namun file `quotations.txt` tetap ada pada direktori `thesis`.
 
 > ## Organizing Directories and Files
 >
-> Jamie is working on a project and she sees that her files aren't very well
-> organized:
+> Jamie sedang bekerja pada sebuah project dan dia melihat bahwa file-file miliknya
+> tidak teroganisir dengan baik.
 >
 > ~~~
 > $ ls -F
@@ -535,9 +536,10 @@ namun file `quotations.txt` tetap ada pada direktori `thesis`.
 > ~~~
 > {: .output}
 >
-> The `fructose.dat` and `sucrose.dat` files contain output from her data
-> analysis. What command(s) covered in this lesson does she need to run so that the commands below will
-> produce the output shown?
+> File `fructose.dat` dan `sucrose.dat` berisi output dari analisis datanya.
+> Perintah apa yang dijelaskan pada bab ini yang harus dijalankan sehingga 
+> perintah berikut menghasilkan output seperti ditunjukkan?
+>
 >
 > ~~~
 > $ ls -F
