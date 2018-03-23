@@ -26,7 +26,7 @@ Ada banyak alasan, diantaranya adalah sbb:
 >
 > Jika anda sudah bisa memanipulasi file dan direktori seperti menggunakan perintah `grep` dan `find`
 > atau menulis loop sederhana dalam bash, maka tutorial ini tidak ditunjukkan untuk anda,
-> silahkan lanjut ke tutorial [shell-extra](www.swcarpentry.github.io/shell-extra).
+> silahkan lanjut ke tutorial [shell-extra](https://swcarpentry.github.io/shell-extras).
 >
 {: .prereq}
 
