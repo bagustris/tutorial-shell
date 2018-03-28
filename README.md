@@ -13,6 +13,6 @@ Maintainers:
 Jika anda telah menguasai semua materi pada tutorial ini, sangat disarankan untuk melanjutkannya pada materi [shell-extra](https://swcarpentry.github.io/shell-extras/)
 
 Referensi :
-- Software Carpentry's Shell Novice
-- Tutorial Shell Untuk Pemula
-- Tutorial Linux
+- [Software Carpentry's Shell Novice](https://swcarpentry.github.io/shell-novice)
+- [Tutorial Shell Untuk Pemula](https://pemula.linux.or.id/programming/bash-shell.html)
+- [Tutorial Linux](https://ryanstutorials.net/linuxtutorial/)
