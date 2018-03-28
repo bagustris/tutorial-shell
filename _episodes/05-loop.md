@@ -86,33 +86,36 @@ pada list tersebut.
 Di dalam sebuah loop,
 kita dapat memanggil nilai dari variabel dengan meletakkan tanda `$` di depannya.
 Tanda `$` memerintahkan shell interpreter untuk memberkalukan **variabel** sebagai
-nama variabel dan menggantinya dengan nilai yang sesuai menurut letakknya.
+nama variabel dan menggantinya dengan nilai yang sesuai menurut letaknya.
 Bukan dieksekusi sebagai text atau perintah lainnya.
 
-In this example, the list is two filenames: `basilisk.dat` and `unicorn.dat`.
-Each time the loop iterates, it will assign a file name to the variable `filename`
-and run the `head` command.
-The first time through the loop,
-`$filename` is `basilisk.dat`. 
-The interpreter runs the command `head` on `basilisk.dat`, 
-and the prints the 
-first three lines of `basilisk.dat`.
-For the second iteration, `$filename` becomes 
-`unicorn.dat`. This time, the shell runs `head` on `unicorn.dat`
-and prints the first three lines of `unicorn.dat`. 
-Since the list was only two items, the shell exits the `for` loop.
+Pada contoh ini, daftar filenya ada dua: `basilisk.dat` and `unicorn.dat`.
+Setiap kali loop iterasi, variabel `filename` akan diiisi dengan nama file dan 
+menjalankan perintah `head` commmand.
 
-When using variables it is also
-possible to put the names into curly braces to clearly delimit the variable
-name: `$filename` is equivalent to `${filename}`, but is different from
-`${file}name`. You may find this notation in other people's programs.
+Pada loop pertama, 
+`$filename` adalah `basilisk.dat`. 
 
-> ## Follow the Prompt
+Interpreter menjalankan perintah `head` pada file `basilisk.dat`, 
+dan mencetak tiga baris teratas dari `basilisk.dat`.
+Pada iterasi kedua, `$filename` menjadi 
+`unicorn.dat`. Kali ini, shell menjalankan `head` pada `unicorn.dat`
+dan mencetak tiga baris teratas dari `unicorn.dat`. 
+Karena hanya ada loop, maka shell berakhir setelah loop kedua.
+
+Ketika menggunakan variabel, dimungkinan untuk meletakkan nama file pada 
+kurung kurawal untuk membatasi nama variabelnya. 
+Sehingga`$filename` ekivalen dengan `${filename}`, tapi berbeda dengan 
+`${file}name`. Ini banyak dijumpai pada skrip shell.
+
+> ## Mengikuti Prompt
 >
-> The shell prompt changes from `$` to `>` and back again as we were
-> typing in our loop. The second prompt, `>`, is different to remind
-> us that we haven't finished typing a complete command yet. A semicolon, `;`,
-> can be used to separate two commands written on a single line.
+> Prompt shell berubah dari tanda dolar, `$`, menjadi tanda "lebih dari", `>`
+> ketika kita mengetikkan loop. Tanda kedua, `>`, berbeda menunjukkan bahwa 
+> kita belum selesai mengetikkan perintah. Tanda semikolon, `;`, dapat digunakan 
+> untuk memisahkan dua perintah yang ditulis dalam satu baris. Jadi loop diatas 
+> dapat ditulis dalam satu bari dengan menambahkan `;` seperi berikut:
+> `for filename in *.dat; do head -n 3 $filename; done.
 {: .callout}
 
 > ## Same Symbols, Different Meanings
@@ -129,10 +132,8 @@ name: `$filename` is equivalent to `${filename}`, but is different from
 > the shell to redirect output or get the value of a variable.
 {: .callout}
 
-We have called the variable in this loop `filename`
-in order to make its purpose clearer to human readers.
-The shell itself doesn't care what the variable is called;
-if we wrote this loop as:
+Kita menggunakan nama variable `filename` agar lebih mudah dibaca oleh manusia. 
+Variable lain seperti `i` , `temperature` atau `x` dapat digunakan agar lebih sederhana.
 
 ~~~
 for x in basilisk.dat unicorn.dat
@@ -142,7 +143,7 @@ done
 ~~~
 {: .bash}
 
-or:
+atau:
 
 ~~~
 for temperature in basilisk.dat unicorn.dat
@@ -152,13 +153,12 @@ done
 ~~~
 {: .bash}
 
-it would work exactly the same way.
-*Don't do this.*
-Programs are only useful if people can understand them,
-so meaningless names (like `x`) or misleading names (like `temperature`)
-increase the odds that the program won't do what its readers think it does.
+Namun, orang lain akan kesulitan memahaminya, apakah `i` atau 
+`x`, ataukah itu temperature...? `filename` akan segera mudah diartikan bahwa 
+variabel tersebut akan diisi nama file. 
+Jadi, gunakan nama variabel yang sesuai.
 
-Here's a slightly more complicated loop:
+Berikut contoh yang lebih kompleks.
 
 ~~~
 for filename in *.dat
@@ -169,11 +169,9 @@ done
 ~~~
 {: .bash}
 
-The shell starts by expanding `*.dat` to create the list of files it will process.
-The **loop body**
-then executes two commands for each of those files.
-The first, `echo`, just prints its command-line parameters to standard output.
-For example:
+Shell mulai berjalan dengan mengenali file berekstensi `.dat` untuk diproses.
+**body loop** kemudian mengeksekusi dua perintah yakni `echo` dan baris bawahnya.
+Perintah echo akan mencetak nama file seperti halnya perintah berikut.
 
 ~~~
 $ echo hello there
@@ -187,26 +185,9 @@ hello there
 ~~~
 {: .output}
 
-In this case,
-since the shell expands `$filename` to be the name of a file,
-`echo $filename` just prints the name of the file.
-Note that we can't write this as:
-
-~~~
-for filename in *.dat
-do
-    $filename
-    head -n 100 $filename | tail -n 20
-done
-~~~
-{: .bash}
-
-because then the first time through the loop,
-when `$filename` expanded to `basilisk.dat`, the shell would try to run `basilisk.dat` as a program.
-Finally,
-the `head` and `tail` combination selects lines 81-100
-from whatever file is being processed
-(assuming the file has at least 100 lines).
+Pada kasus diatas, maka akan dicetak `basilisk.dat` pada baris pertama output, 
+kemudian dicari 100 baris paling atas (dari file basilisk.dat), dari 100 baris tersebut, 
+dicari 20 baris terakhir (In this case,81~100) dan ditampilkan di bawah hasil echo tadi.
 
 > ## Spaces in Names
 >
@@ -253,9 +234,8 @@ from whatever file is being processed
 > {: . output}
 {: .callout}
 
-Going back to our original file copying problem,
-we can solve it using this loop:
-
+Kembali ke masalah awal bab ini, yakni untuk mengcopy file asli dengan 
+menambahkan kata `original` di depannya, maka dapat dijalankan perintah berikut.
 ~~~
 for filename in *.dat
 do
@@ -264,28 +244,30 @@ done
 ~~~
 {: .bash}
 
-This loop runs the `cp` command once for each filename.
-The first time,
-when `$filename` expands to `basilisk.dat`,
-the shell executes:
+Pada loop pertama perintah `cp` akan mencopy file 
+`basilisk.dat` ke file `original-basilisk.dat` seperti 
+perintah berikut.
 
 ~~~
 cp basilisk.dat original-basilisk.dat
 ~~~
 {: .bash}
 
-The second time, the command is:
+Pada loop kedua, maka berlaku nama file berikutnya, `unicorn.dat`
 
 ~~~
 cp unicorn.dat original-unicorn.dat
 ~~~
 {: .bash}
 
-Since the `cp` command does not normally produce any output, it's hard to check 
-that the loop is doing the correct thing. By prefixing the command with `echo` 
-it is possible to see each command as it _would_ be executed. The following diagram 
-shows what happens when the modified script is executed, and demonstrates how the 
-judicious use of `echo` is a good debugging technique.
+Begitu seterusnya sampai loop selesai. Pada kasus diatas hanya dua loop saja.
+Bayangkan jika ada 1000 file, maka loop diatas sangat efisien.
+
+Karena cp tidak memiliki output, akan sulit mengecek apak shell benar-benar 
+berjalan seperti yang kita harapkan. Dengan menambahkan `echo` maka kita akan bisa 
+mengecek jika setiap perinah _telah_ dieksekusi. Diagram berikut menggambarkan bagaimana 
+`echo` dapat digunakan untuk [mendebug](https://en.wikipedia.org/wiki/Debugging) 
+perintah Unix/Linux dengan sangat baik.
 
 ![For Loop in Action](../fig/shell_script_for_loop_flow_chart.svg)
 
