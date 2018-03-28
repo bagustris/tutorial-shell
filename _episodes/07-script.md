@@ -35,28 +35,28 @@ $ nano middle.sh
 ~~~
 {: .bash}
 
-The command `nano middle.sh` opens the file `middle.sh` within the text editor "nano"
-(which runs within the shell).
-If the file does not exist, it will be created.
-We can use the text editor to directly edit the file -- we'll simply insert the following line:
+Perintah `nano middle.sh` ini akan membuka file `middle.sh` dengan text editor "nano"
+(yang berjalan di dalam shell).
+Jika filenya (`middle.sh`) tidak ada, makan akan dibuat file baru.
+Perintah berikut kita masukkan dalam nano dan disimpan dengan nama `middle.sh`.
 
 ~~~
 head -n 15 octane.pdb | tail -n 5
 ~~~
 {: .source}
 
-This is a variation on the pipe we constructed earlier:
-it selects lines 11-15 of the file `octane.pdb`.
-Remember, we are *not* running it as a command just yet:
-we are putting the commands in a file.
+Perintah yang kita simpan dalam file `middle.sh` tersebut merupakan 
+variasi dari perintah sebelumnya yang telah kita buat. 
+Kita menampilkan 15 baris pertama file `octane.pdb`, 
+dan dari 15 baris tersebut kita ambil 5 terakhir dengan filter `tail`.
 
-Then we save the file (`Ctrl-O` in nano),
- and exit the text editor (`Ctrl-X` in nano).
-Check that the directory `molecules` now contains a file called `middle.sh`.
+Perlu diingat untuk menyimpan file gunakan `Ctrl-O`, 
+untuk keluarkan gunakan `Ctrl-X`. Atau lebih singkatnya, gunakan 
+`Ctrl-X` untuk keluarkan kemudian tekan `y` untuk menyimpannnya. 
+Sekarang coba cek apakah ada file `middle.sh` dalam direktori 
+`molecules` dan tampilkan isinya.
 
-Once we have saved the file,
-we can ask the shell to execute the commands it contains.
-Our shell is called `bash`, so we run the following command:
+Setelah memastikan ada, jalankan dengan perintah `bash`.
 
 ~~~
 $ bash middle.sh
@@ -72,8 +72,8 @@ ATOM     13  H           1      -3.172  -1.337   0.206  1.00  0.00
 ~~~
 {: .output}
 
-Sure enough,
-our script's output is exactly what we would get if we ran that pipeline directly.
+Dengan cara ini, kita bisa menyimpan perintah-perintah yang kompleks dan berulang, 
+akan sangat memudahkan bila bekerja dengan banyak file dan data.
 
 > ## Text vs. Whatever
 >
@@ -88,27 +88,27 @@ our script's output is exactly what we would get if we ran that pipeline directl
 > text editor, or be careful to save files as plain text.
 {: .callout}
 
-What if we want to select lines from an arbitrary file?
-We could edit `middle.sh` each time to change the filename,
-but that would probably take longer than just retyping the command.
-Instead, let's edit `middle.sh` and make it more versatile:
+Bagaimana jika kita ingin memilih baris dari sebuah file tertentu?
+Kita dapat melakukannya dengan mengedit file `middle.sh` untuk tiap 
+file yang berbeda. Namun hal ini akan memakan waktu yang lebih banyak 
+(ingat tujuan kita menggunkan shell skrip adalah efisiensi kerja).
+Sebaliknya, kita juga bisa mengedit file `middle.sh` agar menjadi 
+lebih portable.
 
 ~~~
 $ nano middle.sh
 ~~~
 {: .bash}
 
-Now, within "nano", replace the text `octane.pdb` with the special variable called `$1`:
+Sekarang, ganti nama file `octave.pdb` menjadi `$1` seperti berikut:
 
 ~~~
 head -n 15 "$1" | tail -n 5
 ~~~
 {: .output}
 
-Inside a shell script,
-`$1` means "the first filename (or other parameter) on the command line".
-We can now run our script like this:
-
+Untuk menjalankannya, kita butuh satu argumen tambahan, yakni nama file yang 
+kita proses, misalnya `octave.pdb` seperti berikut.
 ~~~
 $ bash middle.sh octane.pdb
 ~~~
@@ -123,7 +123,8 @@ ATOM     13  H           1      -3.172  -1.337   0.206  1.00  0.00
 ~~~
 {: .output}
 
-or on a different file like this:
+Atau file lainnya seperti `pentane.pdb`. Artinya, kode kita menjadi lebih 
+portable dan bisa bekerja untuk file-file lainnya, tidak hanya satu file saja. 
 
 ~~~
 $ bash middle.sh pentane.pdb
@@ -139,6 +140,10 @@ ATOM     13  H           1      -1.183   0.500  -1.412  1.00  0.00
 ~~~
 {: .output}
 
+Modifikasi yang kita lakukan, yakni mengganti `octave.pdb` dengan `"$1"` artinya 
+mengambil nama file (atau disebut sebagai parameter) yang  akan dimasukkan pada skrip shell dimana 
+`"$1"` berada.
+
 > ## Double-Quotes Around Arguments
 >
 > For the same reason that we put the loop variable inside double-quotes,
@@ -146,10 +151,10 @@ ATOM     13  H           1      -1.183   0.500  -1.412  1.00  0.00
 > we surround `$1` with double-quotes.
 {: .callout}
 
-We still need to edit `middle.sh` each time we want to adjust the range of lines,
-though.
-Let's fix that by using the special variables `$2` and `$3` for the
-number of lines to be passed to `head` and `tail` respectively:
+Permasalahan selanjutnya, kita masih perlu mengedit `middle.sh` setiap kali 
+kita mengatur banyak baris yang ingin kita tampilkan: 3, 5, atau 7 baris misalnya. 
+Mari kita tambahkan variable baru yakni `$2` dan `$3` untuk jumlah baris pada perintah 
+`head` dan `tail`.
 
 ~~~
 $ nano middle.sh
@@ -161,7 +166,7 @@ head -n "$2" "$1" | tail -n "$3"
 ~~~
 {: .output}
 
-We can now run:
+Sekarang bisa kita jalankan:
 
 ~~~
 $ bash middle.sh pentane.pdb 15 5
@@ -177,8 +182,8 @@ ATOM     13  H           1      -1.183   0.500  -1.412  1.00  0.00
 ~~~
 {: .output}
 
-By changing the arguments to our command we can change our script's
-behaviour:
+Dengan mengubah argumen dari skripp shell, kita bisa mengubah perangai 
+dari skrip shell yang kita buat. Lebih fleksibel dari skrip awal.
 
 ~~~
 $ bash middle.sh pentane.pdb 20 5
@@ -194,9 +199,10 @@ TER      18              1
 ~~~
 {: .output}
 
-This works,
-but it may take the next person who reads `middle.sh` a moment to figure out what it does.
-We can improve our script by adding some **comments** at the top:
+
+Lagi, skrip shell ini mungkin sangat berguna bagi kita, 
+namun jika ada orang lain yang melihatnya akan menjadi bingung. Kita tambahkan 
+**komen** pada baris paling atas.
 
 ~~~
 $ nano middle.sh
@@ -210,37 +216,30 @@ head -n "$2" "$1" | tail -n "$3"
 ~~~
 {: .output}
 
-A comment starts with a `#` character and runs to the end of the line.
-The computer ignores comments,
-but they're invaluable for helping people (including your future self) understand and use scripts.
-The only caveat is that each time you modify the script,
-you should check that the comment is still accurate:
-an explanation that sends the reader in the wrong direction is worse than none at all.
+Sebuah komen(tar) dimulai dengan tanda hash/kres, `#`. Tanda ini memberitahu 
+`bash` untuk tidak meproses teks pada baris tersebut. Komen sangat 
+berguna bagi orang lain yang membaca skrip kita. Mungkin saja 
+mereka bisa memperbaiki atau meningkatkan keefektifan skrip yang telah kita buta.
 
-What if we want to process many files in a single pipeline?
-For example, if we want to sort our `.pdb` files by length, we would type:
+Bagaimana jika kita ingin memproses banyak file dalam satu pipeline?
+Sebagai contoh, kita ingin mengurutkan file `.pdb` berdasarkan panjangnya.
 
 ~~~
 $ wc -l *.pdb | sort -n
 ~~~
 {: .bash}
 
-because `wc -l` lists the number of lines in the files
-(recall that `wc` stands for 'word count', adding the `-l` flag means 'count lines' instead)
-and `sort -n` sorts things numerically.
-We could put this in a file,
-but then it would only ever sort a list of `.pdb` files in the current directory.
-If we want to be able to get a sorted list of other kinds of files,
-we need a way to get all those names into the script.
-We can't use `$1`, `$2`, and so on
-because we don't know how many files there are.
-Instead, we use the special variable `$@`,
-which means,
-"All of the command-line parameters to the shell script."
-We also should put `$@` inside double-quotes
-to handle the case of parameters containing spaces
-(`"$@"` is equivalent to `"$1"` `"$2"` ...)
-Here's an example:
+
+Ingat `wc -l` adalah untuk mendaftar file berdasarkan jumlah barisnya. 
+Bisakah kita menggunakan teknik seperti sebelumnya, yakni dengan 
+menambahkan `$1`, `$2`, `$3`...?
+Tidak bisa, karena kita tidak tahu berapa jumlah filenya.
+Sebaliknya kita bisa menggunakan variabel `$@` yang artinya "Semua parameter command-line 
+pada skrip shell".
+
+Jika namafilenya ada spasinya, kita perlu menggunakan tanda double quote untuk `$@` tersebut.
+
+Kita buat skrip shell baru sebagai berikut.
 
 ~~~
 $ nano sorted.sh
@@ -296,20 +295,18 @@ $ bash sorted.sh *.pdb ../creatures/*.dat
 {: .callout}
 
 
-Suppose we have just run a series of commands that did something useful --- for example,
-that created a graph we'd like to use in a paper.
-We'd like to be able to re-create the graph later if we need to,
-so we want to save the commands in a file.
-Instead of typing them in again
-(and potentially getting them wrong)
-we can do this:
+Menympan history
+
+Sering kita menemukan beberapa perintah yang sangat bermanfaat kemudian kita ingin 
+menyimpannya. Misalnya setelah beberapa kali mem-plot.
+Alih-alih mengulangi perintah tersebut, kita bisa langsung menyimpannya dengan perintah berikut:
 
 ~~~
 $ history | tail -n 5 > redo-figure-3.sh
 ~~~
 {: .bash}
 
-The file `redo-figure-3.sh` now contains:
+Perintah tersebut akan menghasilkan file baru `redo-figure-3.sh` yang berisi:
 
 ~~~
 297 bash goostats -r NENE01729B.txt stats-NENE01729B.txt
@@ -320,17 +317,9 @@ The file `redo-figure-3.sh` now contains:
 ~~~
 {: .source}
 
-After a moment's work in an editor to remove the serial numbers on the commands,
-and to remove the final line where we called the `history` command,
-we have a completely accurate record of how we created that figure.
-
-In practice, most people develop shell scripts by running commands at the shell prompt a few times
-to make sure they're doing the right thing,
-then saving them in a file for re-use.
-This style of work allows people to recycle
-what they discover about their data and their workflow with one call to `history`
-and a bit of editing to clean up the output
-and save it as a shell script.
+Masih perlu edit manual lagi untuk menghapus nomor baris perintah dan 
+juga perintah di baris terakhir (bisa otomatis juga lewat command line jika anda sudah jago). 
+Sekarang kita punya data yang cukup untuk menghasilkan plot yang dibuat tadi (misalnya).
 
 ## Nelle's Pipeline: Creating a Script
 
