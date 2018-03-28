@@ -17,9 +17,7 @@ keypoints:
 - "`rm path` menghapus file atau direktori."
 - " `rmdir direktorikosong` menghapus direktori kosong."
 - " `touch namafile.txt` membuat dan mengedit file baru namafile.txt"
-- "Penggunaan tombol control bisa bervariasi penulisannya yakni `Ctrl-X`, `Control-X`, and `^X`."
 - "Shell tidak mempunyai trash bin (recycle bin): artinya sekali dihapus hilang selamanya."
-- "Sangat disarankan menggunakan editor lain, yakni **VIM** atau **EMACS** daripada Nano."
 
 ---
 
