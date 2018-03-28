@@ -62,12 +62,12 @@ Software is like that.
 
 > ## Forever, or Five Years
 >
-> We haven't linked to the original haikus because they don't appear to be on *Salon*'s site any longer.
-> As [Jeff Rothenberg said](http://www.clir.org/pubs/archives/ensuring.pdf),
+> Kita tidak menyebutkan sumber dari Haiku diatas karena link dari majalah *Salon*'s telah mati,
+> Seperti  [dikatakan Jeff Rothenberg](http://www.clir.org/pubs/archives/ensuring.pdf),
 > "Digital information lasts forever --- or five years, whichever comes first."
 {: .callout}
 
-Let's find lines that contain the word "not":
+Sekarang kita cari kata "not" dalam hakiku tersebut.
 
 ~~~
 $ grep not haiku.txt
@@ -81,11 +81,11 @@ Today it is not working
 ~~~
 {: .output}
 
-Here, `not` is the pattern we're searching for. The grep command searches through the file, looking for matches to the pattern specified. To use it type grep, then the pattern we're searching for and finally the name of the file (or files) we're searching in.
+Disini, `not` adalah pola (string) yang kita cari. Perintah 
+grep akan mencari [string](https://en.wikipedia.org/wiki/String_(computer_science)) `not` dalam file `haiku.txt`. 
+Hasilnya adalah ketiga baris yang ditampilkan mengandung kata `not` diatas.
 
-The output is the three lines in the file that contain the letters "not".
-
-Let's try a different pattern: "The".
+Mari kita cari dengan pola lainnya: "The".
 
 ~~~
 $ grep The haiku.txt
@@ -98,14 +98,10 @@ The Tao that is seen
 ~~~
 {: .output}
 
-This time,
-two lines that include the letters "The" are outputted.
-However, one instance of those letters is contained within a larger word,
-"Thesis".
+Kali ini, dua baris yang mengandung kata "The" ditampilkan. Bagaimanapun, 
+kata "Thesis" juga ditampilkan, padahal kita tidak mencarinya.
 
-To restrict matches to lines containing the word "The" on its own,
-we can give `grep` with the `-w` flag.
-This will limit matches to word boundaries.
+Untuk membatasi hanya kata "The" saja, kita bisa menambahkan opsi `-w` sebagai berikut.
 
 ~~~
 $ grep -w The haiku.txt
@@ -117,11 +113,9 @@ The Tao that is seen
 ~~~
 {: .output}
 
-Note that a "word boundary" includes the start and end of a line, so not
-just letters surrounded by spaces. 
-Sometimes we don't
-want to search for a single word, but a phrase. This is also easy to do with
-`grep` by putting the phrase in quotes.
+Opsi `-w` merupakan kepanjangan dari "word boundary" yang akan mencari pola yang dibatasi 
+oleh spasi. Grep juga bisa digunakan untuk mencari frasa atau kalimat, yakni 
+dengan menambahkan tanda dobel quote sebelum dan sesudah pola yang kita cari.
 
 ~~~
 $ grep -w "is not" haiku.txt
