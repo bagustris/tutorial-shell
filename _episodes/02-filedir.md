@@ -769,3 +769,6 @@ Daftar bacaan:
 > > in each directory are sorted by time of last change.
 > {: .solution}
 {: .challenge}
+
+Bacaan:
+- [Surrey Univ. Unix teaching material](http://www.ee.surrey.ac.uk/Teaching/Unix/)
