@@ -26,8 +26,8 @@ keypoints:
 - "Sebuah absolute menunjukkan lokasi dari root of the file system."
 - "Nama direktori dipisahkan dengan '/' pada Linux/Unix, tetapi pada Windows pada '\\\\'."
 - "'..'  menunjukkan direktori diatasnya'; sedangkan '.' menunjukkan 'the current directory'."
-- "Kebanyakan file' diberi nama `namafile.ekstensi`. Ekstensi tidak harus ada, tapi biasanya digunakan untuk menunjukkan tipe file."
-- "Kebanyakan perintah menggunakan option (flags) yang diawali dengan '-'."
+- "Kebanyakan file diberi nama `namafile.ekstensi`. Ekstensi tidak harus ada, tapi biasanya digunakan untuk menunjukkan tipe file."
+- "Kebanyakan perintah menggunakan opsi (flags) yang diawali dengan '-'."
 ---
 
 Bagian dari operating system untuk mengatur file dan direktori disebut **file system**.
