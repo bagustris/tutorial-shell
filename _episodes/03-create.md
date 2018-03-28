@@ -114,7 +114,7 @@ molecules/  solar.pdf
 >
 > {: .callout}
 
-Karena kita sudah membuat direktori `thesis`, namun tidak ada isinya.
+Kita sudah membuat direktori `thesis`, namun belum ada isinya.
 
 ~~~
 $ ls -F thesis
