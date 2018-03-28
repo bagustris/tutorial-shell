@@ -271,6 +271,10 @@ perintah Unix/Linux dengan sangat baik.
 
 ![For Loop in Action](../fig/shell_script_for_loop_flow_chart.svg)
 
+Skrip dan diagram shell diatas hanya akan meng-echo perintah-perintahnya saja. Agar perintah juga dijalankan sekaligus ditampilan maka dapat ditambahkan pipe seperti berikut.
+
+`for filename in *.dat; do var=$(cp $filename original-$filename) | echo $var; done`
+
 ## Nelle's Pipeline: Processing Files
 
 Nelle is now ready to process her data files.
