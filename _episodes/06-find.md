@@ -716,3 +716,4 @@ Contohnya adalah sebagai berikut:
 
 Bacaan:
 - [How To Find A File In Linux Using The Command Line](https://www.lifewire.com/uses-of-linux-command-find-2201100)
+- [Howtoforge: How to use locate `command`](https://www.howtoforge.com/linux-locate-command/)
