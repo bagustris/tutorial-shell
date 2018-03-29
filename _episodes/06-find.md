@@ -5,7 +5,7 @@ exercises: 15
 questions:
 - "Bagaimana cara menemukan file?"
 - "Bagaimana mencari kata kunci pada file?"
-- "Bagaimana saya mengetahui lokasi dari file/direktori dan perintah pada komputer saya?"
+- "Bagaimana saya mengetahui lokasi dari file/direktori/perintah pada komputer saya?"
 objectives:
 - "Gunakan `grep` untuk mencari baris yang polanya cocok dengan yang dicari."
 - "Gunakan `find` untuk mencari file yang polanya sesuai dengan yang diinginkan."
@@ -127,13 +127,16 @@ Today it is not working
 ~~~
 {: .output}
 
-We've now seen that you don't have to have quotes around single words,
-but it is useful to use quotes when searching for multiple words.
-It also helps to make it easier to distinguish between the search term or phrase
-and the file being searched.
-We will use quotes in the remaining examples.
 
-Another useful option is `-n`, which numbers the lines that match:
+Untuk satu kata pencarian, kita tidak perlu menggunakan tanda dobel quote. 
+Namun, akan sangat membantu jika kita menggunakannya untuk mencari beberapa kata, 
+yakni dengan memasukkan frase atau kalimat diantara dobel quote.
+Tanda kutip ganda (*double quote*) ini juga membantu untuk membedakan antara 
+pola pencarian dan frasa yang dicari.
+
+Jadi pakailah tanda kutip ganda ini pada pola pencarian dengan grep. Ospi lainnya 
+yang sangat berguna adalah menambahkan `-n`. Ini akan menampilkan nomor baris 
+pada hasil pencarian.
 
 ~~~
 $ grep -n "it" haiku.txt
@@ -147,24 +150,29 @@ $ grep -n "it" haiku.txt
 ~~~
 {: .output}
 
-Here, we can see that lines 5, 9, and 10 contain the letters "it".
-
-We can combine options (i.e. flags) as we do with other Unix commands.
-For example, let's find the lines that contain the word "the". We can combine
-the option `-w` to find the lines that contain the word "the" and `-n` to number the lines that match:
+Di atas ditampilkan baris 5, 9, dan 10 yang mengandung huruf "it".
+Opsi-opsi tersebut dapat digabungkan seperti berikut.
 
 ~~~
 $ grep -n -w "the" haiku.txt
 ~~~
 {: .bash}
 
+atau:
+
+~~~
+$ grep -n -w "the" haiku.txt
+~~~
+{: .bash}
+
+Outputnya,
 ~~~
 2:Is not the true Tao, until
 6:and the presence of absence:
 ~~~
 {: .output}
 
-Now we want to use the option `-i` to make our search case-insensitive:
+Gunakan opsi `-i` agar pola pencarian menjadi *case-insensitive*:
 
 ~~~
 $ grep -n -w -i "the" haiku.txt
@@ -178,8 +186,8 @@ $ grep -n -w -i "the" haiku.txt
 ~~~
 {: .output}
 
-Now, we want to use the option `-v` to invert our search, i.e., we want to output
-the lines that do not contain the word "the".
+Untuk mencari dengan pola **tidak mengandung** maka dapat digunakan `-v`. 
+Contohnya kita ingin mencari baris yang **tidak mengandung** kata "the".
 
 ~~~
 $ grep -n -w -v "the" haiku.txt
@@ -199,7 +207,7 @@ $ grep -n -w -v "the" haiku.txt
 ~~~
 {: .output}
 
-`grep` has lots of other options. To find out what they are, we can type:
+Masih banyak opsi yang dimiliki oleh, silahkan dieksplore dengan bantuan `--help`.
 
 ~~~
 $ grep --help
@@ -259,22 +267,21 @@ Miscellaneous:
 > matches an actual 'o'.
 {: .callout}
 
-While `grep` finds lines in files,
-the `find` command finds files themselves.
-Again,
-it has a lot of options;
-to show how the simplest ones work, we'll use the directory tree shown below.
+## FIND
+Jika `grep` digunakan untuk mencari baris dalam file, maka `find` 
+digunakan untuk menemukan file itu sendiri. Seperti halnya `grep` 
+`find` juga memiliki banyak opsi.
 
 ![File Tree for Find Example](../fig/find-file-tree.svg)
 
-Nelle's `writing` directory contains one file called `haiku.txt` and four subdirectories:
-`thesis` (which contains a sadly empty file, `empty-draft.md`),
-`data` (which contains two files `one.txt` and `two.txt`),
-a `tools` directory that contains the programs `format` and `stats`,
-and a subdirectory called `old`, with a file `oldtool`.
 
-For our first command,
-let's run `find .`.
+Direktori `writing` berisi satu file yakni `haiku.txt` dan empat subdirektori:
+- `thesis` (berisi file kosong, `empty-draft.md`),
+- `data` (berisi dua file `one.txt` dan `two.txt`),
+- `tools` (berisi program `format` dan `stats`),
+- `old`, (berisi sebuah file, `oldtool`).
+
+Perintah pertama jalankan adalah sebagai berikut.
 
 ~~~
 $ find .
@@ -299,20 +306,15 @@ $ find .
 ~~~
 {: .output}
 
-As always,
-the `.` on its own means the current working directory,
-which is where we want our search to start.
-`find`'s output is the names of every file **and** directory
-under the current working directory.
-This can seem useless at first but `find` has many options
-to filter the output and in this lesson we will discover some 
-of them.
+Seperti kita ketahui, tanda titik satu, `.`, merupakan 
+simbol untuk direktori saat ini, jadi kita mencari apa saja 
+pada direktori saat ini.
 
-The first option in our list is
-`-type d` that means "things that are directories".
-Sure enough,
-`find`'s output is the names of the six directories in our little tree
-(including `.`):
+Saking banyaknya opsi yang dimiliki oleh `find`, kita tidak 
+akan mengkover semuanya, namun beberapa yang penting dan praktis digunakan. 
+Opsi pertama yang akan kita gunakan adalah `-type d` yang artinya mencari sesuatu 
+(file atau direktori) yang direktori saja. Maka ls akan menampilkan hasil berikut, 
+termasuk direktori saat ini, `./`.
 
 ~~~
 $ find . -type d
@@ -329,9 +331,8 @@ $ find . -type d
 ~~~
 {: .output}
 
-Notice that the objects `find` finds are not listed in any particular order.
-If we change `-type d` to `-type f`,
-we get a listing of all the files instead:
+Hasil pencarian di atas tidak urut (tentu saja bisa kita urutkan dengan pipe dan `sort`!). 
+Jika kita ingin mencari file, maka tinggal ganti saja opsi `-d` dengan `-f` seperti berikut.
 
 ~~~
 $ find . -type f
@@ -349,7 +350,7 @@ $ find . -type f
 ~~~
 {: .output}
 
-Now let's try matching by name:
+Sekarang kita gunakan opsi yang sangat berguna yakni **`-name`**.
 
 ~~~
 $ find . -name *.txt
@@ -361,24 +362,20 @@ $ find . -name *.txt
 ~~~
 {: .output}
 
-We expected it to find all the text files,
-but it only prints out `./haiku.txt`.
-The problem is that the shell expands wildcard characters like `*` *before* commands run.
-Since `*.txt` in the current directory expands to `haiku.txt`,
-the command we actually ran was:
+Kita mengharapkan semua file yang berekstensi `.txt`, namun 
+yang kita dapatkan hanya satu file saja yakni `haiku.txt`. 
+Padahal ada file lainnya juga yang berekstensi `.txt` juga.
+Mengapa hanya satu yang ditemukan? Permasalahannya adalah shell 
+mencari karakter wildcard **SEBELUM** perintah dijalankan, bukan setelahnya. 
+Jadi sebenarnya, perintah di atas mengekeskusi perintah seperti ini.
 
 ~~~
 $ find . -name haiku.txt
 ~~~
 {: .bash}
 
-`find` did what we asked; we just asked for the wrong thing.
-
-To get what we want,
-let's do what we did with `grep`:
-put `*.txt` in single quotes to prevent the shell from expanding the `*` wildcard.
-This way,
-`find` actually gets the pattern `*.txt`, not the expanded filename `haiku.txt`:
+Untuk mencari semua file yang berekstensi `.txt`, maka tambahkan tanda 
+single quote diantara pola yang dicari.
 
 ~~~
 $ find . -name '*.txt'
