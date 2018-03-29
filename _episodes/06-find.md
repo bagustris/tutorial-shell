@@ -1,6 +1,6 @@
 ---
 title: "Mencari File"
-teaching: 20
+teaching: 25
 exercises: 15
 questions:
 - "Bagaimana cara menemukan file?"
