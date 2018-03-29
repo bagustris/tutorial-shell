@@ -427,13 +427,12 @@ sambil menunggu hasil program yang dijalankannya tadi.
 > ## Other History Commands
 >
 > Ada cara lain untuk mengakses history yang lebih cepat untuk mencari history 
-> perintah yang kita jalankan, yakni dengan shortcut 'Ctrl-R'.
-> Tekan `Ctrl-R` dan ketikkan apa yang anda cari. Jika apa yang anda cari lebih dari 
+> perintah yang kita jalankan.
+> -`Ctrl-R`. Tekan `Ctrl-R` dan ketikkan apa yang anda cari. Jika apa yang anda cari lebih dari 
 > sekali, tekan `Ctrl-R` lagi untuk mencarinya. Misalnya: `Ctrl-R` kemudian ketikkan `for` 
 > kemudian jika output yang ditampilkan bukan "loop for" yang dicari, tekan `Ctrl-R` lagi.
 > - `!!` juga menjalankan perintah sebelumnya, namun tidak senyaman panah atas.
 > - `!$` akan menjalankan kata terakhir pada perintah sebelumnya.
-> 
 > Berikut contoh penggunaannya yang sangat bermanfaat. Jalankan perintah 
 > `bash goostats NENE01729B.txt stats-NENE01729B.txt`, kemudian ketikkan
 > `less !$` untuk melihat isi `stats-NENE01729B.txt`. Ini lebih cepat 
