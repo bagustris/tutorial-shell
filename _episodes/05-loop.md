@@ -93,9 +93,7 @@ Pada contoh ini, daftar filenya ada dua: `basilisk.dat` and `unicorn.dat`.
 Setiap kali loop iterasi, variabel `filename` akan diiisi dengan nama file dan 
 menjalankan perintah `head` commmand.
 
-Pada loop pertama, 
-`$filename` adalah `basilisk.dat`. 
-
+Pada loop pertama, `$filename` adalah `basilisk.dat`. 
 Interpreter menjalankan perintah `head` pada file `basilisk.dat`, 
 dan mencetak tiga baris teratas dari `basilisk.dat`.
 Pada iterasi kedua, `$filename` menjadi 
@@ -154,7 +152,8 @@ done
 {: .bash}
 
 Namun, orang lain akan kesulitan memahaminya, apakah `i` atau 
-`x`, ataukah itu temperature...? `filename` akan segera mudah diartikan bahwa 
+`x`, ataukah itu memang "temperature"...? Sebaliknya, nama `filename` akan 
+segera dengan mudah diartikan bahwa 
 variabel tersebut akan diisi nama file. 
 Jadi, gunakan nama variabel yang sesuai.
 
@@ -191,11 +190,12 @@ dicari 20 baris terakhir (In this case,81~100) dan ditampilkan di bawah hasil ec
 
 > ## Spaces in Names
 >
-> Whitespace is used to separate the elements on the list
-> that we are going to loop over. If on the list we have elements
-> with whitespace we need to quote those elements
-> and our variable when using it.
-> Suppose our data files are named:
+> Spasi (*whitespace*) digunakan untuk memisahkan elemen pada list
+> yang akan diiterasi. Jika ada elemen yang memiliki spasi
+> maka dibutuhkan tanda kutip ganda diantara elemen tersebut 
+> agar dibaca oleh shell sebagai satu kesatuan.
+> 
+> Contohnya adalah nama file berikut:
 >
 > ~~~
 > red dragon.dat
@@ -203,7 +203,8 @@ dicari 20 baris terakhir (In this case,81~100) dan ditampilkan di bawah hasil ec
 > ~~~
 > {: .source}
 > 
-> We need to use
+> 
+> Maka kita tambahkan tanda kutip ganda sbb:
 > 
 > ~~~
 > for filename in "red dragon.dat" "purple unicorn.dat"
@@ -213,23 +214,28 @@ dicari 20 baris terakhir (In this case,81~100) dan ditampilkan di bawah hasil ec
 > ~~~
 > {: .bash}
 >
-> It is simpler just to avoid using whitespaces (or other special characters) in filenames.
+> Maka, akan lebih mudah untuk tidak memakai spasi (atau karakter lainnya) dalam penamaan 
+> file, cukup menggunakan huruf dan angka saja.
 >
-> The files above don't exist, so if we run the above code, the `head` command will be unable
-> to find them, however the error message returned will show the name of the files it is
-> expecting:
+> Karena dua file di atas tidak ada (`red dragon.dat` dan `purple unicorn.dat`)
+> maka tidak bisa dibuka oleh shell.
+>
 > ```
 > head: cannot open ‘red dragon.dat’ for reading: No such file or directory
 > head: cannot open ‘purple unicorn.dat’ for reading: No such file or directory
 > ```
 > {: .output}
-> Try removing the quotes around `$filename` in the loop above to see the effect of the quote
-> marks on whitespace:
+>
+> Jika kita coba untuk menghapus tanda kutip pada `$filename`　maka `red dragon.dat` 
+> akan dibaca menjadi dua file: `red` dan `dragon` begitu pula nama file setelahnya.s
 > ```
 > head: cannot open ‘red’ for reading: No such file or directory
 > head: cannot open ‘dragon.dat’ for reading: No such file or directory
 > head: cannot open ‘purple’ for reading: No such file or directory
-> head: cannot open ‘unicorn.dat’ for reading: No such file or directory
+> CGGTACCGAA
+> AAGGGTCGCG
+> CAAGTGTTCC
+> ...
 > ```
 > {: . output}
 {: .callout}
@@ -277,11 +283,14 @@ Skrip dan diagram shell diatas hanya akan meng-echo perintah-perintahnya saja. A
 
 ## Nelle's Pipeline: Processing Files
 
-Nelle is now ready to process her data files.
-Since she's still learning how to use the shell,
-she decides to build up the required commands in stages.
-Her first step is to make sure that she can select the right files --- remember,
-these are ones whose names end in 'A' or 'B', rather than 'Z'. Starting from her home directory, Nelle types:
+Sekarang Nelle sudah siap untuk memproses datanya.
+Karena dia masih belajar dalam menggunakan shell, 
+dia memutuskan untuk membangun perintah-perintah yang 
+digunakan secara bertahap. 
+Pada tahap pertama dia ingin memastikan bahwa dia dapat 
+memilih file yang tepat --- ingat, file yang berakhiran 'A' atau 'B', 
+bukan 'Z'. 
+Dari direktori home-nya, dia mengetikkan:
 
 ~~~
 $ cd north-pacific-gyre/2012-07-03
@@ -302,10 +311,9 @@ NENE02043B.txt
 ~~~
 {: .output}
 
-Her next step is to decide
-what to call the files that the `goostats` analysis program will create.
-Prefixing each input file's name with "stats" seems simple,
-so she modifies her loop to do that:
+Langkah selanjutnya adalah memutuskan file yang 
+akan dibuat oleh program `goostats` dengan menambahkan prefix "stats" 
+pada tiap file. Ini terlihat mudah dengan sedikit modifikasi pada loop sebelumnya.
 
 ~~~
 $ for datafile in *[AB].txt
@@ -325,53 +333,54 @@ NENE02043B.txt stats-NENE02043B.txt
 ~~~
 {: .output}
 
-She hasn't actually run `goostats` yet,
-but now she's sure she can select the right files and generate the right output filenames.
+Dia belum menjalankan program `goostat`, 
+hanya mensimulasikan file yang akan dia dapat. 
+Sekarang dia yakin dapat memilih file yang tepat dan 
+menghasilkan nama file baru yang sesuai pula.
 
-Typing in commands over and over again is becoming tedious,
-though,
-and Nelle is worried about making mistakes,
-so instead of re-entering her loop,
-she presses the up arrow.
-In response,
-the shell redisplays the whole loop on one line
-(using semi-colons to separate the pieces):
+Mengetikkan perintah lagi dan lagi akan cukup melelahkan 
+dan membuang waktu. Kita dapat menggunakan tombol panah keatas 
+untuk mengulangi perintah sebelumnya. Untuk perintah loop yang 
+berbaris-baris, akan ditampilkan oleh shell dalam satu baris saja 
+dengan menambahkan semicolon yang diperlukan.
 
 ~~~
 $ for datafile in *[AB].txt; do echo $datafile stats-$datafile; done
 ~~~
 {: .bash}
 
-Using the left arrow key,
-Nelle backs up and changes the command `echo` to `bash goostats`:
+Menggunakan panah kanan dan ke kiri, Nelle bisa mengedit perintah 
+sebelumnya yang dicari dengan panah ke atas, kemudian mengganti 
+`echo` dengan `bash goostats`.
 
 ~~~
 $ for datafile in *[AB].txt; do bash goostats $datafile stats-$datafile; done
 ~~~
 {: .bash}
 
-When she presses Enter,
-the shell runs the modified command.
-However, nothing appears to happen --- there is no output.
-After a moment, Nelle realizes that since her script doesn't print anything to the screen any longer,
-she has no idea whether it is running, much less how quickly.
-She kills the running command by typing `Ctrl-C`,
-uses up-arrow to repeat the command,
-and edits it to read:
+Ketika dia menekan tombol Enter, dia tidak melihat output apapun.
+Kemudian tak lama kemudian (bergantung pada CPU dan RAM) command prompt `$` muncul lagi 
+menandakan proses telah selesai.
+
+Dia ingin tahu proses yang berjalan pada tiap file. .
+Karenanya dia menambahkan echo sebagai berikut (setelah menekan panah keatas dan 
+kekiri untuk mengeditnya)
 
 ~~~
 $ for datafile in *[AB].txt; do echo $datafile; bash goostats $datafile stats-$datafile; done
 ~~~
 {: .bash}
 
-> ## Beginning and End
+> ## Awal dan Akhir Perintah
 >
-> We can move to the beginning of a line in the shell by typing `Ctrl-A`
-> and to the end using `Ctrl-E`.
+> Kita bisa berpindah ke Awal perintah (karakter pertama) dengan menekan
+> tombol `Ctrl-A`, dan akhir perintah (karakter terakhir) dengan `Ctrl-E`.
 {: .callout}
 
-When she runs her program now,
-it produces one line of output every five seconds or so:
+Ketika dia menjalankan loop tersebut lagi tampak 
+nama file yang sedang diproses oleh loop. 
+Dia mengestimasi tiap file membutuhkan waktu komputasi 
+sekitar lima detik.
 
 ~~~
 NENE01729A.txt
@@ -381,24 +390,23 @@ NENE01736A.txt
 ~~~
 {: .output}
 
-1518 times 5 seconds,
-divided by 60,
-tells her that her script will take about two hours to run.
-As a final check,
-she opens another terminal window,
-goes into `north-pacific-gyre/2012-07-03`,
-and uses `cat stats-NENE01729B.txt`
-to examine one of the output files.
-It looks good,
-so she decides to get some coffee and catch up on her reading.
+Jika dia punya 1518 data, dikalikan 5 detik, 
+dibagi 60, maka dia skripnya membutuhkan waktu komputasi sekitar dua jam. 
+Setelah megeceknya lagi, dia membuka terminal, 
+beralih ke direktori `north-pacific-gyre/2012-07-03`,
+dan menggunakan `cat stats-NENE01729B.txt` untuk melihat outputnya.
+
+Hasilnya terlihat baik. Dia memutuskan untuk pergi minum kopi dan membaca paper 
+sambil menunggu hasil program yang dijalankannya tadi.
 
 > ## Those Who Know History Can Choose to Repeat It
 >
-> Another way to repeat previous work is to use the `history` command to
-> get a list of the last few hundred commands that have been executed, and
-> then to use `!123` (where "123" is replaced by the command number) to
-> repeat one of those commands. For example, if Nelle types this:
->
+> Selain menggunakan panah atas, kita juga bisa menggunakan perinah `history` 
+> untuk menampilkan daftar perintah yang telah digunakan sebelumnya. 
+> Untuk mengulangi perintah yang ada dalam daftar tersebut, 
+> kita menggunakan perintah `!nomor` dimana `nomor` merupakan nomor yang ada 
+> pada daftar history (sisi paling kiri).
+> 
 > ~~~
 > $ history | tail -n 5
 > ~~~
@@ -412,25 +420,27 @@ so she decides to get some coffee and catch up on her reading.
 > ~~~
 > {: .output}
 >
-> then she can re-run `goostats` on `NENE01729B.txt` simply by typing
+> Untuk menjalankan program `goostats` pada file `NENE01729B.txt` dia mengetikkan:
 > `!458`.
 {: .callout}
 
 > ## Other History Commands
 >
-> There are a number of other shortcut commands for getting at the history.
->
-> - `Ctrl-R` enters a history search mode "reverse-i-search" and finds the 
-> most recent command in your history that matches the text you enter next.
-> Press `Ctrl-R` one or more additional times to search for earlier matches.
-> - `!!` retrieves the immediately preceding command 
-> (you may or may not find this more convenient than using the up-arrow)
-> - `!$` retrieves the last word of the last command.
-> That's useful more often than you might expect: after
-> `bash goostats NENE01729B.txt stats-NENE01729B.txt`, you can type
-> `less !$` to look at the file `stats-NENE01729B.txt`, which is
-> quicker than doing up-arrow and editing the command-line.
+> Ada cara lain untuk mengakses history yang lebih cepat untuk mencari history 
+> perintah yang kita jalankan, yakni dengan shortcut 'Ctrl-R'.
+> Tekan `Ctrl-R` dan ketikkan apa yang anda cari. Jika apa yang anda cari lebih dari 
+> sekali, tekan `Ctrl-R` lagi untuk mencarinya. Misalnya: `Ctrl-R` kemudian ketikkan `for` 
+> kemudian jika output yang ditampilkan bukan "loop for" yang dicari, tekan `Ctrl-R` lagi.
+> - `!!` juga menjalankan perintah sebelumnya, namun tidak senyaman panah atas.
+> - `!$` akan menjalankan kata terakhir pada perintah sebelumnya.
+> 
+> Berikut contoh penggunaannya yang sangat bermanfaat. Jalankan perintah 
+> `bash goostats NENE01729B.txt stats-NENE01729B.txt`, kemudian ketikkan
+> `less !$` untuk melihat isi `stats-NENE01729B.txt`. Ini lebih cepat 
+> daripada menekan panah atas dan mengeditnya.
 {: .callout}
+
+## KUIS
 
 > ## Variables in Loops
 >
