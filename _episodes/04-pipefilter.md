@@ -1,6 +1,6 @@
 ---
 title: "Pipes dan Filters"
-teaching: 20
+teaching: 30
 exercises: 20
 questions:
 - "Bagaimana mengkombinasikan perintah-perintah yang ada untuk menghasilkan output baru yang diinginkan?"
