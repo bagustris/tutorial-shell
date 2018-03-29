@@ -1,6 +1,6 @@
 ---
 title: "Loops"
-teaching: 20
+teaching: 40
 exercises: 15
 questions:
 - "Bagaimana mengimplementasikan perintah-perintah yang sama pada file yang berbeda?"
