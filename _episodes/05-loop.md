@@ -279,7 +279,13 @@ perintah Unix/Linux dengan sangat baik.
 
 Skrip dan diagram shell diatas hanya akan meng-echo perintah-perintahnya saja. Agar perintah juga dijalankan sekaligus ditampilan maka dapat ditambahkan pipe seperti berikut.
 
-`for filename in *.dat; do var=$(cp $filename original-$filename) | echo $var; done`
+~~~
+$ for filename in *.dat 
+> do 
+>    var=$(cp $filename original-$filename) | echo $var
+> done
+~~~
+{: .bash}
 
 ## Nelle's Pipeline: Processing Files
 
