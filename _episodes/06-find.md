@@ -367,7 +367,7 @@ yang kita dapatkan hanya satu file saja yakni `haiku.txt`.
 Padahal ada file lainnya juga yang berekstensi `.txt` juga.
 Mengapa hanya satu yang ditemukan? Permasalahannya adalah shell 
 mencari karakter wildcard **SEBELUM** perintah dijalankan, bukan setelahnya. 
-Jadi sebenarnya, perintah di atas mengekeskusi perintah seperti ini.
+Jadi sebenarnya, perintah di atas mengeksekusi perintah seperti ini.
 
 ~~~
 $ find . -name haiku.txt
@@ -391,21 +391,22 @@ $ find . -name '*.txt'
 
 > ## Listing vs. Finding
 >
-> `ls` and `find` can be made to do similar things given the right options,
-> but under normal circumstances,
-> `ls` lists everything it can,
-> while `find` searches for things with certain properties and shows them.
+> `ls` dan `find` bisa dipakai untuk menghasilkan output yang mirip,
+> contohnya adalah `ls *.pdb` dan `find -name '*.pdb'`.
+> Namun dalam keadaan normal (dan secara prinsip), `ls` digunakan untuk
+> mendaftar file/direktori, sedangkan `find` digunakan untuk mencarinya 
+> sesuai pola yang diberikan.
 {: .callout}
 
-As we said earlier,
-the command line's power lies in combining tools.
-We've seen how to do that with pipes;
-let's look at another technique.
-As we just saw,
-`find . -name '*.txt'` gives us a list of all text files in or below the current directory.
-How can we combine that with `wc -l` to count the lines in all those files?
+Seperti yang dikatakan sebelumnya, 
+kekuatan perintah shell adalah dengan mengkombinasikan antar tools,
+seperti yang kita lakukan dengan pipes. Sekarang kita coba contoh lainnya.
 
-The simplest way is to put the `find` command inside `$()`:
+Seperti yang telah kita lihat, `find . -name '*.txt'` 
+meberikan sebuah daftar file yang berekstensi ".txt" pada direktori dibawahnya.
+Bagaimana jika dikombinasikan dengan perintah `sc -l` untuk menunjukkan jumlah barisnya?
+
+Begini contohnya, dengan meletakkan `find` dalam `$()`:
 
 ~~~
 $ wc -l $(find . -name '*.txt')
@@ -420,26 +421,36 @@ $ wc -l $(find . -name '*.txt')
 ~~~
 {: .output}
 
-When the shell executes this command,
-the first thing it does is run whatever is inside the `$()`.
-It then replaces the `$()` expression with that command's output.
-Since the output of `find` is the three filenames `./data/one.txt`, `./data/two.txt`, and `./haiku.txt`,
-the shell constructs the command:
+Mudah bukan? hanya dengan menambahkan tanda dolar, 
+maka text setelah tanda dolar itu, dalam kurung, 
+akan dieksekusi sebagai perintah. Artinya, 
+output perintah dalam kurung tersebut akan menjadi 
+input untuk `wc -l` secara sekuensial (per file).
+Sehingga perintah di atas ekivalen dengan perintah berikut.
 
 ~~~
 $ wc -l ./data/one.txt ./data/two.txt ./haiku.txt
 ~~~
 {: .bash}
 
-which is what we wanted.
-This expansion is exactly what the shell does when it expands wildcards like `*` and `?`,
-but lets us use any command we want as our own "wildcard".
+Ini berbeda dengan perintah:
+~~~
+$ find . -name '*.txt' | wc -l
+~~~
+(: .bash)
 
-It's very common to use `find` and `grep` together.
-The first finds files that match a pattern;
-the second looks for lines inside those files that match another pattern.
-Here, for example, we can find PDB files that contain iron atoms
-by looking for the string "FE" in all the `.pdb` files above the current directory:
+dimana outputnya sebagai berikut.
+~~~
+2
+~~~
+(: .output)
+
+Karena hasil dari `find` hanya dua baris, maka output `wc -l` adalah angka 2.
+
+
+Perintah `grep` dan `find` dapat dikombinasikan untuk mencari file tertentu, 
+kemudian mencari kata/frasa dalam file tersebut.
+Sebagai contoh, kita ingin mencari string "FE" pada fila yang berekstensi `*.pdb`.
 
 ~~~
 $ grep "FE" $(find .. -name '*.pdb')
@@ -453,39 +464,70 @@ $ grep "FE" $(find .. -name '*.pdb')
 
 > ## Binary Files
 >
+> 
+> Selama ini kita hanya fokus pada file text, mencari, menemukan pola, 
+> jumlah baris dan hal lainnya. Bagaimana dengan type file lain seperti 
+> gambar, musik, video dll? Grep tidak akan bisa mencari pola
+> dalam tipe file lain tersebut karena akan sangat banyak format 
+> yang harus didukung. Opsi pertama, adalah membuat tools lain (juga dengan shell) 
+> yang mampu membaca format selain teks tadi.
+>
+> Ospi kedua, kita bisa "mengekstrak" informasi teks dari format lain tersebut.
+
 > We have focused exclusively on finding things in text files. What if
-> your data is stored as images, in databases, or in some other format?
-> One option would be to extend tools like `grep` to handle those formats.
-> This hasn't happened, and probably won't, because there are too many
-> formats to support.
->
-> The second option is to convert the data to text, or extract the
-> text-ish bits from the data. This is probably the most common approach,
-> since it only requires people to build one tool per data format (to
-> extract information). On the one hand, it makes simple things easy to
-> do. On the negative side, complex things are usually impossible. For
-> example, it's easy enough to write a program that will extract X and Y
-> dimensions from image files for `grep` to play with, but how would you
-> write something to find values in a spreadsheet whose cells contained
-> formulas?
->
-> The third choice is to recognize that the shell and text processing have
-> their limits, and to use another programming language.
-> When the time comes to do this, don't be too hard on the shell: many
-> modern programming languages have borrowed a lot of
-> ideas from it, and imitation is also the sincerest form of praise.
+> Contoh untuk data suara/musik, kita bisa mengekstrak header file yang 
+> berisi nama file, judul lagu, panjang data/waktu, dan informasi lainnya. 
+> Untuk data gambar, kita bisa mengekstrak ukuran pixel, panjang dan lebar, 
+> author serta informasi lainnya. Untuk format lain sperti spreadsheet,
+> akan sulit untuk mengekstrak hasil dari formula matematika.
+> 
+> Opsi ketiga, yang paling banyak dipakai dan merupakan kekuatan shell, 
+> adalah mengkombinasikan dengan bahasa pemrograman. Python bisa membaca 
+> data apa saja. Begitu pula C/C++, Octave/Matlab dll. Disini perananan
+> Shell sebagai perekat (glue) antar bahasa pemrograman sangat berguna sekali.
 {: .callout}
 
-The Unix shell is older than most of the people who use it. It has
-survived so long because it is one of the most productive programming
-environments ever created --- maybe even *the* most productive. Its syntax
-may be cryptic, but people who have mastered it can experiment with
-different commands interactively, then use what they have learned to
-automate their work. Graphical user interfaces may be better at the
-first, but the shell is still unbeaten at the second. And as Alfred
-North Whitehead wrote in 1911, "Civilization advances by extending the
+Shell Unix kini berumur lebih tua dari siapapun yang menggunakannya. 
+Kenapa bisa bertahan sampai sekarang? Produktifitas. Shell Unix membuat 
+pemakainya menjadi produktif (dan kreatif) meskipun banyak tools lain 
+yang lebih mudah dan kompleks. Fleksibilitas Shell Unix membuat penggunanya 
+untuk dapat melakukan apa saja yang diinginkan, seperti halnya yang dicontohkan 
+pada tutorial ini. Bayangkan jika anda ingin mencari frasa tertentu dalam 1000 file Word 
+dengan GUI (graphical user interface). Sangat tidak efisien, dan anda membutuhkan tool 
+lain (baru) agar lebih mudah mencarinya. Namun, dengan dalam Unix/Linux, 
+semuanya tetap bisa dilakukan, dengan shell. Pengguna Shell Unix merupakan 
+kunci dari keberlangsungan Shell, seperti yang dikatakan Alfred
+North Whitehead (1911), "Civilization advances by extending the
 number of important operations which we can perform without thinking
-about them."
+about them." Shell, khususnya Bash, juga terus dikembangkan dari tahun ke tahun.
+
+### `locate` dan `which` 
+Sebagai perbandingan, tidak hanya `find` dapat digunakan untuk menemukan file,
+tapi kita juga bisa menggunakan `locate` dan `which`. Bagaimana
+cara menggunakannya...? Berikut penjelasan singkatnya.
+
+#### locate
+Menurut `man page`, `locate` merupakan perintah untuk menemukan file
+berdasarkan nama file. Contoh:
+> ~~~
+> $ locate octave-cli
+> /usr/local/bin/octave-cli
+> /usr/local/bin/octave-cli-4.2.1
+> /usr/local/share/man/man1/octave-cli.1
+> ~~~
+> {: .bash}
+
+#### which
+`which`, berbeda dengan `find` dan `locate` berfungsin untuk
+menemukan lokasi dari suatu perintah, bukan file.
+Contohnya adalah sebagai berikut:
+> ~~~
+> $ which gcc
+> /usr/bin/gcc
+> ~~~
+> {: .bash}
+
+### KUIS 
 
 > ## Using `grep`
 >
@@ -677,32 +719,6 @@ about them."
 > {: .solution}
 {: .challenge}
 
-
-### `locate` dan `which` 
-Sebagai perbandingan, tidak hanya `find` dapat digunakan untuk menemukan file,
-tapi kita juga bisa menggunakan `locate` dan `which`. Bagaimana
-cara menggunakannya...? Berikut penjelasan singkatnya.
-
-#### locate
-Menurut `man page`, `locate` merupakan perintah untuk menemukan file
-berdasarkan nama file. Contoh:
-> ~~~
-> $ locate octave-cli
-> /usr/local/bin/octave-cli
-> /usr/local/bin/octave-cli-4.2.1
-> /usr/local/share/man/man1/octave-cli.1
-> ~~~
-> {: .bash}
-
-#### which
-`which`, berbeda dengan `find` dan `locate` berfungsin untuk
-menemukan lokasi dari suatu perintah, bukan file.
-Contohnya adalah sebagai berikut:
-> ~~~
-> $ which gcc
-> /usr/bin/gcc
-> ~~~
-> {: .bash}
 
 
 Bacaan:
