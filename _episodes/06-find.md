@@ -473,8 +473,6 @@ $ grep "FE" $(find .. -name '*.pdb')
 > yang mampu membaca format selain teks tadi.
 >
 > Ospi kedua, kita bisa "mengekstrak" informasi teks dari format lain tersebut.
-
-> We have focused exclusively on finding things in text files. What if
 > Contoh untuk data suara/musik, kita bisa mengekstrak header file yang 
 > berisi nama file, judul lagu, panjang data/waktu, dan informasi lainnya. 
 > Untuk data gambar, kita bisa mengekstrak ukuran pixel, panjang dan lebar, 
