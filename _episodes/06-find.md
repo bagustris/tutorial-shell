@@ -467,10 +467,11 @@ $ grep "FE" $(find .. -name '*.pdb')
 > 
 > Selama ini kita hanya fokus pada file text, mencari, menemukan pola, 
 > jumlah baris dan hal lainnya. Bagaimana dengan type file lain seperti 
-> gambar, musik, video dll? Grep tidak akan bisa mencari pola
-> dalam tipe file lain tersebut karena akan sangat banyak format 
-> yang harus didukung. Opsi pertama, adalah membuat tools lain (juga dengan shell) 
-> yang mampu membaca format selain teks tadi.
+> gambar, musik, video dll? Grep tidak bisa mencari pola
+> dalam tipe file lain selain teks.
+> Opsi pertama, adalah membuat tools lain (juga dengan shell) 
+> yang mampu membaca format selain teks tadi. Hal ini akan sulit
+> karena akan sangat banyak format yang harus didukung. 
 >
 > Ospi kedua, kita bisa "mengekstrak" informasi teks dari format lain tersebut.
 > Contoh untuk data suara/musik, kita bisa mengekstrak header file yang 
