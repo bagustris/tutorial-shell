@@ -1,5 +1,5 @@
 ---
-title: "Skrip shell"
+title: "Skrip Shell"
 teaching: 30
 exercises: 15
 questions:
@@ -75,17 +75,18 @@ ATOM     13  H           1      -3.172  -1.337   0.206  1.00  0.00
 Dengan cara ini, kita bisa menyimpan perintah-perintah yang kompleks dan berulang, 
 akan sangat memudahkan bila bekerja dengan banyak file dan data.
 
-> ## Text vs. Whatever
+> ## Text Editor vs. Word Processor
 >
-> We usually call programs like Microsoft Word or LibreOffice Writer "text
-> editors", but we need to be a bit more careful when it comes to
-> programming. By default, Microsoft Word uses `.docx` files to store not
-> only text, but also formatting information about fonts, headings, and so
-> on. This extra information isn't stored as characters, and doesn't mean
-> anything to tools like `head`: they expect input files to contain
-> nothing but the letters, digits, and punctuation on a standard computer
-> keyboard. When editing programs, therefore, you must either use a plain
-> text editor, or be careful to save files as plain text.
+> Yang dimaksud dengan text editor disini adalah nano, vim, emacs dan semisalnya, 
+> bukan Libreoffice atau Microsoft Word. Untuk dua yang disebut terakhir tadi 
+> kita menggunakan word processor, bukan text editor. Kenapa?
+> Karena Libreoffice dan Microsoft Word tidak hanya digunakan mengedit file,
+> namun program tersebut juga menyimpan format file, type, heading dan informasi 
+> lainnya. Sehingga, program seperti `head` tidak bisa berjalan pada 
+> format `.odt` maupun `.docx` ataupun dokumen yang diolah 
+> dengan program word processor tadi. Karenanya, kita harus menggunakan 
+> text editor untuk mengedit file teks dan menyimpannya dalam 
+> *plain text*, baik dengan format .txt maupun yang lainnya.
 {: .callout}
 
 Bagaimana jika kita ingin memilih baris dari sebuah file tertentu?
@@ -272,30 +273,33 @@ $ bash sorted.sh *.pdb ../creatures/*.dat
 
 > ## Why Isn't It Doing Anything?
 >
-> What happens if a script is supposed to process a bunch of files, but we
-> don't give it any filenames? For example, what if we type:
+> Apa yang terjadi ketika sebuah skrip diharapkan untuk memproses
+> sejumlah file namun kita tida memberinya nama file. Contoh,
 >
 > ~~~
 > $ bash sorted.sh
 > ~~~
 > {: .bash}
 >
-> but don't say `*.dat` (or anything else)? In this case, `$@` expands to
-> nothing at all, so the pipeline inside the script is effectively:
+> namun tidak ada argumen setelahnya, baik itu `*.dat` ataupun yang lainnya.
+> Pada kasus ini, `$@` tidak akan mencari file apapun. Sehingga, sama 
+> saja yang dijalankan hanyalah apa yang ada dalam file `sorted.sh`.
 >
 > ~~~
 > $ wc -l | sort -n
 > ~~~
 > {: .bash}
 >
-> Since it doesn't have any filenames, `wc` assumes it is supposed to
-> process standard input, so it just sits there and waits for us to give
-> it some data interactively. From the outside, though, all we see is it
-> sitting there: the script doesn't appear to do anything.
+> Karena tidak ada nama file sebagai input, maka `wc` sebenarnya akan menunggu
+> inputnya. Namun jika kita beri input, misal `octane.pdb`, outputnya juga 
+> tidak ada. Hal ini karena skrip tersebu tidak melakukan apapun. Jika kita tekan
+> `Ctrl-D` (untuk memandai End of File, EOF), maka akan menghasilkan output `1` 
+> karena hanya satu baris (hasil dari sort). Jadi pada kasus diatas (`bash sorted.sh`),
+> skrip tidak melakukan apapun.
 {: .callout}
 
 
-Menympan history
+Menyimpan history
 
 Sering kita menemukan beberapa perintah yang sangat bermanfaat kemudian kita ingin 
 menyimpannya. Misalnya setelah beberapa kali mem-plot.
@@ -323,15 +327,14 @@ Sekarang kita punya data yang cukup untuk menghasilkan plot yang dibuat tadi (mi
 
 ## Nelle's Pipeline: Creating a Script
 
-An off-hand comment from her supervisor has made Nelle realize that
-she should have provided a couple of extra parameters to `goostats` when she processed her files.
-This might have been a disaster if she had done all the analysis by hand,
-but thanks to `for` loops,
-it will only take a couple of hours to re-do.
+Pembimbing Nelle menyarankan bahwa dia dapat membuat parameter tambahan untuk 
+program `goostats` ketika dia memproses datanya.
+Jika ini dikerjakan dengan tangan, akan butuh banyak waktu. Namun dengan loop `for`, 
+dia cukup membutuhkan bebera jam saja.
 
-But experience has taught her that if something needs to be done twice,
-it will probably need to be done a third or fourth time as well.
-She runs the editor and writes the following:
+Berdasarkan pengalamannya, dia belajar bahwa jika ada yang perlu dilakukan dua kali,
+maka kemungkinan akan ada yang ketiga dan empat kalinya.
+Dia menjalankan text editor dan menuliskan baris berikut.
 
 ~~~
 # Calculate reduced stats for data files at J = 100 c/bp.
@@ -343,28 +346,26 @@ done
 ~~~
 {: .bash}
 
-(The parameters `-J 100` and `-r` are the ones her supervisor said she should have used.)
-She saves this in a file called `do-stats.sh`
-so that she can now re-do the first stage of her analysis by typing:
+Parameter `-J 100` and `-r` merupakan dua parameter tambahan dari pembimbingnya.
+Dia menyimpan file baru tersebut dengan nama `do-stats.sh` 
+Jadi, sekarang dia menjalankan ulang perhitungannya sebagai berikut.
 
 ~~~
 $ bash do-stats.sh *[AB].txt
 ~~~
 {: .bash}
 
-She can also do this:
+Dan juga melakukan hal berikut,
 
 ~~~
 $ bash do-stats.sh *[AB].txt | wc -l
 ~~~
 {: .bash}
 
-so that the output is just the number of files processed
-rather than the names of the files that were processed.
-
-One thing to note about Nelle's script is that
-it lets the person running it decide what files to process.
-She could have written it as:
+Jadi outputnya adalah jumlah file yang diproses, bukan nama file yang diproses.
+Tambahan penting yang dilakukan Nelle adalah dia memberikan 
+fleksibilitas file mana yang akan diproses. Maka dia menuliskannya 
+sebagai berikut:
 
 ~~~
 # Calculate reduced stats for Site A and Site B data files at J = 100 c/bp.
@@ -376,17 +377,23 @@ done
 ~~~
 {: .bash}
 
-The advantage is that this always selects the right files:
-she doesn't have to remember to exclude the 'Z' files.
-The disadvantage is that it *always* selects just those files --- she can't run it on all files
-(including the 'Z' files),
-or on the 'G' or 'H' files her colleagues in Antarctica are producing,
-without editing the script.
-If she wanted to be more adventurous,
-she could modify her script to check for command-line parameters,
-and use `*[AB].txt` if none were provided.
-Of course, this introduces another tradeoff between flexibility and complexity.
+Keuntungan dari skrip yang baru saja dibuatnya adalah dia dapat 
+memilih file yang diinginkan. Tidak perlu mengingat untuk mengecualikan file 
+dengan akhiran 'Z'. 
+Kelemahan dari skripnya tersebut adalah bahwa dia hanya bisa memproses 
+file yang dipilih saja --- tidak bisa menjalankan semua file, 
+termasuk yang berakhiran 'Z', 'G', atau 'H' sebagaimana file-file 
+yang dihasilkan oleh teman-temannya yang bekerja di Antartika.
+Jika dia ingin memproses file tersebut (berakhiran 'Z, 'G, 'H') 
+maka dia harus memodifikasi skripnya untuk bisa mengecek parameter/argumen 
+command-line yang diberikan, dan menggunakan `*[AB].txt` sebagai default 
+jika tidak opsi yang diberikan. Hal ini merupakan pilihan antaran 
+fleksibilitas dan kompleksitas dari sebuah skrip Shell. 
+Seseorang yang telah berpengalaman dengan skrip Shell akan bisa menyelesaikan 
+permasalahan tersebut,dan anda juga akan bisa bila terus belajar dan menggunakannya.
 
+
+## KUIS
 > ## Variables in Shell Scripts
 >
 > In the `molecules` directory, imagine you have a shell script called `script.sh` containing the
