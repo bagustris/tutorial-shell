@@ -446,7 +446,7 @@ namun file `quotations.txt` tetap ada pada direktori `thesis`.
 > pembuka gambar, karena ekstensinya adalah **.mp3**, bukan **.png**.
 {: .callout}
 
-## Latihan
+## LATIHAN
 > ## Renaming Files
 >
 > Suppose that you created a `.txt` file in your current directory to contain a list of the
