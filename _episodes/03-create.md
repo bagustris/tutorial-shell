@@ -447,6 +447,7 @@ namun file `quotations.txt` tetap ada pada direktori `thesis`.
 {: .callout}
 
 ## LATIHAN
+
 > ## Renaming Files
 >
 > Suppose that you created a `.txt` file in your current directory to contain a list of the
