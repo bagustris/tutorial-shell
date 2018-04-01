@@ -660,8 +660,12 @@ tidak ada lagi sub direktori di bawahnya.
 Inilah yang disebut **tab completion**,
 shortcut yang sangat memudahkan hidup pengguna Linux/Unix.
 
-Daftar bacaan:
+Bacaan:
 - [20 Perintah dasar Linux](http://www.bagustris.tk/2017/07/20-perintah-dasar-linux-shell.html)
+- [Surrey Univ. Unix teaching material](http://www.ee.surrey.ac.uk/Teaching/Unix/)
+
+## LATIHAN
+
 > ## Absolute vs Relative Paths
 >
 > Starting from `/Users/amanda/data/`,
@@ -769,6 +773,3 @@ Daftar bacaan:
 > > in each directory are sorted by time of last change.
 > {: .solution}
 {: .challenge}
-
-Bacaan:
-- [Surrey Univ. Unix teaching material](http://www.ee.surrey.ac.uk/Teaching/Unix/)
