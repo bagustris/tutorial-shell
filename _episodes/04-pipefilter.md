@@ -384,7 +384,7 @@ dapat meletakkan program anda tersebut dalam pipes agar lebih powerful.
 > standard input.
 {: .callout}
 
-## LATIHAN > Nelle's Pipeline: Checking Files
+## Nelle's Pipeline: Checking Files
 
 Nelle telah menjalankan sampelnya pada komputer uji
 da menghasilkan 1520 files pada direcktori `north-pacific-gyre/2012-07-03` yang 
@@ -475,6 +475,7 @@ Seperti sebelumnya dijelaskan, tanda bintang `*` akan mengeksekusi file dengan
 nama berisi karakter apapun; `[AB]` artinya hanya file yang berakhiran A atau B saja 
 yang dieksekusi.
 
+## LATIHAN
 > ## Apa makna perintah `sort -n`?
 >
 > Jika kita menjalankan perintah `sort` pada file tersebut:
