@@ -392,8 +392,7 @@ fleksibilitas dan kompleksitas dari sebuah skrip Shell.
 Seseorang yang telah berpengalaman dengan skrip Shell akan bisa menyelesaikan 
 permasalahan tersebut,dan anda juga akan bisa bila terus belajar dan menggunakannya.
 
-
-## KUIS
+## LATIHAN
 > ## Variables in Shell Scripts
 >
 > In the `molecules` directory, imagine you have a shell script called `script.sh` containing the
@@ -613,7 +612,7 @@ permasalahan tersebut,dan anda juga akan bisa bila terus belajar dan menggunakan
 > {: .solution}
 {: .challenge}
 
-Bacaan lanjut:
+Bacaan:
 - [Review buku Linux: the art of problem determination](http://www.bagustris.tk/2014/02/the-art-of-problem-determination.html)
 - [Keluar dari neraka dependensi](http://www.bagustris.tk/2014/02/keluar-dari-neraka-dependensi_28.html)
 - [Shebang portable dalam shell bash](https://www.cyberciti.biz/tips/finding-bash-perl-python-portably-using-env.html]
