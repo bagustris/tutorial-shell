@@ -445,7 +445,7 @@ sambil menunggu hasil program yang dijalankannya tadi.
 > daripada menekan panah atas dan mengeditnya.
 {: .callout}
 
-## KUIS
+## LATIHAN
 
 > ## Variables in Loops
 >
