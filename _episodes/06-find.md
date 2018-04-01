@@ -526,7 +526,7 @@ Contohnya adalah sebagai berikut:
 > ~~~
 > {: .bash}
 
-### KUIS 
+## LATIHAN 
 
 > ## Using `grep`
 >
