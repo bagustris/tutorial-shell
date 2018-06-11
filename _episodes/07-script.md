@@ -11,7 +11,7 @@ objectives:
 - "Menulis sebuah skrip shell yang mengoperasikan sekumpulan file yang didefinisikan oleh user pada baris perintah lainnya."
 - "Membuat pipelines yang memasukkan skirp shell yang ditulis olehmu dan user lainnya."
 keypoints:
-- "Menyimpan perintah dalam file (disebut **skip shell**) agar dapat di re-use."
+- "Menyimpan perintah dalam file (disebut **skrip shell**) agar dapat di re-use."
 - "Menjalankan perintah yang disimpan dalam file dengan perintah `bash filename`"
 - " `$@` merefer semua parameter skripp shell."
 - " `$1`, `$2`, dll merefer nilai pertama parameter, nilai kedua dst."
@@ -615,4 +615,4 @@ permasalahan tersebut,dan anda juga akan bisa bila terus belajar dan menggunakan
 Bacaan:
 - [Review buku Linux: the art of problem determination](http://www.bagustris.tk/2014/02/the-art-of-problem-determination.html)
 - [Keluar dari neraka dependensi](http://www.bagustris.tk/2014/02/keluar-dari-neraka-dependensi_28.html)
-- [Shebang portable dalam shell bash](https://www.cyberciti.biz/tips/finding-bash-perl-python-portably-using-env.html]
+- [Shebang portable dalam shell bash](https://www.cyberciti.biz/tips/finding-bash-perl-python-portably-using-env.html)
