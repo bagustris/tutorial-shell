@@ -68,35 +68,35 @@ $ wc *.pdb
 
 > ## Wildcards
 >
-> `*` is a **wildcard**. It matches zero or more
-> characters, so `*.pdb` matches `ethane.pdb`, `propane.pdb`, and every
-> file that ends with '.pdb'. On the other hand, `p*.pdb` only matches
-> `pentane.pdb` and `propane.pdb`, because the 'p' at the front only
-> matches filenames that begin with the letter 'p'.
+> Tanda `*` adalah **wildcard**. Dengan menggunakan tanda ini
+> shell akan mencocokkan karakter-karakter dalam tanda tersebut
+> dengan yang dicari. Misalnya `ethane.pdb`, `propane.pdb` 
+> dan file lainnya yang berakhiran dengan ekstensi `.pdb`. 
+> Jika kita gunakan `p*.pdb` maka shell akan menghasilkan
+> `propane.pdb` dan `pentane.pdb` karena kedua file tersebut
+> diawali oleh huruf p. 
 >
-> `?` is also a wildcard, but it only matches a single character. This
-> means that `p?.pdb` would match `pi.pdb` or `p5.pdb` (if we had these two
-> files in the `molecules` directory), but not `propane.pdb`.
-> We can use any number of wildcards at a time: for example, `p*.p?*`
-> matches anything that starts with a 'p' and ends with '.', 'p', and at
-> least one more character (since the `?` has to match one character, and
-> the final `*` can match any number of characters). Thus, `p*.p?*` would
-> match `preferred.practice`, and even `p.pi` (since the first `*` can
-> match no characters at all), but not `quality.practice` (doesn't start
-> with 'p') or `preferred.p` (there isn't at least one character after the
-> '.p').
+> Tanda `?` juga merupakan wildcard, bedanya tanda tanya tersebut 
+> hanya mencocokkan satu karakter saja. Misal contoh terakhir diatas 
+> jika kita ganti menjadi `p?.pdb` maka akan mencocokkan nama file yang
+> berawalan huruf p dan satu karakter lagi setelahnya, misal
+> `p1.pdb`, `pi.pdb` dan sejenisnya. Kedua wildcara tersebut (tanda
+> asterisk dan tanda tanya bisa kita gabungkan untuk mencari file.
 >
-> When the shell sees a wildcard, it expands the wildcard to create a
-> list of matching filenames *before* running the command that was
-> asked for. As an exception, if a wildcard expression does not match
-> any file, Bash will pass the expression as a parameter to the command
-> as it is. For example typing `ls *.pdf` in the `molecules` directory
-> (which contains only files with names ending with `.pdb`) results in
-> an error message that there is no file called `*.pdf`.
-> However, generally commands like `wc` and `ls` see the lists of
-> file names matching these expressions, but not the wildcards
-> themselves. It is the shell, not the other programs, that deals with
-> expanding wildcards, and this is another example of orthogonal design.
+> Ketika shell menemukan wildcard dalam pola pencarian, 
+> maka shell akan membuat list yang sesuai sebelum 
+> menampilkan output dari perintah yang dijalankan. Contohnya perintah
+> `ls *.pdb`, maka shell akan melist semua file yang berkekstensi .pdb (jika ada)
+> dan menampilkannya sebagai output perintah `ls`. Sebaliknya jika tidak
+> ada file yang sesuai dengan pola wildcard, maka 
+> shell akan menampilkan pesan kesalahan. Misal
+> kita jalankan perintah `ls *.pdf` dalam direktory `molecules`, 
+> maka akan muncul pesan `ls: cannot access '*.pdf': No such file or directory`.
+> Perintah-perintah seperti `wc` dan `ls` akan melihat list yang cocok
+> dengan pola pencarian, namun tidak wildcard itu sendiri.
+> Shell, tidak seperti program lainnya, mengikutsertakan wildcard
+> dalam pencarian (bukan mencari tanda bintang atau tanda tanya),
+> ini merupakan contoh dari desain orthogonal.
 {: .callout}
 
 > ## Menggunakan Wildcards
