@@ -108,26 +108,29 @@ Sehingga`$filename` ekivalen dengan `${filename}`, tapi berbeda dengan
 
 > ## Mengikuti Prompt
 >
-> Prompt shell berubah dari tanda dolar, `$`, menjadi tanda "lebih dari", `>`
+> Prompt shell berubah dari tanda dolar, `$`, menjadi tanda "lebih dari", `>`, 
 > ketika kita mengetikkan loop. Tanda kedua, `>`, berbeda menunjukkan bahwa 
 > kita belum selesai mengetikkan perintah. Tanda semikolon, `;`, dapat digunakan 
 > untuk memisahkan dua perintah yang ditulis dalam satu baris. Jadi loop diatas 
-> dapat ditulis dalam satu bari dengan menambahkan `;` seperi berikut:
-> `for filename in *.dat; do head -n 3 $filename; done.
+> dapat ditulis dalam satu bari dengan menambahkan `;` seperti berikut:
+> `for filename in *.dat; do head -n 3 $filename; done.`
 {: .callout}
 
-> ## Same Symbols, Different Meanings
+> ## Simbol sama, arti berbeda
 >
-> Here we see `>` being used a shell prompt, whereas `>` is also
-> used to redirect output.
-> Similarly, `$` is used as a shell prompt, but, as we saw earler,
-> it is also used to ask the shell to get the value of a variable.
+> Disini kita melihat tanda lebih besar, `>` digunakan sebagai prompt shell
+> dimana tanda tersebut juga digunakan untuk redirect output.
+> Seperti halnya tanda dolar, `$`, digunakan sebagai prompt shell, 
+> namun seperti dijelaskan sebelumnya, tanda tersebut juga
+> digunakan untuk mendapatkan nilai dari sebuah variabel.
+> 
+> Jika kedua tanda tersebut, baik dolar `$` maupun lebih besar `>`
+> muncul dengan sendirinya, maka shell mengharapkan kita
+> mengetikkan sesuatu.
 >
-> If the *shell* prints `>` or `$` then it expects you to type something,
-> and the symbol is a prompt.
->
-> If *you* type `>` or `$` yourself, it is an instruction from you that
-> the shell to redirect output or get the value of a variable.
+> Jika tanda tersebut (`$` dan `>`) kita sendiri yang mengetikkan, 
+> maka ini adalah instruksi dari kita agar shell mendapatkan nilai 
+> dari suatu variabel atau me-redirect ouputnya.
 {: .callout}
 
 Kita menggunakan nama variable `filename` agar lebih mudah dibaca oleh manusia. 
