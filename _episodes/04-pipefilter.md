@@ -110,6 +110,18 @@ $ wc *.pdb
 > 2. `ls *t?ne.*`
 > 3. `ls *t??ne.pdb`
 > 4. `ls ethane.*`
+>
+>> > ## Solution
+>>  The solution is `3.`
+>>
+>> `1.` shows all files whose names contain zero or more characters (`*`) followed by the letter `t`, then zero or more characters (`*`) followed by `ane.pdb`. This gives `ethane.pdb  methane.pdb  octane.pdb  pentane.pdb`. 
+>>
+>> `2.` shows all files whose names start with zero or more characters (`*`) followed by the letter `t`, then a single character (`?`), then `ne.` followed by zero or more characters (`*`). This will give us `octane.pdb` and `pentane.pdb` but doesn't match anything which ends in `thane.pdb`.
+>>
+>> `3.` fixes the problems of option 2 by matching two characters (`??`) between `t` and `ne`. This is the solution.
+>>
+>> `4.` only shows files starting with `ethane.`.
+> {: .solution}
 {: .challenge}
 
 Jika kita menjalankan perintah `wc -l` daripada `wc`,
