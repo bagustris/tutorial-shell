@@ -35,3 +35,4 @@ Metode pembalajan tutorial/workshop ini adalah sbb:
 1. **Berilmu sebelum beramal**, artinya anda harus tahu teori sebelum mempraktekkannya.
 2. **Learning by coding**, anda harus mempraktekkan (coding) apa yang disampaikan tutor, *no passive acitivy*.
 3. **Synchronizing typing** (*khusus workshop*), apa yang anda ketik harus sama dan menghasilkan output yang sama dengan yang ditunjukkan pada tutorial ini atau didemokan tutor/lecturer (synchronized). 
+4. **Practice makes perfect**, setelah menguasai teori anda harus mempraktekkannya sesering mungkin. Pada setiap pelajara ada latihan, cobalah untuk tidak melihat solusinya sebelum mencobanya.
