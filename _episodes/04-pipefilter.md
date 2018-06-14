@@ -111,7 +111,7 @@ $ wc *.pdb
 > 3. `ls *t??ne.pdb`
 > 4. `ls ethane.*`
 >
->> > ## Solution
+>> ## Solution
 >>  The solution is `3.`
 >>
 >> `1.` shows all files whose names contain zero or more characters (`*`) followed by the letter `t`, then zero or more characters (`*`) followed by `ane.pdb`. This gives `ethane.pdb  methane.pdb  octane.pdb  pentane.pdb`. 
