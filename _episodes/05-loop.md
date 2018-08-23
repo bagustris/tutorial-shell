@@ -363,7 +363,10 @@ sebelumnya yang dicari dengan panah ke atas, kemudian mengganti
 `echo` dengan `bash goostats`.
 
 ~~~
-$ for datafile in *[AB].txt; do bash goostats $datafile stats-$datafile; done
+$ for datafile in *[AB].txt
+do 
+    bash goostats $datafile stats-$datafile
+done
 ~~~
 {: .bash}
 
@@ -371,12 +374,16 @@ Ketika dia menekan tombol Enter, dia tidak melihat output apapun.
 Kemudian tak lama kemudian (bergantung pada CPU dan RAM) command prompt `$` muncul lagi 
 menandakan proses telah selesai.
 
-Dia ingin tahu proses yang berjalan pada tiap file. .
+Dia ingin tahu proses yang berjalan pada tiap file.
 Karenanya dia menambahkan echo sebagai berikut (setelah menekan panah keatas dan 
 kekiri untuk mengeditnya)
 
 ~~~
-$ for datafile in *[AB].txt; do echo $datafile; bash goostats $datafile stats-$datafile; done
+$ for datafile in *[AB].txt
+do 
+    echo $datafile
+    bash goostats $datafile stats-$datafile
+done
 ~~~
 {: .bash}
 
@@ -448,6 +455,9 @@ sambil menunggu hasil program yang dijalankannya tadi.
 > daripada menekan panah atas dan mengeditnya.
 {: .callout}
 
+## Coding Style
+Salah satu coding style (gaya penulisan script/kode) untuk Shell adalah milik Google yang bisa dirujuk [disini](https://google.github.io/styleguide/shell.xml)
+
 ## LATIHAN
 
 > ## Variables in Loops
@@ -465,7 +475,7 @@ sambil menunggu hasil program yang dijalankannya tadi.
 > ~~~
 > for datafile in *.pdb
 > do
->     ls *.pdb
+>   ls *.pdb
 > done
 > ~~~
 > {: .bash}
@@ -530,8 +540,8 @@ sambil menunggu hasil program yang dijalankannya tadi.
 > ~~~
 > for alkanes in *.pdb
 > do
->     echo $alkanes
->     cat $alkanes > alkanes.pdb
+>   echo $alkanes
+>   cat $alkanes > alkanes.pdb
 > done
 > ~~~
 > {: .bash}
@@ -558,7 +568,7 @@ sambil menunggu hasil program yang dijalankannya tadi.
 > ~~~
 > for datafile in *.pdb
 > do
->     cat $datafile >> all.pdb
+>   cat $datafile >> all.pdb
 > done
 > ~~~
 > {: .bash}
@@ -585,7 +595,7 @@ sambil menunggu hasil program yang dijalankannya tadi.
 > ~~~
 > for filename in c*
 > do
->     ls $filename 
+>   ls $filename 
 > done
 > ~~~
 > {: .bash}
@@ -605,7 +615,7 @@ sambil menunggu hasil program yang dijalankannya tadi.
 > ~~~
 > for filename in *c*
 > do
->     ls $filename 
+>   ls $filename 
 > done
 > ~~~
 > {: .bash}
@@ -683,11 +693,11 @@ sambil menunggu hasil program yang dijalankannya tadi.
 >
 > ~~~
 > for species in cubane ethane methane
-> do
->     for temperature in 25 30 37 40
->     do
->         mkdir $species-$temperature
->     done
+>   do
+>   for temperature in 25 30 37 40
+>       do
+>       mkdir $species-$temperature
+>   done
 > done
 > ~~~
 > {: .bash}
