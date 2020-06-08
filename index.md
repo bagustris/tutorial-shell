@@ -3,7 +3,7 @@ layout: lesson
 root: .
 ---
 
-Linux/Unix shell banyak digunakan karena kemampuannya yang **powerful**. Mampu menggunakan perintah dasar pada shell Linux merupakan suatu skill dasar yang harus dimiliki bagi mereka yang ingin menjadi programmer, sysAdmin dan, bahkan, (data) scientist. Shell merupakan jendela ke bahasa pemrograman lainnya seperti python, perl, awk, C/C++. Menguasai shell artinya anda bisa memadukan antar bahasa pemrograman karena shell saat ini dijadikan glue (perekat) antar bahasa pemrograman yang saat ini tidak bisa berdiri sendiri-sendiri. Contoh nyata penggunaan shell adalah pada riset speech synthesis, speech recognition, (big)data science dan molekul biologi. Hampir semua bidang yang menggunakan komputasi memakai shell pada systemnya. Shell pada Linux dapat digunakan melalui (gnome) terminal, buka dengan Ctrl + Alt + T.
+Linux/Unix shell banyak digunakan karena kemampuannya yang *powerful*. Mampu menggunakan perintah dasar pada shell Linux merupakan suatu skill dasar yang harus dimiliki bagi mereka yang ingin menjadi programmer, sysAdmin dan, bahkan, (data) scientist. Shell merupakan jendela ke bahasa pemrograman lainnya seperti python, perl, awk, C/C++. Menguasai shell artinya anda bisa memadukan antar bahasa pemrograman karena shell saat ini dijadikan glue (perekat) antar bahasa pemrograman yang saat ini tidak bisa berdiri sendiri-sendiri. Contoh nyata penggunaan shell adalah pada riset speech synthesis, speech recognition, (big)data science dan molekul biologi. Hampir semua bidang yang menggunakan komputasi memakai shell pada systemnya. Shell pada Linux dapat digunakan melalui (gnome) terminal, buka dengan Ctrl + Alt + T.
 
 
 ***Kenapa memakai shell...?***  
@@ -35,4 +35,4 @@ Metode pembalajan tutorial/workshop ini adalah sbb:
 1. **Berilmu sebelum beramal**, artinya anda harus tahu teori sebelum mempraktekkannya.
 2. **Learning by coding**, anda harus mempraktekkan (coding) apa yang disampaikan tutor, *no passive acitivy*.
 3. **Synchronizing typing** (*khusus workshop*), apa yang anda ketik harus sama dan menghasilkan output yang sama dengan yang ditunjukkan pada tutorial ini atau didemokan tutor/lecturer (synchronized). 
-4. **Practice makes perfect**, setelah menguasai teori anda harus mempraktekkannya sesering mungkin. Pada setiap pelajara ada latihan, cobalah untuk tidak melihat solusinya sebelum mencobanya.
+4. **Practice makes perfect**, setelah menguasai teori anda harus mempraktekkannya sesering mungkin. Pada setiap pelajaran ada latihan, cobalah untuk tidak melihat solusinya sebelum mencobanya.
