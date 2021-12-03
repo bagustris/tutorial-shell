@@ -290,6 +290,31 @@ $ for filename in *.dat
 ~~~
 {: .bash}
 
+## Itearasi dari list string
+
+Misalnya kita punya string "satu", "dua", dan "tiga" dalam sebuah list. Bagaimana menerapkannya dalam `loop for`. Jika itemnya hanya sedikit, bisa kita jadikan satu dalam baris for, jika banyak, kita buat variabel baru untuk menampung list tersebut.
+Untuk item sedikit.
+
+~~~
+$ for i in satu dua tiga;
+> do
+>   echo $i
+> done
+~~~
+{: .bash}
+
+Untuk list berisi banyak item string.
+
+~~~
+$ list="satu dua tiga empat lima"
+$ for i in $list;
+> do
+>   echo $i
+> done
+~~~
+{: .bash}
+
+
 ## Nelle's Pipeline: Processing Files
 
 Sekarang Nelle sudah siap untuk memproses datanya.
