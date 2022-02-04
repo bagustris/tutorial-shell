@@ -254,6 +254,8 @@ wc -l "$@" | sort -n
 ~~~
 {: .output}
 
+"s@" merupakan argumen yang membaca semua input untuk file shell `sorted.sh`. Pada kasus di bawa ini, argumen inputnya adalah `*.pdb ../creatures/*.dat`. Jika ingin lebih spesifik memanggil argumen pertama, kedua, dst. (`sorted.sh argumen1 argumen2 argumen3`) maka bisa memakakai `$1`, `$2`, dst. `S0` adalah file shell it sendiri (dalam hal ini file `sorted`.sh).
+
 ~~~
 $ bash sorted.sh *.pdb ../creatures/*.dat
 ~~~
@@ -325,12 +327,12 @@ Masih perlu edit manual lagi untuk menghapus nomor baris perintah dan
 juga perintah di baris terakhir (bisa otomatis juga lewat command line jika anda sudah jago). 
 Sekarang kita punya data yang cukup untuk menghasilkan plot yang dibuat tadi (misalnya).
 
-## Nelle's Pipeline: Creating a Script
+## Nelle's Pipeline: Membuat Skrip Shell 
 
 Pembimbing Nelle menyarankan bahwa dia dapat membuat parameter tambahan untuk 
 program `goostats` ketika dia memproses datanya.
 Jika ini dikerjakan dengan tangan, akan butuh banyak waktu. Namun dengan loop `for`, 
-dia cukup membutuhkan bebera jam saja.
+dia cukup membutuhkan beberapa jam saja.
 
 Berdasarkan pengalamannya, dia belajar bahwa jika ada yang perlu dilakukan dua kali,
 maka kemungkinan akan ada yang ketiga dan empat kalinya.
