@@ -254,7 +254,7 @@ wc -l "$@" | sort -n
 ~~~
 {: .output}
 
-"s@" merupakan argumen yang membaca semua input untuk file shell `sorted.sh`. Pada kasus di bawa ini, argumen inputnya adalah `*.pdb ../creatures/*.dat`. Jika ingin lebih spesifik memanggil argumen pertama, kedua, dst. (`sorted.sh argumen1 argumen2 argumen3`) maka bisa memakakai `$1`, `$2`, dst. `S0` adalah file shell it sendiri (dalam hal ini file `sorted`.sh).
+"s@" merupakan argumen yang membaca semua input untuk file shell `sorted.sh`. Pada kasus di bawah ini, argumen inputnya adalah `*.pdb ../creatures/*.dat`. Jika ingin lebih spesifik memanggil argumen pertama, kedua, dst. (`sorted.sh argumen1 argumen2 argumen3`) maka bisa memakai `$1`, `$2`, dst. `S0` adalah file shell itu  sendiri (dalam hal ini file `sorted`.sh).
 
 ~~~
 $ bash sorted.sh *.pdb ../creatures/*.dat
