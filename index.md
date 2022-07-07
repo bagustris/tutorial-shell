@@ -17,7 +17,7 @@ Ada banyak alasan, diantaranya adalah sbb:
 > ## Persyaratan
 >
 > Tutorial ini akan memandu anda mempelajari dasar file system dan Linux shell.
-> Jika anda telah bisa menggunakan komputer, menyimpan, membuat folder atau direktori (nama yang lebih umum di Linux)
+> Jika anda telah bisa menggunakan komputer, menyimpan, membuat direktori (nama yang lebih umum untuk folder di Linux)
 > maka tutorial ini untuk anda.
 > 
 > Anda akan membutuhkan sebuah mesin (komputer) berbasis Linux dimana shell yang digunakan adalah Bash shell.
