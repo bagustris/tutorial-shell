@@ -123,5 +123,5 @@ menjalankan proses untuk sampel-sampelnya secara bersamaan, dia dapat
 menggunakannya kembali ketika dia mendapatkan data baru.
 
 Bacaan:
-1. [20 tahun Linux: Menuju kemerdaan ber-OS](http://www.bagustris.tk/2011/09/20-tahun-linux-os-menuju-kebebasan-ber.html)
-2. [Kenapa memakai Ubuntu](http://www.bagustris.tk/2014/03/kenapa-memakai-ubuntu.html)
+1. [20 tahun Linux: Menuju kemerdaan ber-OS](http://www.bagustris.blogspot.com/2011/09/20-tahun-linux-os-menuju-kebebasan-ber.html)
+2. [Kenapa memakai Ubuntu](http://bagustris.blogspot.com/2014/03/kenapa-memakai-ubuntu.html)
