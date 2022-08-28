@@ -15,7 +15,7 @@ keypoints:
 - "Workflow dari sebuah shell adalah REPL: read, evaluate, print, loop."
 ---
 ### Latar Belakang
-Pada level tinggi, kompuer melakukan empat hal berikut:
+Pada level tinggi, komputer melakukan empat hal berikut:
 1.  Menjalankan program
 2.  Menyimpan data
 3.  Berkomunikasi dengan komputer dan perangkat lainnya, dan
