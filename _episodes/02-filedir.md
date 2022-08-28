@@ -771,5 +771,5 @@ shortcut yang sangat memudahkan hidup pengguna Linux/Unix.
 {: .challenge}
 
 Bacaan:
-- [20 Perintah dasar Linux](http://www.bagustris.tk/2017/07/20-perintah-dasar-linux-shell.html)
+- [20 Perintah dasar Linux](http://www.bagustris.blogspot.com/2017/07/20-perintah-dasar-linux-shell.html)
 - [Surrey Univ. Unix teaching material](http://www.ee.surrey.ac.uk/Teaching/Unix/)
