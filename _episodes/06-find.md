@@ -723,3 +723,4 @@ Contohnya adalah sebagai berikut:
 Bacaan:
 - [How To Find A File In Linux Using The Command Line](https://www.lifewire.com/uses-of-linux-command-find-2201100)
 - [Howtoforge: How to use locate `command`](https://www.howtoforge.com/linux-locate-command/)
+- [Menemumkan dan menghapus file](http://bagustris.blogspot.com/2022/04/menemukan-dan-menghapus-file-ekstensi.html)
