@@ -131,7 +131,7 @@ $ pwd
 ~~~
 {: .output}
 
-> ## Variasi Home Directory
+> ## Variasi Home Directory dan Filesystem Hierarchy Standard (FHS)
 > 
 > Posisi **home directory** /home/bagustris di Linux ini 
 > identik dengan `C:\Documents and Settings\bagustris` or
@@ -146,7 +146,7 @@ Jika kita perhatikan urutan `path` home direktory maka strukturnya adalah **"/" 
 Garis miring pertama merupakan root, kemudian "home" berisi user-user pengguna komputer tsb, kemudian
 garis miring pemisah direktori/subdirektori dan nama direktori yakni nama user.
 
-Pada komputer saya strukturnya seperti ini:
+Struktur direktori Linux ini biasanya mengacu pada Filesystem Hierarchy Standard (FHS). Pada komputer saya strukturnya seperti ini:
 
 <!-- ![The File System](../fig/filesystem.png) -->
 ~~~
@@ -181,7 +181,47 @@ Pada komputer saya strukturnya seperti ini:
 ~~~
 {: .output} 
 
-Jika kita kembangkan, maka isi /home misalnya adalah seperti gambar berikut
+Keterangang singkat untuk masing-masing direktori tersebut seperti di bawah ini [3]
+```bash
+/bin is a place for most commonly used terminal commands, like ls, mount, rm, etc.
+
+/boot contains files needed to start up the system, including the Linux kernel, a RAM disk image and bootloader configuration files.
+
+/dev contains all device files, which are not regular files but instead refer to various hardware devices on the system, including hard drives.
+
+/etc contains system-global configuration files, which affect the system's behavior for all users.
+
+/home home sweet home, this is the place for users' home directories.
+
+/lib contains very important dynamic libraries and kernel modules
+
+/media is intended as a mount point for external devices, such as hard drives or removable media (floppies, CDs, DVDs).
+
+/mnt is also a place for mount points, but dedicated specifically to "temporarily mounted" devices, such as network filesystems.
+
+/opt can be used to store additional software for your system, which is not handled by the package manager.
+
+/proc is a virtual filesystem that provides a mechanism for kernel to send information to processes.
+
+/root is the superuser's home directory, not in /home/ to allow for booting the system even if /home/ is not available.
+
+/run is a tmpfs (temporary file system) available early in the boot process where ephemeral run-time data is stored. Files under this directory are removed or truncated at the beginning of the boot process.
+(It deprecates various legacy locations such as /var/run, /var/lock, /lib/init/rw in otherwise non-ephemeral directory trees as well as /dev/.* and /dev/shm  which are not device files.)
+
+/sbin contains important administrative commands that should generally only be employed by the superuser.
+
+/srv can contain data directories of services such as HTTP (/srv/www/) or FTP.
+
+/sys is a virtual filesystem that can be accessed to set or obtain information about the kernel's view of the system.
+
+/tmp is a place for temporary files used by applications.
+
+/usr contains the majority of user utilities and applications, and partly replicates the root directory structure, containing for instance, among others, /usr/bin/ and /usr/lib.
+
+/var is dedicated to variable data, such as logs, databases, websites, and temporary spool (e-mail etc.) files that persist from one boot to the next. A notable directory it contains is /var/log where system log files are kept.
+```
+
+Untuk direktori `home`, jika kita kembangkan maka isi `/home` misalnya adalah seperti gambar berikut
 
 ![The File System](../fig/home-directories.svg)
 
@@ -770,6 +810,7 @@ shortcut yang sangat memudahkan hidup pengguna Linux/Unix.
 > {: .solution}
 {: .challenge}
 
-Bacaan:
-- [20 Perintah dasar Linux](http://www.bagustris.blogspot.com/2017/07/20-perintah-dasar-linux-shell.html)
-- [Surrey Univ. Unix teaching material](http://www.ee.surrey.ac.uk/Teaching/Unix/)
+Referensi:   
+[1] [20 Perintah dasar Linux](http://www.bagustris.blogspot.com/2017/07/20-perintah-dasar-linux-shell.html)  
+[2] [Surrey Univ. Unix teaching material](http://www.ee.surrey.ac.uk/Teaching/Unix/)  
+[3] [Linux Filesystem Tree Overview](https://help.ubuntu.com/community/LinuxFilesystemTreeOverview)  
