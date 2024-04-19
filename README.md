@@ -10,7 +10,7 @@ Maintainers:
 [bagustris]: https://bagustris.tk
 [lesson-example]: https://swcarpentry.github.io/lesson-example/
 
-Jika anda telah menguasai semua materi pada tutorial ini, sangat disarankan untuk melanjutkannya pada materi [shell-extra](https://swcarpentry.github.io/shell-extras/)
+Jika anda telah menguasai semua materi pada tutorial ini, sangat disarankan untuk melanjutkannya pada materi [shell-extra](https://swcarpentry.github.io/shell-extras/).
 
 Referensi :
 - [Software Carpentry's Shell Novice](https://swcarpentry.github.io/shell-novice)
