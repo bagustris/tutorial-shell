@@ -618,3 +618,4 @@ Bacaan:
 - [Review buku Linux: the art of problem determination](http://www.bagustris.blogspot.com/2014/02/the-art-of-problem-determination.html)
 - [Keluar dari neraka dependensi](http://www.bagustris.blogspot.com/2014/02/keluar-dari-neraka-dependensi_28.html)
 - [Shebang portable dalam shell bash](https://www.cyberciti.biz/tips/finding-bash-perl-python-portably-using-env.html)
+- [Menambahkan help ke ke skrip shell](https://opensource.com/article/19/12/help-bash-program)
