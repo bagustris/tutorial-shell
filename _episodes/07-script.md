@@ -6,13 +6,13 @@ questions:
 - "Bagaimana cara menyimpan dan menggunakan kembali perintah shell?"
 - "Bagaimana membuat shell skrip?"
 objectives:
-- "Menulis skrip shell yang menjalankan sebuah atau sekumpulan perintah untuk sekumpulan file."
+- "Menulis skrip shell yang menjalankan sebuah atau sekumpulan perintah untuk sekumpulan fail."
 - "Menjalankan skrip shell dari baris perintah."
-- "Menulis sebuah skrip shell yang mengoperasikan sekumpulan file yang didefinisikan oleh user pada baris perintah lainnya."
+- "Menulis sebuah skrip shell yang mengoperasikan sekumpulan fail yang didefinisikan oleh user pada baris perintah lainnya."
 - "Membuat pipelines yang memasukkan skirp shell yang ditulis olehmu dan user lainnya."
 keypoints:
-- "Menyimpan perintah dalam file (disebut **skrip shell**) agar dapat di re-use."
-- "Menjalankan perintah yang disimpan dalam file dengan perintah `bash filename`"
+- "Menyimpan perintah dalam fail (disebut **skrip shell**) agar dapat di re-use."
+- "Menjalankan perintah yang disimpan dalam fail dengan perintah `bash filename`"
 - " `$@` merefer semua parameter skripp shell."
 - " `$1`, `$2`, dll merefer nilai pertama parameter, nilai kedua dst."
 - "Gunakan tanda quote untuk nilai yang memiliki spasi."
@@ -21,13 +21,13 @@ keypoints:
 Agar dapat menjalankan perintah yang sama berulang-ulang, 
 kita bisa menggunakan fitur history (Ctrl+R) untuk menampilkan 
 perintah-perintah sebelumnya yang ingin kita ulang? Namun bagaimana 
-jika perintah-perintah tersebut cukup panjang dan untuk ukuran file 
-yang banyak? Kita dapat menyimpan perintah-perintah tersebut dalam sebuah file, 
+jika perintah-perintah tersebut cukup panjang dan untuk ukuran fail 
+yang banyak? Kita dapat menyimpan perintah-perintah tersebut dalam sebuah fail, 
 disebut **skrip shell**.
 
-Sebagai contoh, mari kita kembali pada directory `molecules/` dan membuah file baru 
+Sebagai contoh, mari kita kembali pada directory `molecules/` dan membuah fail baru 
 dengan nama `middle.sh` yang akan menjadi skrip shell. Ekstensi `.sh` menunjukkan bahwa 
-file tersebut adalah file skrip shell.
+fail tersebut adalah fail skrip shell.
 
 ~~~
 $ cd molecules
@@ -35,9 +35,9 @@ $ nano middle.sh
 ~~~
 {: .bash}
 
-Perintah `nano middle.sh` ini akan membuka file `middle.sh` dengan text editor "nano"
+Perintah `nano middle.sh` ini akan membuka fail `middle.sh` dengan text editor "nano"
 (yang berjalan di dalam shell).
-Jika filenya (`middle.sh`) tidak ada, makan akan dibuat file baru.
+Jika filenya (`middle.sh`) tidak ada, makan akan dibuat fail baru.
 Perintah berikut kita masukkan dalam nano dan disimpan dengan nama `middle.sh`.
 
 ~~~
@@ -45,15 +45,15 @@ head -n 15 octane.pdb | tail -n 5
 ~~~
 {: .source}
 
-Perintah yang kita simpan dalam file `middle.sh` tersebut merupakan 
+Perintah yang kita simpan dalam fail `middle.sh` tersebut merupakan 
 variasi dari perintah sebelumnya yang telah kita buat. 
-Kita menampilkan 15 baris pertama file `octane.pdb`, 
+Kita menampilkan 15 baris pertama fail `octane.pdb`, 
 dan dari 15 baris tersebut kita ambil 5 terakhir dengan filter `tail`.
 
-Perlu diingat untuk menyimpan file gunakan `Ctrl-O`, 
+Perlu diingat untuk menyimpan fail gunakan `Ctrl-O`, 
 untuk keluarkan gunakan `Ctrl-X`. Atau lebih singkatnya, gunakan 
 `Ctrl-X` untuk keluarkan kemudian tekan `y` untuk menyimpannnya. 
-Sekarang coba cek apakah ada file `middle.sh` dalam direktori 
+Sekarang coba cek apakah ada fail `middle.sh` dalam direktori 
 `molecules` dan tampilkan isinya.
 
 Setelah memastikan ada, jalankan dengan perintah `bash`.
@@ -73,27 +73,27 @@ ATOM     13  H           1      -3.172  -1.337   0.206  1.00  0.00
 {: .output}
 
 Dengan cara ini, kita bisa menyimpan perintah-perintah yang kompleks dan berulang, 
-akan sangat memudahkan bila bekerja dengan banyak file dan data.
+akan sangat memudahkan bila bekerja dengan banyak fail dan data.
 
 > ## Text Editor vs. Word Processor
 >
 > Yang dimaksud dengan text editor disini adalah nano, vim, emacs dan semisalnya, 
 > bukan Libreoffice atau Microsoft Word. Untuk dua yang disebut terakhir tadi 
 > kita menggunakan word processor, bukan text editor. Kenapa?
-> Karena Libreoffice dan Microsoft Word tidak hanya digunakan mengedit file,
-> namun program tersebut juga menyimpan format file, type, heading dan informasi 
+> Karena Libreoffice dan Microsoft Word tidak hanya digunakan mengedit fail,
+> namun program tersebut juga menyimpan format fail, type, heading dan informasi 
 > lainnya. Sehingga, program seperti `head` tidak bisa berjalan pada 
 > format `.odt` maupun `.docx` ataupun dokumen yang diolah 
 > dengan program word processor tadi. Karenanya, kita harus menggunakan 
-> text editor untuk mengedit file teks dan menyimpannya dalam 
+> text editor untuk mengedit fail teks dan menyimpannya dalam 
 > *plain text*, baik dengan format .txt maupun yang lainnya.
 {: .callout}
 
-Bagaimana jika kita ingin memilih baris dari sebuah file tertentu?
-Kita dapat melakukannya dengan mengedit file `middle.sh` untuk tiap 
-file yang berbeda. Namun hal ini akan memakan waktu yang lebih banyak 
+Bagaimana jika kita ingin memilih baris dari sebuah fail tertentu?
+Kita dapat melakukannya dengan mengedit fail `middle.sh` untuk tiap 
+fail yang berbeda. Namun hal ini akan memakan waktu yang lebih banyak 
 (ingat tujuan kita menggunkan shell skrip adalah efisiensi kerja).
-Sebaliknya, kita juga bisa mengedit file `middle.sh` agar menjadi 
+Sebaliknya, kita juga bisa mengedit fail `middle.sh` agar menjadi 
 lebih portable.
 
 ~~~
@@ -101,14 +101,14 @@ $ nano middle.sh
 ~~~
 {: .bash}
 
-Sekarang, ganti nama file `octave.pdb` menjadi `$1` seperti berikut:
+Sekarang, ganti nama fail `octave.pdb` menjadi `$1` seperti berikut:
 
 ~~~
 head -n 15 "$1" | tail -n 5
 ~~~
 {: .output}
 
-Untuk menjalankannya, kita butuh satu argumen tambahan, yakni nama file yang 
+Untuk menjalankannya, kita butuh satu argumen tambahan, yakni nama fail yang 
 kita proses, misalnya `octave.pdb` seperti berikut.
 ~~~
 $ bash middle.sh octane.pdb
@@ -124,8 +124,8 @@ ATOM     13  H           1      -3.172  -1.337   0.206  1.00  0.00
 ~~~
 {: .output}
 
-Atau file lainnya seperti `pentane.pdb`. Artinya, kode kita menjadi lebih 
-portable dan bisa bekerja untuk file-file lainnya, tidak hanya satu file saja. 
+Atau fail lainnya seperti `pentane.pdb`. Artinya, kode kita menjadi lebih 
+portable dan bisa bekerja untuk fail-fail lainnya, tidak hanya satu fail saja. 
 
 ~~~
 $ bash middle.sh pentane.pdb
@@ -142,14 +142,14 @@ ATOM     13  H           1      -1.183   0.500  -1.412  1.00  0.00
 {: .output}
 
 Modifikasi yang kita lakukan, yakni mengganti `octave.pdb` dengan `"$1"` artinya 
-mengambil nama file (atau disebut sebagai parameter) yang  akan dimasukkan pada skrip shell dimana 
+mengambil nama fail (atau disebut sebagai parameter) yang  akan dimasukkan pada skrip shell dimana 
 `"$1"` berada.
 
-> ## Double-Quotes Around Arguments
+> ## Double-Quotes Untuk Argument
 >
-> For the same reason that we put the loop variable inside double-quotes,
-> in case the filename happens to contain any spaces,
-> we surround `$1` with double-quotes.
+> Untuk alasan yang sama saat kita menambahkan tanda kutipan ganda pada variabel loop,
+> jika nama fail mengandung spasi (makanya JANGAN memakai spasi untuk nama fail),
+> kita melingkuking `$1` dengan tanda kutipan ganda.
 {: .callout}
 
 Permasalahan selanjutnya, kita masih perlu mengedit `middle.sh` setiap kali 
@@ -211,7 +211,7 @@ $ nano middle.sh
 {: .bash}
 
 ~~~
-# Select lines from the middle of a file.
+# Select lines from the middle of a fail.
 # Usage: bash middle.sh filename end_line num_lines
 head -n "$2" "$1" | tail -n "$3"
 ~~~
@@ -222,8 +222,8 @@ Sebuah komen(tar) dimulai dengan tanda hash/kres, `#`. Tanda ini memberitahu
 berguna bagi orang lain yang membaca skrip kita. Mungkin saja 
 mereka bisa memperbaiki atau meningkatkan keefektifan skrip yang telah kita buta.
 
-Bagaimana jika kita ingin memproses banyak file dalam satu pipeline?
-Sebagai contoh, kita ingin mengurutkan file `.pdb` berdasarkan panjangnya.
+Bagaimana jika kita ingin memproses banyak fail dalam satu pipeline?
+Sebagai contoh, kita ingin mengurutkan fail `.pdb` berdasarkan panjangnya.
 
 ~~~
 $ wc -l *.pdb | sort -n
@@ -231,14 +231,14 @@ $ wc -l *.pdb | sort -n
 {: .bash}
 
 
-Ingat `wc -l` adalah untuk mendaftar file berdasarkan jumlah barisnya. 
+Ingat `wc -l` adalah untuk mendaftar fail berdasarkan jumlah barisnya. 
 Bisakah kita menggunakan teknik seperti sebelumnya, yakni dengan 
 menambahkan `$1`, `$2`, `$3`...?
-Tidak bisa, karena kita tidak tahu berapa jumlah filenya.
+Tidak bisa, karena kita tidak tahu berapa jumlah failnya.
 Sebaliknya kita bisa menggunakan variabel `$@` yang artinya "Semua parameter command-line 
 pada skrip shell".
 
-Jika namafilenya ada spasinya, kita perlu menggunakan tanda double quote untuk `$@` tersebut.
+Jika nama failnya ada spasinya, kita perlu menggunakan tanda double quote untuk `$@` tersebut.
 
 Kita buat skrip shell baru sebagai berikut.
 
@@ -254,7 +254,7 @@ wc -l "$@" | sort -n
 ~~~
 {: .output}
 
-"s@" merupakan argumen yang membaca semua input untuk file shell `sorted.sh`. Pada kasus di bawah ini, argumen inputnya adalah `*.pdb ../creatures/*.dat`. Jika ingin lebih spesifik memanggil argumen pertama, kedua, dst. (`sorted.sh argumen1 argumen2 argumen3`) maka bisa memakai `$1`, `$2`, dst. `S0` adalah file shell itu  sendiri (dalam hal ini file `sorted`.sh).
+"s@" merupakan argumen yang membaca semua input untuk fail shell `sorted.sh`. Pada kasus di bawah ini, argumen inputnya adalah `*.pdb ../creatures/*.dat`. Jika ingin lebih spesifik memanggil argumen pertama, kedua, dst. (`sorted.sh argumen1 argumen2 argumen3`) maka bisa memakai `$1`, `$2`, dst. `S0` adalah fail shell itu  sendiri (dalam hal ini fail `sorted`.sh).
 
 ~~~
 $ bash sorted.sh *.pdb ../creatures/*.dat
@@ -276,7 +276,7 @@ $ bash sorted.sh *.pdb ../creatures/*.dat
 > ## Why Isn't It Doing Anything?
 >
 > Apa yang terjadi ketika sebuah skrip diharapkan untuk memproses
-> sejumlah file namun kita tida memberinya nama file. Contoh,
+> sejumlah fail namun kita tida memberinya nama fail. Contoh,
 >
 > ~~~
 > $ bash sorted.sh
@@ -284,18 +284,18 @@ $ bash sorted.sh *.pdb ../creatures/*.dat
 > {: .bash}
 >
 > namun tidak ada argumen setelahnya, baik itu `*.dat` ataupun yang lainnya.
-> Pada kasus ini, `$@` tidak akan mencari file apapun. Sehingga, sama 
-> saja yang dijalankan hanyalah apa yang ada dalam file `sorted.sh`.
+> Pada kasus ini, `$@` tidak akan mencari fail apapun. Sehingga, sama 
+> saja yang dijalankan hanyalah apa yang ada dalam fail `sorted.sh`.
 >
 > ~~~
 > $ wc -l | sort -n
 > ~~~
 > {: .bash}
 >
-> Karena tidak ada nama file sebagai input, maka `wc` sebenarnya akan menunggu
+> Karena tidak ada nama fail sebagai input, maka `wc` sebenarnya akan menunggu
 > inputnya. Namun jika kita beri input, misal `octane.pdb`, outputnya juga 
 > tidak ada. Hal ini karena skrip tersebu tidak melakukan apapun. Jika kita tekan
-> `Ctrl-D` (untuk memandai End of File, EOF), maka akan menghasilkan output `1` 
+> `Ctrl-D` (untuk memandai End of fail, EOF), maka akan menghasilkan output `1` 
 > karena hanya satu baris (hasil dari sort). Jadi pada kasus diatas (`bash sorted.sh`),
 > skrip tidak melakukan apapun.
 {: .callout}
@@ -312,7 +312,7 @@ $ history | tail -n 5 > redo-figure-3.sh
 ~~~
 {: .bash}
 
-Perintah tersebut akan menghasilkan file baru `redo-figure-3.sh` yang berisi:
+Perintah tersebut akan menghasilkan fail baru `redo-figure-3.sh` yang berisi:
 
 ~~~
 297 bash goostats -r NENE01729B.txt stats-NENE01729B.txt
@@ -349,7 +349,7 @@ done
 {: .bash}
 
 Parameter `-J 100` and `-r` merupakan dua parameter tambahan dari pembimbingnya.
-Dia menyimpan file baru tersebut dengan nama `do-stats.sh` 
+Dia menyimpan fail baru tersebut dengan nama `do-stats.sh` 
 Jadi, sekarang dia menjalankan ulang perhitungannya sebagai berikut.
 
 ~~~
@@ -364,9 +364,9 @@ $ bash do-stats.sh *[AB].txt | wc -l
 ~~~
 {: .bash}
 
-Jadi outputnya adalah jumlah file yang diproses, bukan nama file yang diproses.
+Jadi outputnya adalah jumlah fail yang diproses, bukan nama fail yang diproses.
 Tambahan penting yang dilakukan Nelle adalah dia memberikan 
-fleksibilitas file mana yang akan diproses. Maka dia menuliskannya 
+fleksibilitas fail mana yang akan diproses. Maka dia menuliskannya 
 sebagai berikut:
 
 ~~~
@@ -380,13 +380,13 @@ done
 {: .bash}
 
 Keuntungan dari skrip yang baru saja dibuatnya adalah dia dapat 
-memilih file yang diinginkan. Tidak perlu mengingat untuk mengecualikan file 
+memilih fail yang diinginkan. Tidak perlu mengingat untuk mengecualikan fail 
 dengan akhiran 'Z'. 
 Kelemahan dari skripnya tersebut adalah bahwa dia hanya bisa memproses 
-file yang dipilih saja --- tidak bisa menjalankan semua file, 
-termasuk yang berakhiran 'Z', 'G', atau 'H' sebagaimana file-file 
+fail yang dipilih saja --- tidak bisa menjalankan semua fail, 
+termasuk yang berakhiran 'Z', 'G', atau 'H' sebagaimana fail-fail 
 yang dihasilkan oleh teman-temannya yang bekerja di Antartika.
-Jika dia ingin memproses file tersebut (berakhiran 'Z, 'G, 'H') 
+Jika dia ingin memproses fail tersebut (berakhiran 'Z, 'G, 'H') 
 maka dia harus memodifikasi skripnya untuk bisa mengecek parameter/argumen 
 command-line yang diberikan, dan menggunakan `*[AB].txt` sebagai default 
 jika tidak opsi yang diberikan. Hal ini merupakan pilihan antaran 
@@ -415,10 +415,10 @@ permasalahan tersebut,dan anda juga akan bisa bila terus belajar dan menggunakan
 >
 > Which of the following outputs would you expect to see?
 >
-> 1. All of the lines between the first and the last lines of each file ending in `.pdb`
+> 1. All of the lines between the first and the last lines of each fail ending in `.pdb`
 >    in the `molecules` directory
-> 2. The first and the last line of each file ending in `.pdb` in the `molecules` directory
-> 3. The first and the last line of each file in the `molecules` directory
+> 2. The first and the last line of each fail ending in `.pdb` in the `molecules` directory
+> 3. The first and the last line of each fail in the `molecules` directory
 > 4. An error because of the quotes around `*.pdb`
 >
 > > ## Solution
@@ -454,7 +454,7 @@ permasalahan tersebut,dan anda juga akan bisa bila terus belajar dan menggunakan
 > ~~~
 > {: .source}
 >
-> An example of this type of file is given in `data-shell/data/animals.txt`.
+> An example of this type of fail is given in `data-shell/data/animals.txt`.
 > 
 > Write a shell script called `species.sh` that takes any number of
 > filenames as command-line parameters, and uses `cut`, `sort`, and
@@ -465,25 +465,25 @@ permasalahan tersebut,dan anda juga akan bisa bila terus belajar dan menggunakan
 > >
 > > ```
 > > # Script to find unique species in csv files where species is the second data field
-> > # This script accepts any number of file names as command line arguments
+> > # This script accepts any number of fail names as command line arguments
 > >
 > > # Loop over all files
-> > for file in $@ 
+> > for fail in $@ 
 > > do
-> > 	echo "Unique species in $file:"
+> > 	echo "Unique species in $fail:"
 > > 	# Extract species names
-> > 	cut -d , -f 2 $file | sort | uniq
+> > 	cut -d , -f 2 $fail | sort | uniq
 > > done
 > > ```
 > > {: .source}
 > {: .solution}
 {: .challenge}
 
-> ## Find the Longest File With a Given Extension
+> ## Find the Longest fail With a Given Extension
 >
 > Write a shell script called `longest.sh` that takes the name of a
 > directory and a filename extension as its parameters, and prints
-> out the name of the file with the most lines in that directory
+> out the name of the fail with the most lines in that directory
 > with that extension. For example:
 >
 > ~~~
@@ -491,7 +491,7 @@ permasalahan tersebut,dan anda juga akan bisa bila terus belajar dan menggunakan
 > ~~~
 > {: .bash}
 >
-> would print the name of the `.pdb` file in `/tmp/data` that has
+> would print the name of the `.pdb` fail in `/tmp/data` that has
 > the most lines.
 >
 > > ## Solution
@@ -499,9 +499,9 @@ permasalahan tersebut,dan anda juga akan bisa bila terus belajar dan menggunakan
 > > ```
 > > # Shell script which takes two arguments: 
 > > #    1. a directory name
-> > #    2. a file extension
-> > # and prints the name of the file in that directory
-> > # with the most lines which matches the file extension.
+> > #    2. a fail extension
+> > # and prints the name of the fail in that directory
+> > # with the most lines which matches the fail extension.
 > > 
 > > wc -l $1/*.$2 | sort -n | tail -n 2 | head -n 1
 > > ```
@@ -518,7 +518,7 @@ permasalahan tersebut,dan anda juga akan bisa bila terus belajar dan menggunakan
 > ~~~
 > {: .bash}
 >
-> the last command in the file is the `history` command itself, i.e.,
+> the last command in the fail is the `history` command itself, i.e.,
 > the shell has added `history` to the command log before actually
 > running it. In fact, the shell *always* adds commands to the log
 > before running them. Why do you think it does this?
@@ -563,7 +563,7 @@ permasalahan tersebut,dan anda juga akan bisa bila terus belajar dan menggunakan
 > > ## Solutions
 > > Script 1 would print out a list of all files containing a dot in their name.
 > >
-> > Script 2 would print the contents of the first 3 files matching the file extension.
+> > Script 2 would print the contents of the first 3 files matching the fail extension.
 > > The shell expands the wildcard before passing the arguments to the `example.sh` script.
 > > 
 > > Script 3 would print all the arguments to the script (i.e. all the `.pdb` files),
@@ -574,7 +574,7 @@ permasalahan tersebut,dan anda juga akan bisa bila terus belajar dan menggunakan
 
 > ## Debugging Scripts
 >
-> Suppose you have saved the following script in a file called `do-errors.sh`
+> Suppose you have saved the following script in a fail called `do-errors.sh`
 > in Nelle's `north-pacific-gyre/2012-07-03` directory:
 >
 > ~~~
@@ -618,4 +618,4 @@ Bacaan:
 - [Review buku Linux: the art of problem determination](http://www.bagustris.blogspot.com/2014/02/the-art-of-problem-determination.html)
 - [Keluar dari neraka dependensi](http://www.bagustris.blogspot.com/2014/02/keluar-dari-neraka-dependensi_28.html)
 - [Shebang portable dalam shell bash](https://www.cyberciti.biz/tips/finding-bash-perl-python-portably-using-env.html)
-- [Menambahkan help ke ke skrip shell](https://opensource.com/article/19/12/help-bash-program)
+- [Menambahkan help ke skrip shell](https://opensource.com/article/19/12/help-bash-program)
