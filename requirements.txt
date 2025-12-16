@@ -1,2 +1,2 @@
-PyYAML
-update-copyright
+PyYAML>=6.0.3
+update-copyright>=0.6.2
